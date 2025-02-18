@@ -1,0 +1,9 @@
+{% extends '_layout.twig' %}
+
+{% block title %}{{ entry.title }} | Bethesda Ministry{% endblock %}
+
+{% block content %}
+    <h1>{{ entry.title }}</h1>
+    <p><strong>Date:</strong> {{ entry.eventDate|date('F j, Y') }}</p>
+    <p>{{ entry.eventDescription|raw }}</p>
+{% endblock %}
