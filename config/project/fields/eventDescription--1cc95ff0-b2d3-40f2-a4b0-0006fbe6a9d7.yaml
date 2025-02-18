@@ -1,0 +1,16 @@
+columnSuffix: null
+handle: eventDescription
+instructions: "Details about the event.\r\n"
+name: "Event Description\t"
+searchable: false
+settings:
+  byteLimit: null
+  charLimit: null
+  code: false
+  initialRows: 4
+  multiline: false
+  placeholder: null
+  uiMode: normal
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\PlainText

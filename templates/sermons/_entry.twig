@@ -1,0 +1,29 @@
+{% extends '_layout.twig' %}
+
+{% block title %}{{ entry.title }} | Bethesda Ministry{% endblock %}
+
+{% block content %}
+    <h1>{{ entry.title }}</h1>
+    <p><strong>Date:</strong> {{ entry.sermonDate|date('F j, Y') }}</p>
+    <p><strong>Speaker:</strong> {{ entry.speakerName }}</p>
+    <p>{{ entry.sermonDescription }}</p>
+
+        {% if entry.sermonVideoUrl is not empty %}
+    {% set videoUrl = entry.sermonVideoUrl is iterable ? entry.sermonVideoUrl|first : entry.sermonVideoUrl %}
+    {% set youtubeId = videoUrl|replace({'https://www.youtube.com/watch?v=': '', 'https://youtu.be/': ''})|split('&')|first %}
+    <iframe width="560" height="315" 
+        src="https://www.youtube.com/embed/{{ youtubeId|trim }}" 
+        frameborder="0" allowfullscreen>
+    </iframe>
+{% endif %}
+
+    
+
+    {% if entry.sermonAudioFile|length %}
+        <h2>Listen to Audio</h2>
+        <audio controls>
+            <source src="{{ entry.sermonAudioFile.one().url }}" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+    {% endif %}
+{% endblock %}

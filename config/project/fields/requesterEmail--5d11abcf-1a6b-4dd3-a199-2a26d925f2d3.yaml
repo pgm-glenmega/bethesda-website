@@ -1,0 +1,10 @@
+columnSuffix: null
+handle: requesterEmail
+instructions: 'The submitter’s email'
+name: E-mail
+searchable: false
+settings:
+  placeholder: null
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Email

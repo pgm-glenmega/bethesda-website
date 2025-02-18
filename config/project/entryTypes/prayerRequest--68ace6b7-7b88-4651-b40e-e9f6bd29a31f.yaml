@@ -1,0 +1,99 @@
+color: null
+fieldLayouts:
+  04503bd3-c559-476b-94f2-74fd28405318:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            dateAdded: '2025-02-18T19:22:35+00:00'
+            disabled: false
+            elementCondition: null
+            id: null
+            includeInCards: false
+            inputType: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            providesThumbs: false
+            readonly: false
+            required: true
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: c38b0511-a8a4-4ab3-8c46-93a646e1425c
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-02-18T20:42:51+00:00'
+            elementCondition: null
+            fieldUid: d8b87d1e-4413-4d9f-b2e2-9f739d500a6e # Name
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: aca44fc5-c3eb-4a73-9d9f-62d1c8b2bcb1
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-02-18T20:42:51+00:00'
+            elementCondition: null
+            fieldUid: 5d11abcf-1a6b-4dd3-a199-2a26d925f2d3 # E-mail
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 19e9aef4-33f5-4fc6-a585-496397128974
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-02-18T20:42:51+00:00'
+            elementCondition: null
+            fieldUid: 745919af-d07c-47fb-9d1e-7feac74afb06 # Prayer Request	
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 7e0440ce-a458-4c20-b144-85a81b9c3d2a
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: bd4be3dd-3911-48d6-a905-557bf18d1ff8
+        userCondition: null
+handle: prayerRequest
+hasTitleField: true
+icon: null
+name: 'Prayer Request'
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: '{title}'
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

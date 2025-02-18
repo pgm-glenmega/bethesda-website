@@ -1,0 +1,28 @@
+defaultPlacement: end
+enableVersioning: true
+entryTypes:
+  -
+    uid: 55fd2f0f-9d2e-483b-ab16-6194ba07e07e # Article entry
+handle: articles
+maxAuthors: 1
+name: Articles
+previewTargets:
+  -
+    __assoc__:
+      -
+        - label
+        - 'Primary entry page'
+      -
+        - urlFormat
+        - '{url}'
+      -
+        - refresh
+        - '1'
+propagationMethod: all
+siteSettings:
+  5607335d-3b23-47a6-acee-41d4ffb0462c: # bethesda ministry
+    enabledByDefault: true
+    hasUrls: true
+    template: articles/_entry.twig
+    uriFormat: 'articles/{slug}'
+type: channel

@@ -1,0 +1,16 @@
+defaultPlacement: end
+enableVersioning: false
+entryTypes:
+  -
+    uid: 68ace6b7-7b88-4651-b40e-e9f6bd29a31f # Prayer Request
+handle: prayerRequest
+maxAuthors: 1
+name: 'Prayer Request'
+propagationMethod: all
+siteSettings:
+  5607335d-3b23-47a6-acee-41d4ffb0462c: # bethesda ministry
+    enabledByDefault: true
+    hasUrls: false
+    template: null
+    uriFormat: null
+type: channel

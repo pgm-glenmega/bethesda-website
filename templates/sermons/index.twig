@@ -1,0 +1,16 @@
+{% extends '_layout.twig' %}
+
+{% block title %}Sermons | Bethesda Ministry{% endblock %}
+
+{% block content %}
+    <h1>Latest Sermons</h1>
+    
+    {% for sermon in craft.entries.section('sermons').all() %}
+        <div>
+            <h2><a href="{{ sermon.url }}">{{ sermon.title }}</a></h2>
+            <p><strong>Date:</strong> {{ sermon.sermonDate|date('F j, Y') }}</p>
+            <p><strong>Speaker:</strong> {{ sermon.speakerName }}</p>
+            <p>{{ sermon.sermonDescription|length > 150 ? sermon.sermonDescription|slice(0, 150) ~ '...' : sermon.sermonDescription }}</p>
+        </div>
+    {% endfor %}
+{% endblock %} 

@@ -1,0 +1,16 @@
+{% extends '_layout.twig' %}
+
+{% block title %}Events | Bethesda Ministry{% endblock %}
+
+{% block content %}
+    <h1>Upcoming Events</h1>
+
+    {% for event in craft.entries.section('events').orderBy('eventDate asc').all() %}
+        <div>
+            <h2><a href="{{ event.url }}">{{ event.title }}</a></h2>
+            <p><strong>Date:</strong> {{ event.eventDate|date('F j, Y') }}</p>
+            <p><strong>Location:</strong> {{ event.eventLocation }}</p>
+            <p>{{ event.eventDescription }}</p>
+        </div>
+    {% endfor %}
+{% endblock %}

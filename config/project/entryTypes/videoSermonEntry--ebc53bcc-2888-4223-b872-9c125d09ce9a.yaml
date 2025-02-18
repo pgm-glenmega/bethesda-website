@@ -1,0 +1,115 @@
+color: null
+fieldLayouts:
+  c1615832-b6ff-40a7-be82-80d1b2764116:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            dateAdded: '2025-02-18T19:13:12+00:00'
+            disabled: false
+            elementCondition: null
+            id: null
+            includeInCards: false
+            inputType: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            providesThumbs: false
+            readonly: false
+            required: true
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: 6a0e2b95-d98a-494b-98c4-a33a3252ec64
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-02-18T19:56:23+00:00'
+            elementCondition: null
+            fieldUid: 3e96336e-e803-42d5-999f-cb19aa129537 # Sermon Date	
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: e99f8d0a-980e-4793-8b90-12e9be8c5e53
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-02-18T19:56:23+00:00'
+            elementCondition: null
+            fieldUid: 0cfb3f2f-91a0-46dc-8a1f-a3d99e594c4a # Speaker Name	
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 64fdd4b5-719c-47a6-93a8-58d6e7d4909e
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-02-18T19:56:23+00:00'
+            elementCondition: null
+            fieldUid: a5bab881-3249-4db3-93ee-4e15ce9915e2 # Sermon Description	
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 0e06633d-97d4-4389-8785-609292c205ee
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-02-18T19:56:23+00:00'
+            elementCondition: null
+            fieldUid: 7da2311d-0305-4310-a265-18436572e8bb # Sermon Video URL	
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 43e0efb8-ad17-4a40-ae29-d578ca657d46
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: ee0ddebe-8154-4450-a0ae-d7e44faed36b
+        userCondition: null
+handle: videoSermonEntry
+hasTitleField: true
+icon: null
+name: 'Video Sermon Entry'
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: '{title}'
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

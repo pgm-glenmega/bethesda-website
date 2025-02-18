@@ -1,0 +1,55 @@
+columnSuffix: null
+handle: articleCategory
+instructions: null
+name: "Article Category\t"
+searchable: false
+settings:
+  customOptions: false
+  options:
+    -
+      __assoc__:
+        -
+          - label
+          - Faith
+        -
+          - value
+          - faith
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - 'Bible Study'
+        -
+          - value
+          - bibleStudy
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - Community
+        -
+          - value
+          - community
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - Scripture
+        -
+          - value
+          - scripture
+        -
+          - default
+          - ''
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Dropdown

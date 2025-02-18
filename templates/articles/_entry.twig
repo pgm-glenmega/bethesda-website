@@ -1,0 +1,21 @@
+{% extends '_layout.twig' %}
+
+{% block title %}{{ entry.title }} | Bethesda Ministry{% endblock %}
+
+{% block content %}
+    <article>
+        <h1>{{ entry.title }}</h1>
+        <p><strong>Category:</strong> {{ entry.articleCategory }}</p>
+        <p><strong>Published on:</strong> {{ entry.postDate|date('F j, Y') }}</p>
+
+        {% if entry.articleImage|length %}
+            <img src="{{ entry.articleImage.one().url }}" alt="{{ entry.title }}" style="max-width: 100%; height: auto;">
+        {% endif %}
+
+        <div class="article-content">
+            {{ entry.articleContent|raw }}
+        </div>
+
+        <p><a href="{{ siteUrl('articles') }}">← Back to Articles</a></p>
+    </article>
+{% endblock %}

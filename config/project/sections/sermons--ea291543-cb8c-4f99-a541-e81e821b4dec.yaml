@@ -1,0 +1,32 @@
+defaultPlacement: end
+enableVersioning: true
+entryTypes:
+  -
+    uid: ebc53bcc-2888-4223-b872-9c125d09ce9a # Video Sermon Entry
+  -
+    uid: 8819c3e3-11d8-410c-a36b-506e4369349c # Audio Sermon Entry
+  -
+    uid: 84abf835-75b4-4a05-85be-5ac14f67287f # Sermon entry
+handle: sermons
+maxAuthors: 1
+name: Sermons
+previewTargets:
+  -
+    __assoc__:
+      -
+        - label
+        - 'Primary entry page'
+      -
+        - urlFormat
+        - '{url}'
+      -
+        - refresh
+        - '1'
+propagationMethod: all
+siteSettings:
+  5607335d-3b23-47a6-acee-41d4ffb0462c: # bethesda ministry
+    enabledByDefault: true
+    hasUrls: true
+    template: sermons/_entry.twig
+    uriFormat: 'sermons/{slug}'
+type: channel

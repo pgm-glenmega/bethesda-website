@@ -1,0 +1,33 @@
+headingLevels:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+name: general
+options:
+  alignment:
+    options:
+      - left
+      - right
+  fontSize:
+    options:
+      - tiny
+      - small
+      - big
+      - huge
+toolbar:
+  - heading
+  - '|'
+  - bold
+  - italic
+  - link
+  - underline
+  - bulletedList
+  - numberedList
+  - alignment
+  - insertImage
+  - mediaEmbed
+  - blockQuote
+  - fontSize

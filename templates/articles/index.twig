@@ -1,0 +1,15 @@
+{% extends '_layout.twig' %}
+
+{% block title %}Articles | Bethesda Ministry{% endblock %}
+
+{% block content %}
+    <h1>Latest Articles</h1>
+
+    {% for article in craft.entries.section('articles').all() %}
+        <div>
+            <h2><a href="{{ article.url }}">{{ article.title }}</a></h2>
+            <p><strong>Category:</strong> {{ article.articleCategory }}</p>
+            <p>{{ article.articleContent|length > 150 ? article.articleContent|slice(0, 150) ~ '...' : article.articleContent }}</p>
+        </div>
+    {% endfor %}
+{% endblock %}

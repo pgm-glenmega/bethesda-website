@@ -1,0 +1,8 @@
+baseUrl: $PRIMARY_SITE_URL
+handle: default
+hasUrls: true
+language: en-US
+name: 'bethesda ministry'
+primary: true
+siteGroup: 3db45ca2-4cff-46f3-9796-4678f3533148 # bethesda ministry
+sortOrder: 1

@@ -1,0 +1,22 @@
+columnSuffix: null
+handle: articleContent
+instructions: "Main body text of the article.\r\n"
+name: 'Article Content'
+searchable: false
+settings:
+  availableTransforms: ''
+  availableVolumes: ''
+  ckeConfig: ef693020-53df-4386-8417-1f32571d72c4 # general
+  createButtonLabel: null
+  defaultTransform: null
+  purifierConfig: null
+  purifyHtml: true
+  showUnpermittedFiles: false
+  showUnpermittedVolumes: false
+  showWordCount: false
+  sourceEditingGroups:
+    - __ADMINS__
+  wordLimit: null
+translationKeyFormat: null
+translationMethod: none
+type: craft\ckeditor\Field
