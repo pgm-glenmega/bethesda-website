@@ -39,7 +39,7 @@ fieldLayouts:
         name: Content
         uid: cd0024b8-f16a-405a-8e5c-54c2fd15ce06
         userCondition: null
-fs: local
+fs: uploads
 handle: uploads
 name: Uploads
 sortOrder: 1

@@ -36,6 +36,22 @@ fieldLayouts:
             warning: null
             width: 100
           -
+            dateAdded: '2025-02-19T19:43:41+00:00'
+            elementCondition: null
+            fieldUid: 8f9a6657-d317-4437-901b-c6b288884f78 # Sermon Image
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 2a891bf4-ad28-48c0-907f-2c046e3def81
+            userCondition: null
+            warning: null
+            width: 100
+          -
             dateAdded: '2025-02-18T19:45:16+00:00'
             elementCondition: null
             fieldUid: 3e96336e-e803-42d5-999f-cb19aa129537 # Sermon Date	

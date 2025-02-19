@@ -7,10 +7,15 @@
         <h1>{{ entry.title }}</h1>
         <p><strong>Category:</strong> {{ entry.articleCategory }}</p>
         <p><strong>Published on:</strong> {{ entry.postDate|date('F j, Y') }}</p>
+            
+            {% if entry.articleImage.one() %}
+    <p>Image URL: {{ entry.articleImage.one().url }}</p>
+    <img src="{{ entry.articleImage.one().url }}" alt="{{ entry.title }}">
+{% else %}
+    <p>No image available</p>
+{% endif %}
 
-        {% if entry.articleImage|length %}
-            <img src="{{ entry.articleImage.one().url }}" alt="{{ entry.title }}" style="max-width: 100%; height: auto;">
-        {% endif %}
+        
 
         <div class="article-content">
             {{ entry.articleContent|raw }}

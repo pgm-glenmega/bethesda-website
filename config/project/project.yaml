@@ -1,8 +1,16 @@
-dateModified: 1739914585
+dateModified: 1740002406
 email:
   fromEmail: glen.meganck@gmail.com
   fromName: 'bethesda ministry'
   transportType: craft\mail\transportadapters\Sendmail
+fs:
+  uploads:
+    hasUrls: true
+    name: Uploads
+    settings:
+      path: '@webroot/uploads'
+    type: craft\fs\Local
+    url: '@web/uploads'
 meta:
   __names__:
     0c1e71c5-d463-4a42-8c5e-fae5d8b6711e: 'Contact Messages' # Contact Messages
@@ -48,6 +56,34 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: 3.0.0.0
+  guest-entries:
+    edition: standard
+    enabled: true
+    schemaVersion: 2.1.0
+    settings:
+      enableCsrfProtection: '1'
+      entryVariable: entry
+      sections:
+        __assoc__:
+          -
+            - 0c1e71c5-d463-4a42-8c5e-fae5d8b6711e # Contact Messages
+            -
+              __assoc__:
+                -
+                  - sectionUid
+                  - 0c1e71c5-d463-4a42-8c5e-fae5d8b6711e # Contact Messages
+                -
+                  - allowGuestSubmissions
+                  - '1'
+                -
+                  - enabledByDefault
+                  - '1'
+                -
+                  - runValidation
+                  - ''
+                -
+                  - authorUid
+                  - baea4cef-3932-4dea-bc17-4278de477acd
 system:
   edition: solo
   live: true
