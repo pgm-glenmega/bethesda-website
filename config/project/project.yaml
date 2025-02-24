@@ -1,4 +1,4 @@
-dateModified: 1740002406
+dateModified: 1740318260
 email:
   fromEmail: glen.meganck@gmail.com
   fromName: 'bethesda ministry'
@@ -30,14 +30,18 @@ meta:
     27a9a492-168f-4300-a0b6-4b75298c0067: Name # Name
     30ad0bb3-ce3c-4c42-ae63-dbb1b4b3a0f8: "Event Date\t" # Event Date	
     55fd2f0f-9d2e-483b-ab16-6194ba07e07e: 'Article entry' # Article entry
+    63a93b6c-ab5a-43bd-8732-ba235f530a2e: 'RSVP entry' # RSVP entry
     68ace6b7-7b88-4651-b40e-e9f6bd29a31f: 'Prayer Request' # Prayer Request
+    82a5e400-0788-44e3-8bf1-ac20f04c004e: EventSermonRelation # EventSermonRelation
     84abf835-75b4-4a05-85be-5ac14f67287f: 'Sermon entry' # Sermon entry
     85aacefe-9e4d-4dfa-9b3b-3d7b41ea7b11: Articles # Articles
+    545d78c7-8959-40ec-bad0-dc8b7b2ada23: UserNameRSVP # UserNameRSVP
     658fc0b1-afbd-4d02-a6a0-a1a38b353ff8: 'Article Image' # Article Image
     5913f12c-3af8-4eb3-ba8f-03469428c3af: 'Event Entry' # Event Entry
     8819c3e3-11d8-410c-a36b-506e4369349c: 'Audio Sermon Entry' # Audio Sermon Entry
     9419b81d-7916-4386-a314-6c63a1edd722: Simple # Simple
     745919af-d07c-47fb-9d1e-7feac74afb06: "Prayer Request\t" # Prayer Request	
+    1173530d-76ee-41ae-83b2-f2c3117c3aa7: RSVPS # RSVPS
     1264623e-10bd-4b98-93c7-e719c7281ba0: Email # Email
     5607335d-3b23-47a6-acee-41d4ffb0462c: 'bethesda ministry' # bethesda ministry
     a5bab881-3249-4db3-93ee-4e15ce9915e2: "Sermon Description\t" # Sermon Description	
@@ -51,6 +55,7 @@ meta:
     ea291543-cb8c-4f99-a541-e81e821b4dec: Sermons # Sermons
     ebc53bcc-2888-4223-b872-9c125d09ce9a: 'Video Sermon Entry' # Video Sermon Entry
     ef693020-53df-4386-8417-1f32571d72c4: general # general
+    f07c6fc1-cfea-45ca-980b-f58cccd4c7be: EmailRSVP # EmailRSVP
 plugins:
   ckeditor:
     edition: standard
@@ -88,8 +93,9 @@ system:
   edition: solo
   live: true
   name: 'bethesda ministry'
+  retryDuration: null
   schemaVersion: 5.6.0.2
-  timeZone: America/Los_Angeles
+  timeZone: Europe/Brussels
 users:
   allowPublicRegistration: false
   defaultGroup: null

@@ -1,0 +1,28 @@
+defaultPlacement: end
+enableVersioning: true
+entryTypes:
+  -
+    uid: 63a93b6c-ab5a-43bd-8732-ba235f530a2e # RSVP entry
+handle: rsvps
+maxAuthors: 1
+name: RSVPS
+previewTargets:
+  -
+    __assoc__:
+      -
+        - label
+        - 'Primary entry page'
+      -
+        - urlFormat
+        - '{url}'
+      -
+        - refresh
+        - '1'
+propagationMethod: all
+siteSettings:
+  5607335d-3b23-47a6-acee-41d4ffb0462c: # bethesda ministry
+    enabledByDefault: true
+    hasUrls: true
+    template: rsvps/_entry.twig
+    uriFormat: 'rsvps/{slug}'
+type: channel

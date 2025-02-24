@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f9e79b0a49bd09b964e3d8b891bcd26d",
+    "content-hash": "f98f5587fb9f027c0878d82521890937",
     "packages": [
         {
             "name": "bacon/bacon-qr-code",
@@ -285,11 +285,11 @@
         },
         {
             "name": "craftcms/cms",
-            "version": "5.6.7",
+            "version": "5.6.9.1",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/craftcms/cms/zipball/ae203ff5926e3f00eff4fd7f75413e95a0fe68aa",
-                "reference": "ae203ff5926e3f00eff4fd7f75413e95a0fe68aa",
+                "url": "https://api.github.com/repos/craftcms/cms/zipball/51e90593171beea56581f8b6cd71dc3182869c52",
+                "reference": "51e90593171beea56581f8b6cd71dc3182869c52",
                 "shasum": ""
             },
             "require": {
@@ -389,7 +389,7 @@
                 "docs": "https://craftcms.com/docs/5.x/",
                 "rss": "https://github.com/craftcms/cms/releases.atom"
             },
-            "time": "2025-02-18T19:02:31+00:00"
+            "time": "2025-02-21T00:40:44+00:00"
         },
         {
             "name": "craftcms/guest-entries",
@@ -6161,11 +6161,11 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": {},
+    "stability-flags": [],
     "prefer-stable": true,
     "prefer-lowest": false,
-    "platform": {},
-    "platform-dev": {},
+    "platform": [],
+    "platform-dev": [],
     "platform-overrides": {
         "php": "8.2"
     },

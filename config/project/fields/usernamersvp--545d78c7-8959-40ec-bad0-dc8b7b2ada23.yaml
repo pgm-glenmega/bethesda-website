@@ -1,0 +1,16 @@
+columnSuffix: null
+handle: usernamersvp
+instructions: "Stores the attendee's name\r\n"
+name: UserNameRSVP
+searchable: false
+settings:
+  byteLimit: null
+  charLimit: null
+  code: false
+  initialRows: 4
+  multiline: false
+  placeholder: null
+  uiMode: normal
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\PlainText

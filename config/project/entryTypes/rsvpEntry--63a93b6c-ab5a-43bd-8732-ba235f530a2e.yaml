@@ -1,0 +1,99 @@
+color: null
+fieldLayouts:
+  5d0f7cdc-2207-47cb-82b0-608dfc42f883:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            dateAdded: '2025-02-23T12:21:09+00:00'
+            disabled: false
+            elementCondition: null
+            id: null
+            includeInCards: false
+            inputType: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            providesThumbs: false
+            readonly: false
+            required: true
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: 525da277-e83b-4e41-877a-3cc0b98607f9
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-02-23T12:36:36+00:00'
+            elementCondition: null
+            fieldUid: 545d78c7-8959-40ec-bad0-dc8b7b2ada23 # UserNameRSVP
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 002436d6-70d6-41ff-9bfa-15215f4fa768
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-02-23T12:36:36+00:00'
+            elementCondition: null
+            fieldUid: f07c6fc1-cfea-45ca-980b-f58cccd4c7be # EmailRSVP
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: d927867f-71ec-43f8-86b3-38c0c81f3181
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-02-23T12:37:32+00:00'
+            elementCondition: null
+            fieldUid: 82a5e400-0788-44e3-8bf1-ac20f04c004e # EventSermonRelation
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: c000cb95-9c3b-49b6-90a6-c76a98426ce4
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: 8d891175-8555-4299-bebc-ca068b1a4229
+        userCondition: null
+handle: rsvpEntry
+hasTitleField: true
+icon: null
+name: 'RSVP entry'
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

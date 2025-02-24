@@ -1,0 +1,10 @@
+columnSuffix: null
+handle: emailrsvp
+instructions: "Stores the attendee's email\r\n"
+name: EmailRSVP
+searchable: false
+settings:
+  placeholder: null
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Email

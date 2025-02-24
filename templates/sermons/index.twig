@@ -1,16 +1,65 @@
-{% extends '_layout.twig' %}
-
-{% block title %}Sermons | Bethesda Ministry{% endblock %}
+{% extends "_layout.twig" %}
 
 {% block content %}
-    <h1>Latest Sermons</h1>
-    
-    {% for sermon in craft.entries.section('sermons').all() %}
-        <div>
-            <h2><a href="{{ sermon.url }}">{{ sermon.title }}</a></h2>
-            <p><strong>Date:</strong> {{ sermon.sermonDate|date('F j, Y') }}</p>
-            <p><strong>Speaker:</strong> {{ sermon.speakerName }}</p>
-            <p>{{ sermon.sermonDescription|length > 150 ? sermon.sermonDescription|slice(0, 150) ~ '...' : sermon.sermonDescription }}</p>
-        </div>
+<div class="container">
+
+  {# Simple Filters & Search Bar #}
+  <div class="filter-wrapper">
+    <form method="get" class="filter-form">
+      <input type="text" name="q" placeholder="Search sermons or events..." value="{{ craft.app.request.getParam('q') }}">
+      <select name="type">
+        <option value="" {% if not craft.app.request.getParam('type') %} selected {% endif %}>All</option>
+        <option value="sermons" {% if craft.app.request.getParam('type') == 'sermons' %} selected {% endif %}>Sermons</option>
+        <option value="events" {% if craft.app.request.getParam('type') == 'events' %} selected {% endif %}>Events</option>
+      </select>
+      <select name="status">
+        <option value="" {% if not craft.app.request.getParam('status') %} selected {% endif %}>All</option>
+        <option value="upcoming" {% if craft.app.request.getParam('status') == 'upcoming' %} selected {% endif %}>Upcoming</option>
+        <option value="past" {% if craft.app.request.getParam('status') == 'past' %} selected {% endif %}>Past</option>
+      </select>
+      <button type="submit" class="btn-primary">Filter</button>
+    </form>
+  </div>
+
+  {# Fetch Entries Based on Type, Search, and Status Filter #}
+  {% set typeFilter = craft.app.request.getParam('type') %}
+  {% set searchQuery = craft.app.request.getParam('q') %}
+  {% set statusFilter = craft.app.request.getParam('status') %}
+
+  {% set entriesQuery = craft.entries()
+    .section(typeFilter in ['sermons', 'events'] ? typeFilter : ['sermons', 'events']) %}
+
+  {% if searchQuery %}
+    {% set entriesQuery = entriesQuery.search(searchQuery) %}
+  {% endif %}
+
+  {% if statusFilter == 'upcoming' %}
+    {% set entriesQuery = entriesQuery.after(now|atom) %}
+  {% elseif statusFilter == 'past' %}
+    {% set entriesQuery = entriesQuery.before(now|atom) %}
+  {% endif %}
+
+  {# Display Filtered Entries #}
+  <div class="sermon-event-grid">
+    {% for entry in entriesQuery.all() %}
+      <div class="sermon-event-card">
+        {% set image = entry.sermonImage.one() ?? entry.eventImage.one() ?? null %}
+        <img src="{{ image ? image.url : '/assets/default-placeholder.jpg' }}" alt="{{ entry.title }}">
+
+        <h3>{{ entry.title }}</h3>
+
+        {% set displayDate = entry.eventDate ?? entry.sermonDate %}
+        {% if displayDate %}
+          <p>{{ displayDate|date('F j, Y') }}</p>
+        {% else %}
+          <p style="color: gray;">Date not available.</p>
+        {% endif %}
+
+        <a href="{{ entry.url }}" class="btn-primary">View Details</a>
+      </div>
+    {% else %}
+      <p>No results found.</p>
     {% endfor %}
-{% endblock %} 
+  </div>
+</div>
+{% endblock %}
