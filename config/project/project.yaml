@@ -1,8 +1,16 @@
-dateModified: 1740318260
+dateModified: 1740514815
 email:
   fromEmail: glen.meganck@gmail.com
   fromName: 'bethesda ministry'
-  transportType: craft\mail\transportadapters\Sendmail
+  replyToEmail: null
+  template: null
+  transportSettings:
+    host: smtp.gmail.com
+    password: 'ctup sqoz tayx preu'
+    port: '587'
+    useAuthentication: '1'
+    username: glen.meganck@gmail.com
+  transportType: craft\mail\transportadapters\Smtp
 fs:
   uploads:
     hasUrls: true
@@ -13,21 +21,18 @@ fs:
     url: '@web/uploads'
 meta:
   __names__:
-    0c1e71c5-d463-4a42-8c5e-fae5d8b6711e: 'Contact Messages' # Contact Messages
     0cfb3f2f-91a0-46dc-8a1f-a3d99e594c4a: "Speaker Name\t" # Speaker Name	
     0ebc9e2c-5cfd-403a-8c3b-46a67551e3f4: 'Article Content' # Article Content
     1cc95ff0-b2d3-40f2-a4b0-0006fbe6a9d7: "Event Description\t" # Event Description	
     2ccb4a24-9764-4f39-ade9-57dc2b7526db: "Sermon Audio File\t" # Sermon Audio File	
     3db45ca2-4cff-46f3-9796-4678f3533148: 'bethesda ministry' # bethesda ministry
     3e96336e-e803-42d5-999f-cb19aa129537: "Sermon Date\t" # Sermon Date	
-    4b7ea142-0c5d-41f9-a62d-3c6a5fdd8e3c: 'Contact Message' # Contact Message
     4d31aa11-35c6-4cb3-89f0-4537cd0da50c: 'Prayer Request' # Prayer Request
     5d11abcf-1a6b-4dd3-a199-2a26d925f2d3: E-mail # E-mail
     7da2311d-0305-4310-a265-18436572e8bb: "Sermon Video URL\t" # Sermon Video URL	
     8c0ac8cd-6806-41da-bb6c-e899c2c5f331: 'Event Image' # Event Image
     8f9a6657-d317-4437-901b-c6b288884f78: 'Sermon Image' # Sermon Image
     22d61cb9-a560-45e5-9277-7e114f25c833: 'Event Attendance' # Event Attendance
-    27a9a492-168f-4300-a0b6-4b75298c0067: Name # Name
     30ad0bb3-ce3c-4c42-ae63-dbb1b4b3a0f8: "Event Date\t" # Event Date	
     55fd2f0f-9d2e-483b-ab16-6194ba07e07e: 'Article entry' # Article entry
     63a93b6c-ab5a-43bd-8732-ba235f530a2e: 'RSVP entry' # RSVP entry
@@ -42,12 +47,10 @@ meta:
     9419b81d-7916-4386-a314-6c63a1edd722: Simple # Simple
     745919af-d07c-47fb-9d1e-7feac74afb06: "Prayer Request\t" # Prayer Request	
     1173530d-76ee-41ae-83b2-f2c3117c3aa7: RSVPS # RSVPS
-    1264623e-10bd-4b98-93c7-e719c7281ba0: Email # Email
     5607335d-3b23-47a6-acee-41d4ffb0462c: 'bethesda ministry' # bethesda ministry
     a5bab881-3249-4db3-93ee-4e15ce9915e2: "Sermon Description\t" # Sermon Description	
     aa556839-181a-415e-96d4-23a662b28155: "Event Location\t" # Event Location	
     ac76c8f2-47cd-4d47-8dc3-f5ecbde75d89: Uploads # Uploads
-    b31b7e6c-09c6-42c0-8cc4-6ba9981c431c: Message # Message
     c7a317a3-1287-4f96-879f-d270b836f4ec: 'Author Name' # Author Name
     ca6b1da7-ed2f-499f-b2e2-71da635f434e: "Article Category\t" # Article Category	
     d8b87d1e-4413-4d9f-b2e2-9f739d500a6e: Name # Name
@@ -71,12 +74,12 @@ plugins:
       sections:
         __assoc__:
           -
-            - 0c1e71c5-d463-4a42-8c5e-fae5d8b6711e # Contact Messages
+            - 0c1e71c5-d463-4a42-8c5e-fae5d8b6711e
             -
               __assoc__:
                 -
                   - sectionUid
-                  - 0c1e71c5-d463-4a42-8c5e-fae5d8b6711e # Contact Messages
+                  - 0c1e71c5-d463-4a42-8c5e-fae5d8b6711e
                 -
                   - allowGuestSubmissions
                   - '1'

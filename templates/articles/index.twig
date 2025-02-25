@@ -1,15 +1,66 @@
 {% extends '_layout.twig' %}
 
-{% block title %}Articles | Bethesda Ministry{% endblock %}
+{% block title %}Articles | Bethesda Ministry
+{% endblock %}
 
 {% block content %}
+  <div class="container">
+
     <h1>Latest Articles</h1>
 
-    {% for article in craft.entries.section('articles').all() %}
-        <div>
-            <h2><a href="{{ article.url }}">{{ article.title }}</a></h2>
-            <p><strong>Category:</strong> {{ article.articleCategory }}</p>
-            <p>{{ article.articleContent|length > 150 ? article.articleContent|slice(0, 150) ~ '...' : article.articleContent }}</p>
-        </div>
+    {# Fetch categories dynamically #}
+    {% set categories = craft.categories.group('articleCategories').all() %}
+
+    {# Filters & Search Bar #}
+    <div class="filter-search-wrapper">
+      <form method="get" class="search-form">
+        <input type="text" name="q" placeholder="Search articles..." value="{{ craft.app.request.getParam('q') }}">
+        <button type="submit" class="button">Search</button>
+      </form>
+
+      <form method="get" class="filter-form">
+        <select name="category">
+          <option value="">All Categories</option>
+          {% for category in categories %}
+            <option value="{{ category.slug }}" {% if craft.app.request.getParam('category') == category.slug %} selected {% endif %}>
+              {{ category.title }}
+            </option>
+          {% endfor %}
+        </select>
+        <button type="submit" class="button">Filter</button>
+      </form>
+    </div>
+
+    {# Fetch Articles Based on Category and Search Query #}
+    {% set categoryFilter = craft.app.request.getParam('category') %}
+    {% set searchQuery = craft.app.request.getParam('q') %}
+
+    {% set articlesQuery = craft.entries().section('articles') %}
+
+    {% if categoryFilter %}
+      {% set categoryElement = craft.categories().slug(categoryFilter).one() %}
+      {% if categoryElement %}
+        {% set articlesQuery = articlesQuery.relatedTo(categoryElement) %}
+      {% endif %}
+    {% endif %}
+
+    {% if searchQuery %}
+      {% set articlesQuery = articlesQuery.search(searchQuery) %}
+    {% endif %}
+
+    {# Display Filtered Articles #}
+    {% for article in articlesQuery.all() %}
+      <div class="article">
+        <h2>
+          <a href="{{ article.url }}">{{ article.title }}</a>
+        </h2>
+        <p>
+          <strong>Category:</strong>
+          {{ article.articleCategory }}</p>
+        <p>{{ article.articleContent|length > 150 ? article.articleContent|slice(0, 150) ~ '...' : article.articleContent }}</p>
+      </div>
+    {% else %}
+      <p>No articles found.</p>
     {% endfor %}
+  </div>
 {% endblock %}

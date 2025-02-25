@@ -9,7 +9,6 @@
         <p><strong>Published on:</strong> {{ entry.postDate|date('F j, Y') }}</p>
             
             {% if entry.articleImage.one() %}
-    <p>Image URL: {{ entry.articleImage.one().url }}</p>
     <img src="{{ entry.articleImage.one().url }}" alt="{{ entry.title }}">
 {% else %}
     <p>No image available</p>
