@@ -1,7 +1,7 @@
 columnSuffix: null
-handle: usernamersvp
-instructions: "Stores the attendee's name\r\n"
-name: UserNameRSVP
+handle: attendeeName
+instructions: null
+name: 'Attendee Name'
 searchable: false
 settings:
   byteLimit: null

@@ -2,10 +2,10 @@ defaultPlacement: end
 enableVersioning: true
 entryTypes:
   -
-    uid: 63a93b6c-ab5a-43bd-8732-ba235f530a2e # RSVP entry
-handle: rsvps
+    uid: 789f6b17-9de5-4839-a76d-94cc5d206f76 # Event Sign-up
+handle: eventSignUps
 maxAuthors: 1
-name: RSVPS
+name: 'Event Sign-ups'
 previewTargets:
   -
     __assoc__:
@@ -23,6 +23,6 @@ siteSettings:
   5607335d-3b23-47a6-acee-41d4ffb0462c: # bethesda ministry
     enabledByDefault: true
     hasUrls: true
-    template: rsvps/_entry.twig
-    uriFormat: 'rsvps/{slug}'
+    template: event-sign-ups/_entry.twig
+    uriFormat: 'event-sign-ups/{slug}'
 type: channel

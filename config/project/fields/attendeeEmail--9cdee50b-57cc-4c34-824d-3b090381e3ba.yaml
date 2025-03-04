@@ -1,7 +1,7 @@
 columnSuffix: null
-handle: emailrsvp
-instructions: "Stores the attendee's email\r\n"
-name: EmailRSVP
+handle: attendeeEmail
+instructions: null
+name: 'Attendee Email'
 searchable: false
 settings:
   placeholder: null

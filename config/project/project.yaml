@@ -1,4 +1,4 @@
-dateModified: 1740514815
+dateModified: 1741122427
 email:
   fromEmail: glen.meganck@gmail.com
   fromName: 'bethesda ministry'
@@ -28,37 +28,40 @@ meta:
     3db45ca2-4cff-46f3-9796-4678f3533148: 'bethesda ministry' # bethesda ministry
     3e96336e-e803-42d5-999f-cb19aa129537: "Sermon Date\t" # Sermon Date	
     4d31aa11-35c6-4cb3-89f0-4537cd0da50c: 'Prayer Request' # Prayer Request
+    5ca4f7f8-ed12-47aa-b95b-20fd034b5745: 'Related Event' # Related Event
     5d11abcf-1a6b-4dd3-a199-2a26d925f2d3: E-mail # E-mail
+    5d90374c-5418-468d-a35e-c6d4f49efc6e: 'Event Sign-ups' # Event Sign-ups
     7da2311d-0305-4310-a265-18436572e8bb: "Sermon Video URL\t" # Sermon Video URL	
     8c0ac8cd-6806-41da-bb6c-e899c2c5f331: 'Event Image' # Event Image
     8f9a6657-d317-4437-901b-c6b288884f78: 'Sermon Image' # Sermon Image
+    9cdee50b-57cc-4c34-824d-3b090381e3ba: 'Attendee Email' # Attendee Email
     22d61cb9-a560-45e5-9277-7e114f25c833: 'Event Attendance' # Event Attendance
     30ad0bb3-ce3c-4c42-ae63-dbb1b4b3a0f8: "Event Date\t" # Event Date	
     55fd2f0f-9d2e-483b-ab16-6194ba07e07e: 'Article entry' # Article entry
-    63a93b6c-ab5a-43bd-8732-ba235f530a2e: 'RSVP entry' # RSVP entry
+    66fe051e-37cc-4947-9784-d0a741883d91: 'Related Sermon' # Related Sermon
     68ace6b7-7b88-4651-b40e-e9f6bd29a31f: 'Prayer Request' # Prayer Request
-    82a5e400-0788-44e3-8bf1-ac20f04c004e: EventSermonRelation # EventSermonRelation
     84abf835-75b4-4a05-85be-5ac14f67287f: 'Sermon entry' # Sermon entry
     85aacefe-9e4d-4dfa-9b3b-3d7b41ea7b11: Articles # Articles
-    545d78c7-8959-40ec-bad0-dc8b7b2ada23: UserNameRSVP # UserNameRSVP
     658fc0b1-afbd-4d02-a6a0-a1a38b353ff8: 'Article Image' # Article Image
+    789f6b17-9de5-4839-a76d-94cc5d206f76: 'Event Sign-up' # Event Sign-up
+    985a9d96-0516-4595-a0ec-d9c2792e2930: 'Sermon Sign-up' # Sermon Sign-up
     5913f12c-3af8-4eb3-ba8f-03469428c3af: 'Event Entry' # Event Entry
     8819c3e3-11d8-410c-a36b-506e4369349c: 'Audio Sermon Entry' # Audio Sermon Entry
     9419b81d-7916-4386-a314-6c63a1edd722: Simple # Simple
     745919af-d07c-47fb-9d1e-7feac74afb06: "Prayer Request\t" # Prayer Request	
-    1173530d-76ee-41ae-83b2-f2c3117c3aa7: RSVPS # RSVPS
     5607335d-3b23-47a6-acee-41d4ffb0462c: 'bethesda ministry' # bethesda ministry
     a5bab881-3249-4db3-93ee-4e15ce9915e2: "Sermon Description\t" # Sermon Description	
     aa556839-181a-415e-96d4-23a662b28155: "Event Location\t" # Event Location	
     ac76c8f2-47cd-4d47-8dc3-f5ecbde75d89: Uploads # Uploads
+    bf72572d-0609-4ca0-be7d-a7defdda31a6: 'Sermon Sign-ups' # Sermon Sign-ups
     c7a317a3-1287-4f96-879f-d270b836f4ec: 'Author Name' # Author Name
     ca6b1da7-ed2f-499f-b2e2-71da635f434e: "Article Category\t" # Article Category	
     d8b87d1e-4413-4d9f-b2e2-9f739d500a6e: Name # Name
     db0a7ad2-d8b8-4a3c-8e28-6657c55fd2c1: Events # Events
+    e61d63c3-2614-4498-8d3e-ba411de9813a: 'Attendee Name' # Attendee Name
     ea291543-cb8c-4f99-a541-e81e821b4dec: Sermons # Sermons
     ebc53bcc-2888-4223-b872-9c125d09ce9a: 'Video Sermon Entry' # Video Sermon Entry
     ef693020-53df-4386-8417-1f32571d72c4: general # general
-    f07c6fc1-cfea-45ca-980b-f58cccd4c7be: EmailRSVP # EmailRSVP
 plugins:
   ckeditor:
     edition: standard

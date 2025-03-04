@@ -1,0 +1,28 @@
+defaultPlacement: end
+enableVersioning: true
+entryTypes:
+  -
+    uid: 985a9d96-0516-4595-a0ec-d9c2792e2930 # Sermon Sign-up
+handle: sermonSignUps
+maxAuthors: 1
+name: 'Sermon Sign-ups'
+previewTargets:
+  -
+    __assoc__:
+      -
+        - label
+        - 'Primary entry page'
+      -
+        - urlFormat
+        - '{url}'
+      -
+        - refresh
+        - '1'
+propagationMethod: all
+siteSettings:
+  5607335d-3b23-47a6-acee-41d4ffb0462c: # bethesda ministry
+    enabledByDefault: true
+    hasUrls: true
+    template: sermon-sign-ups/_entry.twig
+    uriFormat: 'sermon-sign-ups/{slug}'
+type: channel

@@ -1,0 +1,99 @@
+color: null
+fieldLayouts:
+  43616f7c-7ad0-46f3-96dd-41bfcb091054:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            dateAdded: '2025-03-04T21:04:15+00:00'
+            disabled: false
+            elementCondition: null
+            id: null
+            includeInCards: false
+            inputType: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            providesThumbs: false
+            readonly: false
+            required: true
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: 15375153-1ad0-45d8-b0bb-1e60f64befb0
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-03-04T21:07:07+00:00'
+            elementCondition: null
+            fieldUid: e61d63c3-2614-4498-8d3e-ba411de9813a # Attendee Name
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: eb96b40e-fd61-4008-ba6a-c4aa8ffa5c24
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-03-04T21:07:07+00:00'
+            elementCondition: null
+            fieldUid: 9cdee50b-57cc-4c34-824d-3b090381e3ba # Attendee Email
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 9123e873-0bb4-49e9-9b43-f73d7a085573
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-03-04T21:07:07+00:00'
+            elementCondition: null
+            fieldUid: 5ca4f7f8-ed12-47aa-b95b-20fd034b5745 # Related Event
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 0900ddea-fe5f-4d89-9c5b-aff22e136711
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: 30e5d6e6-1671-44a8-960a-690c23f0152f
+        userCondition: null
+handle: eventSignUp
+hasTitleField: true
+icon: null
+name: 'Event Sign-up'
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: '{attendeeName} - {relatedEvent.one().title}'
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

@@ -1,6 +1,6 @@
 color: null
 fieldLayouts:
-  5d0f7cdc-2207-47cb-82b0-608dfc42f883:
+  dcc7037b-d7f4-49f8-9171-e115a50b1d1d:
     tabs:
       -
         elementCondition: null
@@ -10,7 +10,7 @@ fieldLayouts:
             autocomplete: false
             autocorrect: true
             class: null
-            dateAdded: '2025-02-23T12:21:09+00:00'
+            dateAdded: '2025-03-04T20:45:29+00:00'
             disabled: false
             elementCondition: null
             id: null
@@ -31,14 +31,14 @@ fieldLayouts:
             tip: null
             title: null
             type: craft\fieldlayoutelements\entries\EntryTitleField
-            uid: 525da277-e83b-4e41-877a-3cc0b98607f9
+            uid: df9d272c-b741-4b8f-a667-d4f7f4b65210
             userCondition: null
             warning: null
             width: 100
           -
-            dateAdded: '2025-02-23T12:36:36+00:00'
+            dateAdded: '2025-03-04T20:52:04+00:00'
             elementCondition: null
-            fieldUid: 545d78c7-8959-40ec-bad0-dc8b7b2ada23 # UserNameRSVP
+            fieldUid: e61d63c3-2614-4498-8d3e-ba411de9813a # Attendee Name
             handle: null
             includeInCards: false
             instructions: null
@@ -47,14 +47,14 @@ fieldLayouts:
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 002436d6-70d6-41ff-9bfa-15215f4fa768
+            uid: 1a8ed55e-59fe-40fb-9d4c-36aed574b247
             userCondition: null
             warning: null
             width: 100
           -
-            dateAdded: '2025-02-23T12:36:36+00:00'
+            dateAdded: '2025-03-04T20:52:04+00:00'
             elementCondition: null
-            fieldUid: f07c6fc1-cfea-45ca-980b-f58cccd4c7be # EmailRSVP
+            fieldUid: 9cdee50b-57cc-4c34-824d-3b090381e3ba # Attendee Email
             handle: null
             includeInCards: false
             instructions: null
@@ -63,14 +63,14 @@ fieldLayouts:
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: d927867f-71ec-43f8-86b3-38c0c81f3181
+            uid: 823287db-f410-4138-9dd8-a032dd8b792b
             userCondition: null
             warning: null
             width: 100
           -
-            dateAdded: '2025-02-23T12:37:32+00:00'
+            dateAdded: '2025-03-04T20:52:04+00:00'
             elementCondition: null
-            fieldUid: 82a5e400-0788-44e3-8bf1-ac20f04c004e # EventSermonRelation
+            fieldUid: 66fe051e-37cc-4947-9784-d0a741883d91 # Related Sermon
             handle: null
             includeInCards: false
             instructions: null
@@ -79,21 +79,21 @@ fieldLayouts:
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: c000cb95-9c3b-49b6-90a6-c76a98426ce4
+            uid: ca67ab72-f4fa-44bc-b809-0a55e65ae90d
             userCondition: null
             warning: null
             width: 100
         name: Content
-        uid: 8d891175-8555-4299-bebc-ca068b1a4229
+        uid: b9c016b5-2d2f-4a01-822e-8752b5ee6917
         userCondition: null
-handle: rsvpEntry
+handle: sermonSignUp
 hasTitleField: true
 icon: null
-name: 'RSVP entry'
+name: 'Sermon Sign-up'
 showSlugField: true
 showStatusField: true
 slugTranslationKeyFormat: null
 slugTranslationMethod: site
-titleFormat: null
+titleFormat: '{attendeeName} - {relatedSermon.one().title}'
 titleTranslationKeyFormat: null
 titleTranslationMethod: site

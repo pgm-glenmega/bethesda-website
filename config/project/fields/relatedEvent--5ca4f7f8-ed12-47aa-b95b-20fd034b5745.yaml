@@ -1,7 +1,7 @@
 columnSuffix: null
-handle: eventsermonrelation
-instructions: "Links the RSVP to an Event or Sermon\r\n"
-name: EventSermonRelation
+handle: relatedEvent
+instructions: null
+name: 'Related Event'
 searchable: false
 settings:
   allowSelfRelations: false
@@ -14,7 +14,6 @@ settings:
   showSiteMenu: false
   sources:
     - 'section:db0a7ad2-d8b8-4a3c-8e28-6657c55fd2c1' # Events
-    - 'section:ea291543-cb8c-4f99-a541-e81e821b4dec' # Sermons
   targetSiteId: null
   validateRelatedElements: false
   viewMode: list

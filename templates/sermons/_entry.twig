@@ -8,16 +8,14 @@
     <p><strong>Speaker:</strong> {{ entry.speakerName }}</p>
     <p>{{ entry.sermonDescription }}</p>
 
-        {% if entry.sermonVideoUrl is not empty %}
-    {% set videoUrl = entry.sermonVideoUrl is iterable ? entry.sermonVideoUrl|first : entry.sermonVideoUrl %}
-    {% set youtubeId = videoUrl|replace({'https://www.youtube.com/watch?v=': '', 'https://youtu.be/': ''})|split('&')|first %}
-    <iframe width="560" height="315" 
-        src="https://www.youtube.com/embed/{{ youtubeId|trim }}" 
-        frameborder="0" allowfullscreen>
-    </iframe>
-{% endif %}
-
-    
+    {% if entry.sermonVideoUrl is not empty %}
+        {% set videoUrl = entry.sermonVideoUrl is iterable ? entry.sermonVideoUrl|first : entry.sermonVideoUrl %}
+        {% set youtubeId = videoUrl|replace({'https://www.youtube.com/watch?v=': '', 'https://youtu.be/': ''})|split('&')|first %}
+        <iframe width="560" height="315" 
+            src="https://www.youtube.com/embed/{{ youtubeId|trim }}" 
+            frameborder="0" allowfullscreen>
+        </iframe>
+    {% endif %}
 
     {% if entry.sermonAudioFile|length %}
         <h2>Listen to Audio</h2>
@@ -26,4 +24,27 @@
             Your browser does not support the audio element.
         </audio>
     {% endif %}
+
+    <h2>Sign Up for This Sermon</h2>
+    {% if craft.app.session.getFlash('successMessage') %}
+        <p style="color: green;">{{ craft.app.session.getFlash('successMessage') }}</p>
+    {% endif %}
+    {% if craft.app.session.getFlash('errorMessage') %}
+        <p style="color: red;">{{ craft.app.session.getFlash('errorMessage') }}</p>
+    {% endif %}
+
+    <form method="post" action="">
+        {{ csrfInput() }}
+        <input type="hidden" name="action" value="entries/save-entry">
+        <input type="hidden" name="sectionId" value="9">
+        <input type="hidden" name="fields[relatedSermon][]" value="{{ entry.id }}">
+
+        <label for="name">Your Name:</label>
+        <input type="text" id="name" name="fields[attendeeName]" required>
+
+        <label for="email">Your Email:</label>
+        <input type="email" id="email" name="fields[attendeeEmail]" required>
+
+        <button type="submit">Sign Up</button>
+    </form>
 {% endblock %}
