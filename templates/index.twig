@@ -3,28 +3,44 @@
 {% block title %}Welcome to Bethesda Ministry{% endblock %}
 
 {% block content %}
-    <h1>Welcome to Bethesda Ministry</h1>
+  <section class="hero" style="">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1>Welcome to Bethesda Ministry</h1>
+      <p>Join us in worship and fellowship.</p>
+      <div class="hero-buttons">
+        <a href="{{ siteUrl('prayer-room') }}" class="button primary">Visit Prayer Room</a>
+        <a href="{{ siteUrl('sermons') }}" class="button primary">View Activities</a>
+      </div>
+    </div>
+  </section>
 
-    <section>
-        <h2>Latest Articles</h2>
-        {% for article in craft.entries.section('articles').limit(3).all() %}
-            <h3><a href="{{ article.url }}">{{ article.title }}</a></h3>
-        {% endfor %}
-    </section>
+  {# Latest Sermons and Articles Section #}
+  <section class="home-section">
+    <h2>Latest Sermons</h2>
+    <div class="home-grid">
+      {% for sermon in craft.entries().section('sermons').limit(3).all() %}
+        <div class="home-card">
+          {% set image = sermon.sermonImage.one() ?? null %}
+          <img src="{{ image ? image.url : '/assets/default-placeholder.jpg' }}" alt="{{ sermon.title }}">
+          <h3>{{ sermon.title }}</h3>
+          <a href="{{ sermon.url }}" class="button">View details</a>
+        </div>
+      {% endfor %}
+    </div>
+  </section>
 
-    <section>
-        <h2>Upcoming Events</h2>
-        {% for event in craft.entries.section('events').limit(3).all() %}
-            <h3><a href="{{ event.url }}">{{ event.title }}</a></h3>
-        {% endfor %}
-    </section>
-
-    <section>
-        <h2>Latest Sermons</h2>
-        {% for sermon in craft.entries.section('sermons').limit(3).all() %}
-            <h3><a href="{{ sermon.url }}">{{ sermon.title }}</a></h3>
-        {% endfor %}
-    </section>
-
+  <section class="home-section">
+    <h2>Latest Articles</h2>
+    <div class="home-grid">
+      {% for article in craft.entries().section('articles').limit(3).all() %}
+        <div class="home-card">
+          {% set image = article.articleImage.one() ?? null %}
+          <img src="{{ image ? image.url : '/assets/default-placeholder.jpg' }}" alt="{{ article.title }}">
+          <h3>{{ article.title }}</h3>
+          <a href="{{ article.url }}" class="button">Read More</a>
+        </div>
+      {% endfor %}
+    </div>
+  </section>
 {% endblock %}
-

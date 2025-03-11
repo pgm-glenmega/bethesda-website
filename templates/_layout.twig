@@ -4,17 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Bethesda Ministry{% endblock %}</title>
-    <link rel="stylesheet" href="/css/main.css"> {# Add CSS file #}
+    <link rel="stylesheet" href="/css/main.css?v={{ now.timestamp }}"> {# Add CSS file #}
 </head>
 <body>
     <header>
         <nav>
+            <a href="/"><img class="nav-logo" src="/assets/images/bethesda-logo.avif" alt="bethesda logo"></a>
             <ul>
-                <li><a href="{{ siteUrl('sermons') }}">Sermons</a></li>
-                <li><a href="{{ siteUrl('articles') }}">Articles</a></li>
-                <li><a href="{{ siteUrl('prayer-room') }}">Prayer Room</a></li>
-                <li><a href="{{ siteUrl('contact') }}">Contact</a></li>
+                <li><a class="nav-item" href="/">Home</a></li>
+                <li><a class="nav-item" href="{{ siteUrl('about') }}">About</a></li>
+                <li><a class="nav-item" href="{{ siteUrl('sermons') }}">Activities</a></li>
+                <li><a class="nav-item" href="{{ siteUrl('articles') }}">Articles</a></li>
+                <li><a class="nav-item" href="{{ siteUrl('contact') }}">Contact</a></li>
             </ul>
+        <a class="nav-prayer-room" href="{{ siteUrl('prayer-room') }}">Prayer Room</a>
         </nav>
     </header>
 

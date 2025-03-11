@@ -1,41 +1,61 @@
 {% extends '_layout.twig' %}
 
 {% block content %}
-    <h1>Contact Us</h1>
-    <form method="post" action="/contact-form/send-message" id="contact-form">
-        {{ csrfInput() }}
+  <section class="hero hero--contact">
+    <div class="hero-overlay"></div>
+    <div class="hero-wrapper">
+      <div class="hero-text">
+        <h1>Contact Us</h1>
+        <p>We'd love to hear from you. Fill out the form and we'll get back to you as soon as possible.</p>
+      </div>
 
-        <label>Name:</label>
-        <input type="text" name="name" required>
+      <div class="contact-form-container">
+        <form method="post" action="/contact-form/send-message" id="contact-form">
+          {{ csrfInput() }}
 
-        <label>Email:</label>
-        <input type="email" name="email" required>
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" name="name" id="name" placeholder="Enter your name" required>
+          </div>
 
-        <label>Title:</label>
-        <input type="text" name="title" required>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" placeholder="Enter your email" required>
+          </div>
 
-        <label>Message:</label>
-        <textarea name="message" required></textarea>
+          <div class="form-group">
+            <label for="title">Title</label>
+            <input type="text" name="title" id="title" placeholder="Enter the subject" required>
+          </div>
 
-        <button type="submit">Send</button>
-    </form>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea name="message" id="message" placeholder="Write your message" rows="5" required></textarea>
+          </div>
 
-    <div id="form-response"></div>
+          <button type="submit" class="button primary">Send Message</button>
+        </form>
 
-    <script>
+        <div id="form-response" class="form-response"></div>
+      </div>
+    </div>
+  </section>
+
+  <script>
     document.getElementById('contact-form').addEventListener('submit', function (e) {
-        e.preventDefault();
-        const formData = new FormData(this);
-        
-        fetch(this.action, {
-            method: 'POST',
-            body: formData,
-        })
-        .then(response => response.json())
-        .then(data => {
-            document.getElementById('form-response').innerHTML = `<p>${data.message}</p>`;
-        })
-        .catch(error => console.error('Error:', error));
+      e.preventDefault();
+      const formData = new FormData(this);
+
+      fetch(this.action, {
+        method: 'POST',
+        body: formData
+      }).then(response => response.json()).then(data => {
+        const responseContainer = document.getElementById('form-response');
+        responseContainer.innerHTML = `<p class="${data.success ? 'success' : 'error'}">${data.message}</p>`;
+      }).catch(error => {
+        console.error('Error:', error);
+        document.getElementById('form-response').innerHTML = `<p class="error">An error occurred. Please try again.</p>`;
+      });
     });
-    </script>
+  </script>
 {% endblock %}

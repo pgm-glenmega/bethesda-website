@@ -4,106 +4,120 @@
   <div
     class="container">
 
-    {# Highlight Next Upcoming Event/Sermon #}
-    {% set upcomingEvents = craft.entries()
-    .section('events')
-    .eventDate('>= ' ~ now|atom)
-    .all() %}
-
-    {% set upcomingSermons = craft.entries()
-    .section('sermons')
-    .sermonDate('>= ' ~ now|atom)
-    .all() %}
-
+    {# Hero Section with Upcoming Event/Sermon #}
+    {% set upcomingEvents = craft.entries().section('events').eventDate('>= ' ~ now|atom).all() %}
+    {% set upcomingSermons = craft.entries().section('sermons').sermonDate('>= ' ~ now|atom).all() %}
     {% set allUpcoming = (upcomingEvents|merge(upcomingSermons))|filter(entry => (entry.eventDate or entry.sermonDate)) %}
-
     {% set sortedUpcoming = allUpcoming|sort((a, b) => (a.eventDate ?? a.sermonDate)|date('U') <=> (b.eventDate ?? b.sermonDate)|date('U')) %}
-
     {% set nextUpcoming = sortedUpcoming|first %}
+    {% set image = nextUpcoming.sermonImage.one() ?? nextUpcoming.eventImage.one() %}
+
 
     {% if nextUpcoming %}
-      <div class="featured-sermon">
-        <div class="featured-content">
-          {% set image = nextUpcoming.sermonImage.one() ?? nextUpcoming.eventImage.one() ?? null %}
-          <img src="{{ image ? image.url : '/assets/default-placeholder.jpg' }}" alt="{{ nextUpcoming.title }}">
-          <h2>Upcoming:
-            {{ nextUpcoming.title }}</h2>
-          {% set displayDate = nextUpcoming.eventDate ?? nextUpcoming.sermonDate %}
-          {% if displayDate %}
-            <p>
-              <strong>Date:</strong>
-              {{ displayDate|date('F j, Y') }}</p>
-          {% else %}
-            <p style="color: gray;">Date not specified.</p>
-          {% endif %}
-          <a href="{{ nextUpcoming.url }}" class="button">View Details →</a>
+      <section class="hero" style="background-image: url('{{ image ? image.url : '/assets/default-placeholder.jpg' }}'); background-size: cover; background-position: center;">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+          <h1>Upcoming:
+            {{ nextUpcoming.title }}</h1>
+          <p>
+            {% if nextUpcoming.section.handle == 'events' %}
+              {{ nextUpcoming.eventDescription }}
+            {% else %}
+              {{ nextUpcoming.sermonDescription }}
+            {% endif %}
+          </p>
+          <p>
+            <strong>Date:</strong>
+            {{ (nextUpcoming.eventDate ?? nextUpcoming.sermonDate)|date('F j, Y') }}</p>
+          <a href="{{ nextUpcoming.url }}" class="button primary">View Details →</a>
         </div>
-      </div>
-    {% else %}
-      <p style="color: red;">No upcoming events or sermons found.</p>
+      </section>
     {% endif %}
 
-    {# Simple Filters & Search Bar #}
-    <div class="filter-search-wrapper">
+    {# Search Bar #}
+    <section class="search-section">
       <form method="get" class="search-form">
         <input type="text" name="q" placeholder="Search sermons or events..." value="{{ craft.app.request.getParam('q') }}">
         <button type="submit" class="button">Search</button>
       </form>
+    </section>
 
-      <form method="get" class="filter-form">
-        <select name="type">
-          <option value="" {% if not craft.app.request.getParam('type') %} selected {% endif %}>All</option>
-          <option value="sermons" {% if craft.app.request.getParam('type') == 'sermons' %} selected {% endif %}>Sermons</option>
-          <option value="events" {% if craft.app.request.getParam('type') == 'events' %} selected {% endif %}>Events</option>
-        </select>
-        <select name="status">
-          <option value="" {% if not craft.app.request.getParam('status') %} selected {% endif %}>All</option>
-          <option value="upcoming" {% if craft.app.request.getParam('status') == 'upcoming' %} selected {% endif %}>Upcoming</option>
-          <option value="past" {% if craft.app.request.getParam('status') == 'past' %} selected {% endif %}>Past</option>
-        </select>
-        <button type="submit" class="button">Filter</button>
-      </form>
-    </div>
-
-    {# Fetch Entries Based on Type, Search, and Status Filter #}
-    {% set typeFilter = craft.app.request.getParam('type') %}
-    {% set searchQuery = craft.app.request.getParam('q') %}
-    {% set statusFilter = craft.app.request.getParam('status') %}
-
-    {% set entriesQuery = craft.entries()
-    .section(typeFilter in ['sermons', 'events'] ? typeFilter : ['sermons', 'events']) %}
-
-    {% if searchQuery %}
-      {% set entriesQuery = entriesQuery.search(searchQuery) %}
-    {% endif %}
-
-    {% if statusFilter == 'upcoming' %}
-      {% set entriesQuery = entriesQuery.after(now|atom) %}
-    {% elseif statusFilter == 'past' %}
-      {% set entriesQuery = entriesQuery.before(now|atom) %}
-    {% endif %}
-
-    {# Display Filtered Entries #}
-    <div class="sermon-event-grid">
-      {% for entry in entriesQuery.all() %}
-        <div class="sermon-event-card">
-          {% set image = entry.sermonImage.one() ?? entry.eventImage.one() ?? null %}
-          <img src="{{ image ? image.url : '/assets/default-placeholder.jpg' }}" alt="{{ entry.title }}">
-
-          <h3>{{ entry.title }}</h3>
-
-          {% set displayDate = entry.eventDate ?? entry.sermonDate %}
-          {% if displayDate %}
-            <p>{{ displayDate|date('F j, Y') }}</p>
-          {% else %}
-            <p style="color: gray;">Date not available.</p>
-          {% endif %}
-
-          <a href="{{ entry.url }}" class="button">View Details</a>
+    {# Filter Buttons #}
+    <section class="filter-section">
+      <div class="filter-buttons">
+        <div class="filter-group">
+          <button type="button" class="filter-btn" data-filter="events">Events</button>
+          <button type="button" class="filter-btn" data-filter="sermons">Sermons</button>
         </div>
-      {% else %}
-        <p>No results found.</p>
-      {% endfor %}
-    </div>
+
+        <div class="filter-group">
+          <button type="button" class="filter-btn" data-filter="upcoming">Upcoming</button>
+          <button type="button" class="filter-btn" data-filter="past">Past</button>
+        </div>
+      </div>
+    </section>
+
+    {# Container for Filtered Entries #}
+    <section class="entries-section">
+      <div id="entries-container" class="sermon-event-grid">
+        {% for entry in craft.entries().section(['sermons', 'events']).all() %}
+          <div class="sermon-event-card" data-type="{{ entry.section.handle }}" data-status="{{ (entry.eventDate ?? entry.sermonDate) >= now ? 'upcoming' : 'past' }}">
+            {% set image = entry.sermonImage.one() ?? entry.eventImage.one() ?? null %}
+            <img src="{{ image ? image.url : '/assets/default-placeholder.jpg' }}" alt="{{ entry.title }}">
+            <h3>{{ entry.title }}</h3>
+            <p>
+              <strong>Date:</strong>
+              {{ (entry.eventDate ?? entry.sermonDate)|date('F j, Y') }}</p>
+            <a href="{{ entry.url }}" class="button">View Details</a>
+          </div>
+        {% else %}
+          <p class="text-error">No results found.</p>
+        {% endfor %}
+      </div>
+    </section>
   </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const buttons = document.querySelectorAll(".filter-btn");
+      const entries = document.querySelectorAll(".sermon-event-card");
+
+      let activeFilters = {
+        type: [],
+        status: []
+      };
+
+      function filterEntries() {
+        entries.forEach(entry => {
+          const entryType = entry.dataset.type;
+          const entryStatus = entry.dataset.status;
+          const typeMatch = activeFilters.type.length === 0 || activeFilters.type.includes(entryType);
+          const statusMatch = activeFilters.status.length === 0 || activeFilters.status.includes(entryStatus);
+          entry.style.display = typeMatch && statusMatch ? "block" : "none";
+        });
+      }
+
+      buttons.forEach(button => {
+        button.addEventListener("click", function () {
+          const filterType = this.dataset.filter;
+          const isActive = this.classList.contains("active");
+
+          if (isActive) {
+            this.classList.remove("active");
+            activeFilters.type = activeFilters.type.filter(t => t !== filterType);
+            activeFilters.status = activeFilters.status.filter(s => s !== filterType);
+          } else {
+            this.classList.add("active");
+            if (["events", "sermons"].includes(filterType)) {
+              activeFilters.type.push(filterType);
+            } else {
+              activeFilters.status.push(filterType);
+            }
+          } filterEntries();
+        });
+      });
+
+      filterEntries(); // Initial filtering to show all
+    });
+  </script>
 {% endblock %}
