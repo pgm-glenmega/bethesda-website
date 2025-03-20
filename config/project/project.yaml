@@ -1,4 +1,4 @@
-dateModified: 1741122427
+dateModified: 1742391306
 email:
   fromEmail: glen.meganck@gmail.com
   fromName: 'bethesda ministry'
@@ -24,6 +24,7 @@ meta:
     0cfb3f2f-91a0-46dc-8a1f-a3d99e594c4a: "Speaker Name\t" # Speaker Name	
     0ebc9e2c-5cfd-403a-8c3b-46a67551e3f4: 'Article Content' # Article Content
     1cc95ff0-b2d3-40f2-a4b0-0006fbe6a9d7: "Event Description\t" # Event Description	
+    2a86c99c-f2fa-4a9b-96f7-3e138938c1a5: 'Author Image' # Author Image
     2ccb4a24-9764-4f39-ade9-57dc2b7526db: "Sermon Audio File\t" # Sermon Audio File	
     3db45ca2-4cff-46f3-9796-4678f3533148: 'bethesda ministry' # bethesda ministry
     3e96336e-e803-42d5-999f-cb19aa129537: "Sermon Date\t" # Sermon Date	

@@ -9,4 +9,7 @@
  * https://craftcms.com/docs/4.x/routing.html
  */
 
-return [];
+ return [
+  'prayer-room' => ['template' => 'prayer-room'],
+];
+

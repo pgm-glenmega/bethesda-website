@@ -1,0 +1,142 @@
+{% extends "_layout.twig" %}
+
+{% block content %}
+    <link rel="stylesheet" href="/assets/css/styles.css">
+    
+    <div id="threejs-container"></div>
+    
+    <!-- Prayer Request Form (Hidden by Default) -->
+    <div id="prayer-form" class="form-container hidden">
+        <div class="form-box">
+            <h2 class="form-title">Submit a Prayer Request</h2>
+            <form method="POST" action="{{ url('actions/entries/save-entry') }}">
+                <input type="hidden" name="sectionId" value="YOUR_SECTION_ID_HERE">
+                <div class="form-group">
+                    <label for="requesterName">Name</label>
+                    <input type="text" name="fields[requesterName]" id="requesterName" class="form-input">
+                </div>
+                <div class="form-group">
+                    <label for="requesterEmail">E-mail</label>
+                    <input type="email" name="fields[requesterEmail]" id="requesterEmail" class="form-input">
+                </div>
+                <div class="form-group">
+                    <label for="prayerMessage">Prayer Request</label>
+                    <textarea name="fields[prayerMessage]" id="prayerMessage" class="form-textarea"></textarea>
+                </div>
+                <div class="form-actions">
+                    <button type="button" id="close-form" class="btn-cancel">Cancel</button>
+                    <button type="submit" class="btn-submit">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Load Three.js Library and GLTFLoader -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128/examples/js/loaders/GLTFLoader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128/examples/js/controls/OrbitControls.js"></script>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const container = document.getElementById("threejs-container");
+            const prayerForm = document.getElementById("prayer-form");
+            const closeForm = document.getElementById("close-form");
+            const scene = new THREE.Scene();
+            const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            const renderer = new THREE.WebGLRenderer({ antialias: true });
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            container.appendChild(renderer.domElement);
+
+            // Lighting
+            const directionalLight = new THREE.DirectionalLight(0xffffff, 2);
+            directionalLight.position.set(10, 15, 10);
+            scene.add(directionalLight);
+
+            const ambientLight = new THREE.AmbientLight(0xffffff, 1.2);
+            scene.add(ambientLight);
+
+            // Change Background to Light Gray
+            scene.background = new THREE.Color(0xf0f0f0);
+
+            // Orbit Controls
+            const controls = new THREE.OrbitControls(camera, renderer.domElement);
+            controls.enableDamping = true;
+
+            // Loaders
+            const loader = new THREE.GLTFLoader();
+
+            // Load Floor Tiles
+            for (let x = -5; x <= 5; x += 2) {
+                for (let z = -5; z <= 5; z += 2) {
+                    loader.load("/assets/models/floor_tile.glb", function (gltf) {
+                        const tile = gltf.scene;
+                        tile.scale.set(2, 2, 2);
+                        tile.position.set(x, -2.5, z);
+                        scene.add(tile);
+                    });
+                }
+            }
+
+            // Load Walls
+            loader.load("/assets/models/wall.glb", function (gltf) {
+                const wall = gltf.scene;
+                wall.scale.set(3.5, 3, 1);
+                wall.position.set(-7, -2.8, -7);
+                scene.add(wall);
+            });
+
+            loader.load("/assets/models/wall.glb", function (gltf) {
+                const wall = gltf.scene;
+                wall.scale.set(3.5, 3, 1);
+                wall.position.set(-7.2, -2.8, 7);
+                wall.rotation.y = Math.PI / 2;
+                scene.add(wall);
+            });
+
+            // Load Altar
+            loader.load("/assets/models/marble_altar.glb", function (gltf) {
+                const altar = gltf.scene;
+                altar.scale.set(1.5, 1.5, 1.5);
+                altar.position.set(0, -1.8, -3);
+                scene.add(altar);
+            });
+
+            // Load Chairs
+            function createChair(x, z) {
+                loader.load("/assets/models/chair.glb", function (gltf) {
+                    const chair = gltf.scene;
+                    chair.scale.set(0.3, 0.3, 0.3);
+                    chair.position.set(x, 0, 3);
+                    scene.add(chair);
+                });
+            }
+            for (let i = -3; i <= 3; i += 2) {
+                createChair(i, 1);
+                createChair(i, 2);
+            }
+
+            // Load Candle Holder and Make Clickable
+            loader.load("/assets/models/candle_holder.glb", function (gltf) {
+                const candleHolder = gltf.scene;
+                candleHolder.scale.set(0.003, 0.003, 0.003);
+                candleHolder.position.set(0, -0.9, -3);
+                scene.add(candleHolder);
+            });
+
+            function animate() {
+                requestAnimationFrame(animate);
+                controls.update();
+                renderer.render(scene, camera);
+            }
+
+            animate();
+            camera.position.set(0, 3, 12);
+
+            window.addEventListener("resize", function () {
+                renderer.setSize(window.innerWidth, window.innerHeight);
+                camera.aspect = window.innerWidth / window.innerHeight;
+                camera.updateProjectionMatrix();
+            });
+        });
+    </script>
+{% endblock %}

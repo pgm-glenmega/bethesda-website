@@ -25,8 +25,51 @@
         {% block content %}{% endblock %}
     </main>
 
-    <footer>
-        <p>&copy; 2024 Bethesda Ministry</p>
-    </footer>
+    <footer class="footer">
+    <div class="footer-container">
+        <div class="footer-logo">
+            <img src="/assets/images/bethesda-logo.avif" alt="Bethesda Ministry Logo">
+            <p class="footer-tagline">"Spreading Faith, Hope, and Worship."</p>
+        </div>
+
+        <div class="footer-info">
+            <h4>Contact Us</h4>
+            <p>Bethesda Ministry VZW</p>
+            <p>Kalfstraat 26, 9300 AALST</p>
+            <p>BE 0771.642.126</p>
+            <p>IBAN: BE69 3652 1469 3978</p>
+            <p>Email: <a href="mailto:contact.bethesdaministry@gmail.be">contact.bethesdaministry@gmail.be</a></p>
+            <p>Phone number: <a href="tel:+32491143048">+32 491 14 30 48</a></p>
+        </div>
+
+        <div class="footer-links">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="{{ siteUrl('about') }}">About</a></li>
+                <li><a href="{{ siteUrl('sermons') }}">Activities</a></li>
+                <li><a href="{{ siteUrl('articles') }}">Articles</a></li>
+                <li><a href="{{ siteUrl('contact') }}">Contact</a></li>
+                <li><a href="{{ siteUrl('prayer-room') }}">Prayer Room</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-socials">
+            <h4>Follow Us</h4>
+            <div class="social-icons">
+                <a href="#" target="_blank"><img src="/assets/icons/facebook.svg" alt="Facebook"></a>
+                <a href="#" target="_blank"><img src="/assets/icons/instagram.svg" alt="Instagram"></a>
+                <a href="#" target="_blank"><img src="/assets/icons/youtube.svg" alt="YouTube"></a>
+                <a href="#" target="_blank"><img src="/assets/icons/tiktok.svg" alt="TikTok"></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>&copy; 2024 Bethesda Ministry | All Rights Reserved</p>
+        <p>"Let your light shine before others, that they may see your good deeds and glorify your Father in heaven." – Matthew 5:16</p>
+    </div>
+</footer>
+
 </body>
 </html>

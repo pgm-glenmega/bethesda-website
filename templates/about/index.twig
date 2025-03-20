@@ -1,0 +1,140 @@
+{% extends '_layout.twig' %}
+
+{% block title %}About Us | Bethesda Ministry
+{% endblock %}
+
+{% block content %}
+  <div
+    class="container about-page">
+
+    {# Hero Section #}
+    <section class="hero hero--about">
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <h1>Who We Are</h1>
+        <p>Discover our history, our members, and the artists who inspire our mission.</p>
+      </div>
+    </section>
+
+    {# History Section - New Creative Design #}
+    <section class="about-history">
+      <div class="history-content">
+        <h2>Our Journey</h2>
+        <p>Bethesda Ministry began in 1998 with a small but passionate group of believers meeting in a humble gathering space. What started as a local worship initiative quickly grew into a thriving faith community, embracing people from all walks of life. Through prayer, music, and unwavering faith, we expanded beyond our initial vision.</p>
+        <p>Over the years, Bethesda Ministry became a beacon of hope, offering not only worship services but also community outreach, mentorship programs, and artistic faith expressions. Our focus has always been on creating a space where everyone feels welcome and spiritually empowered.</p>
+        <p>In the early 2000s, we launched our worship team, which traveled across the country sharing gospel music and spreading joy through song. With the rise of digital platforms, Bethesda Ministry embraced new ways to connect with believers globally, fostering a strong online presence that continues to grow.</p>
+        <p>Today, we stand as a modern faith-driven movement, combining tradition with innovation to touch lives worldwide. Whether through heartfelt sermons, uplifting gospel performances, or acts of service, our mission remains the same: to inspire, uplift, and bring people closer to God.</p>
+      </div>
+      <div class="history-image">
+        <img src="/assets/images/member-4.webp" alt="Bethesda Ministry History">
+      </div>
+    </section>
+
+    <section class="scripture-section">
+  <div class="scripture-container">
+    <div class="scripture-text" data-animation="moveUpTitle">
+      <h3 class="scripture-line">"The Lord is my strength and my shield"</h3>
+    </div>
+    <div class="scripture-text" data-animation="moveUpTitle">
+      <h3 class="scripture-line">"My heart trusts in Him, and He helps me."</h3>
+    </div>
+    <div class="scripture-text" data-animation="moveUpTitle">
+      <h3 class="scripture-line">"My heart leaps for joy, and with my song I praise Him."</h3>
+    </div>
+    <div class="scripture-text scripture-ref" data-animation="moveUpTitle">
+      <p>— Psalm 28:7</p>
+    </div>
+  </div>
+</section>
+
+
+
+    {# Members Section #}
+    <section class="about-section">
+      <h2>Our Members</h2>
+      <div class="about-grid">
+        <div class="about-card">
+          <img src="/assets/images/member-1.webp" alt="Pastor Daniel">
+          <div class="about-card-content">
+            <h3>Pastor Daniel Everhart</h3>
+            <p>Founder & Senior Pastor. Leading with faith and wisdom for over 25 years.</p>
+          </div>
+        </div>
+        <div class="about-card">
+          <img src="/assets/images/member-2.webp" alt="Sarah">
+          <div class="about-card-content">
+            <h3>Sarah Montgomery</h3>
+            <p>Worship Leader. Her voice and spirit bring people closer to God.</p>
+          </div>
+        </div>
+        <div class="about-card">
+          <img src="/assets/images/member-3.webp" alt="James">
+          <div class="about-card-content">
+            <h3>James Carter</h3>
+            <p>Community Outreach. Ensuring our mission reaches those in need.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {# Artists Section #}
+    <section class="about-section">
+      <h2>Our Artists</h2>
+      <div class="about-grid">
+        <div class="about-card">
+          <img src="/assets/images/artist-1.webp" alt="Jonathan">
+          <div class="about-card-content">
+            <h3>Jonathan Blake</h3>
+            <p>Gospel musician & songwriter. His music inspires worship worldwide.</p>
+          </div>
+        </div>
+        <div class="about-card">
+          <img src="/assets/images/artist-2.webp" alt="Olivia">
+          <div class="about-card-content">
+            <h3>Olivia Hastings</h3>
+            <p>Visual artist. Her murals bring biblical stories to life.</p>
+          </div>
+        </div>
+        <div class="about-card">
+          <img src="/assets/images/artist-3.webp" alt="David">
+          <div class="about-card-content">
+            <h3>David Solomon</h3>
+            <p>Spoken word poet. Blending scripture with modern storytelling.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  {# GSAP Animation Script #}
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Select all elements with moveUpTitle animation
+  const $fadeTitles = document.querySelectorAll("[data-animation='moveUpTitle']");
+
+  // Apply GSAP animation
+  $fadeTitles.forEach(e => {
+    gsap.from(e, {
+      y: 100, // Moves up
+      opacity: 0,
+      rotate: 2, // Slight rotation for effect
+      duration: 1.5,
+      ease: "power3.out",
+      scrollTrigger: {
+        trigger: e,
+        start: "top 80%", // Triggers animation when element is in viewport
+        toggleActions: "play none none reset",
+      }
+    });
+  });
+});
+
+  </script>
+
+{% endblock %}

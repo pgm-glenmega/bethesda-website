@@ -73,7 +73,7 @@
             <p>
               <strong>Category:</strong>
               {{ article.articleCategory.value ?? 'Uncategorized' }}</p>
-            <p>{{ article.articleContent|length > 150 ? article.articleContent|slice(0, 150) ~ '...' : article.articleContent }}</p>
+            <p>{{ article.articleContent|striptags|slice(0, 100) ~ '...' }}</p>
             <a href="{{ article.url }}" class="button">Read More</a>
           </div>
         </div>

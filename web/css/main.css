@@ -71,6 +71,97 @@ nav ul li .nav-item:hover {
 }
 
 /* =======================
+   Footer Styling
+======================= */
+.footer {
+  background: #191919;
+  color: #ffffff;
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: start;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 30px;
+}
+
+.footer-logo img {
+  width: 120px;
+  filter: brightness(0) invert(1);
+}
+
+.footer-tagline {
+  font-style: italic;
+  margin-top: 10px;
+  color: #ccc;
+}
+
+.footer-info,
+.footer-links,
+.footer-socials {
+  flex: 1;
+  min-width: 250px;
+}
+
+.footer h4 {
+  font-size: 18px;
+  margin-bottom: 15px;
+  color: #ffffff;
+}
+
+.footer p,
+.footer a {
+  font-size: 14px;
+  color: #ddd;
+  line-height: 1.6;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  color: #7b61ff;
+  text-decoration: underline;
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links ul li {
+  margin-bottom: 8px;
+}
+
+.footer-socials .social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.footer-socials .social-icons img {
+  width: 25px;
+  filter: brightness(0) invert(1);
+  transition: transform 0.3s ease;
+}
+
+.footer-socials .social-icons img:hover {
+  transform: scale(1.1);
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  padding-top: 15px;
+  margin-top: 30px;
+  font-size: 14px;
+  color: #bbb;
+}
+
+/* =======================
    Homepage Styling
 ======================= */
 .hero {
@@ -221,6 +312,93 @@ nav ul li .nav-item:hover {
 }
 
 /* =======================
+   Upcoming Event Section
+======================= */
+
+.upcoming-event {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px 20px;
+}
+
+.event-card {
+  display: flex;
+  align-items: center;
+  max-width: 900px;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.event-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* Event Image */
+.event-image {
+  width: 40%;
+  min-height: 280px;
+  background-size: cover;
+  background-position: center;
+}
+
+/* Event Content */
+.event-content {
+  width: 60%;
+  padding: 30px;
+  text-align: left;
+}
+
+.event-content h2 {
+  font-size: 26px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.event-content p {
+  font-size: 16px;
+  color: #555;
+  line-height: 1.5;
+  margin-bottom: 15px;
+}
+
+.event-link {
+  display: inline-block;
+  font-size: 16px;
+  font-weight: bold;
+  color: #7b61ff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.event-link:hover {
+  color: #5b49c5;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .event-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .event-image {
+    width: 100%;
+    height: 200px;
+  }
+
+  .event-content {
+    width: 100%;
+    padding: 20px;
+  }
+}
+
+/* =======================
    Search Bar
 ======================= */
 .search-section {
@@ -309,6 +487,7 @@ nav ul li .nav-item:hover {
 .entries-section {
   display: flex;
   justify-content: center;
+  margin-bottom: 5rem;
 }
 
 .sermon-event-grid {
@@ -397,7 +576,6 @@ nav ul li .nav-item:hover {
 /* =======================
    Articles Page Styling
 ======================= */
-
 
 .hero-content {
   position: relative;
@@ -675,6 +853,189 @@ nav ul li .nav-item:hover {
 }
 
 /* =======================
+   Article Detail Page
+======================= */
+
+/* Hero Section */
+.article-hero {
+  width: 100vw; /* Ensures the section spans the full width of the viewport */
+  height: 100vh; /* Ensures the section takes up the full screen height */
+  background-size: cover; /* Makes the image cover the entire background dynamically */
+  background-position: center center; /* Centers the image */
+  background-repeat: no-repeat; /* Prevents tiling */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.article-hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.article-hero-content {
+  position: relative;
+  text-align: center;
+  color: white;
+  z-index: 2;
+}
+
+.article-meta {
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+/* Article Content */
+.article-container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  background: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+.article-content {
+  font-size: 18px;
+  line-height: 1.8;
+  color: #333;
+}
+
+/* =======================
+   Article Author Section
+======================= */
+.article-author {
+  display: flex;
+  justify-content: center;
+  margin-top: 3rem;
+}
+
+.author-card {
+  display: flex;
+  align-items: center;
+  background: white;
+  padding: 15px 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  width: 100%;
+}
+
+.author-image {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 15px;
+}
+
+.author-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.author-info h3 {
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.author-bio {
+  font-size: 14px;
+  color: #666;
+}
+
+/* Related Articles */
+.related-articles {
+  padding: 30px 0;
+}
+
+.related-articles h3 {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.related-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  justify-content: center;
+}
+
+.related-card {
+  background: white;
+  padding: 10px;
+  text-align: center;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.related-card:hover {
+  transform: translateY(-5px);
+}
+
+.related-card img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.related-card h4 {
+  font-size: 16px;
+  margin-top: 10px;
+  color: #333;
+}
+
+/* Back Link */
+.back-container {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.back-link {
+  font-size: 16px;
+  color: #7b61ff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.back-link:hover {
+  color: #5b49c5;
+}
+
+.article-hero-image {
+  background-size: contain; /* Ensures the whole image is visible */
+  background-position: center; /* Centers the image */
+  background-repeat: no-repeat; /* Prevents repeating */
+  width: 100%; /* Optional: Adjust based on your layout */
+  height: 100vh; /* Optional: Adjust for desired height */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .article-container {
+    width: 95%;
+    padding: 15px;
+  }
+
+  .article-hero {
+    height: 300px;
+  }
+
+  .related-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =======================
    Contact Page Styling
 ======================= */
 
@@ -685,7 +1046,7 @@ nav ul li .nav-item:hover {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: url('/assets/images/contact-image.jpg') center/cover no-repeat;
+  background: url("/assets/images/contact-image.jpg") center/cover no-repeat;
 }
 
 .hero--contact::before {
@@ -789,12 +1150,12 @@ nav ul li .nav-item:hover {
 }
 
 .form-response .success {
-  color: #4CAF50;
+  color: #4caf50;
   font-weight: bold;
 }
 
 .form-response .error {
-  color: #FF4C4C;
+  color: #ff4c4c;
   font-weight: bold;
 }
 
@@ -856,4 +1217,272 @@ nav ul li .nav-item:hover {
   .contact-form textarea {
     width: 95%;
   }
+}
+
+.about-history,
+.about-section {
+  padding: 60px 20px;
+}
+
+.about-page h2 {
+  color: #222;
+  margin: 4rem 0;
+}
+
+/* ==========================
+   SCRIPTURE SECTION STYLES
+========================== */
+.scripture-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 60px 20px;
+  background: #f8f8f8;
+}
+
+.scripture-container {
+  max-width: 800px;
+}
+
+.scripture-line {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.scripture-ref {
+  font-size: 20px;
+  color: #7b61ff;
+  font-style: italic;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .scripture-line {
+    font-size: 18px;
+  }
+
+  .scripture-ref {
+    font-size: 16px;
+  }
+}
+
+/* ========== HISTORY SECTION STYLING ========== */
+
+.about-history {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  padding: 60px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.history-content {
+  flex: 1;
+  text-align: left;
+}
+
+.history-content h2 {
+  font-size: 28px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.history-content p {
+  font-size: 16px;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.history-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.history-image img {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .about-history {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .history-image img {
+    max-width: 90%;
+  }
+}
+
+/* About Grid for Members & Artists */
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(250px, 1fr)
+  ); /* Ensure even spacing */
+  gap: 20px;
+  justify-content: center;
+}
+
+/* About Cards - Ensure same size */
+.about-card {
+  position: relative;
+  width: 100%;
+  height: 350px; /* Set fixed height */
+  overflow: hidden;
+  border-radius: 10px;
+  background: white;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.about-card.large {
+  height: 400px; /* Slightly larger variant */
+}
+
+.about-card.small {
+  height: 300px; /* Slightly smaller variant */
+}
+
+/* Image Container */
+.about-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+/* Image Hover Effect */
+.about-card:hover img {
+  transform: scale(1.1);
+}
+
+/* Overlay Effect */
+.about-card-content {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 15px;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  text-align: center;
+  transition: opacity 0.3s ease;
+}
+
+.about-card:hover .about-card-content {
+  opacity: 1;
+}
+
+/* Title inside the card */
+.about-card-content h3 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+/* Description inside the card */
+.about-card-content p {
+  font-size: 14px;
+  margin: 0;
+}
+
+/* General styling for the prayer form */
+.form-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.form-container.show {
+  visibility: visible;
+  opacity: 1;
+}
+
+.form-box {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 400px;
+}
+
+.form-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.form-group {
+  margin-bottom: 10px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.form-input, .form-textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.form-textarea {
+  height: 100px;
+  resize: vertical;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn-cancel, .btn-submit {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-cancel {
+  background: #888;
+  color: white;
+  margin-right: 10px;
+}
+
+.btn-submit {
+  background: #007bff;
+  color: white;
+}
+
+.btn-cancel:hover {
+  background: #666;
+}
+
+.btn-submit:hover {
+  background: #0056b3;
 }

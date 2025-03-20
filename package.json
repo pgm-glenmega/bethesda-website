@@ -1,5 +1,8 @@
 {
+  "name": "bethesda",
+  "version": "1.0.0",
+  "type": "module",
   "dependencies": {
-    "three": "^0.173.0"
+    "gsap": "^3.12.7"
   }
 }

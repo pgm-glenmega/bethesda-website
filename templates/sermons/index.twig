@@ -12,26 +12,37 @@
     {% set nextUpcoming = sortedUpcoming|first %}
     {% set image = nextUpcoming.sermonImage.one() ?? nextUpcoming.eventImage.one() %}
 
+    {# Hero Section for Activities #}
+    <section class="hero" style="background: url('/assets/images/hero-img.jpg') center/cover no-repeat;">
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <h1>Engage, Worship, and Grow</h1>
+        <p>Discover upcoming events, powerful sermons, and meaningful ways to connect with our community.</p>
+      </div>
+    </section>
 
+    {# Upcoming Event/Sermon Section #}
     {% if nextUpcoming %}
-      <section class="hero" style="background-image: url('{{ image ? image.url : '/assets/default-placeholder.jpg' }}'); background-size: cover; background-position: center;">
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-          <h1>Upcoming:
-            {{ nextUpcoming.title }}</h1>
-          <p>
-            {% if nextUpcoming.section.handle == 'events' %}
-              {{ nextUpcoming.eventDescription }}
-            {% else %}
-              {{ nextUpcoming.sermonDescription }}
-            {% endif %}
-          </p>
-          <p>
-            <strong>Date:</strong>
-            {{ (nextUpcoming.eventDate ?? nextUpcoming.sermonDate)|date('F j, Y') }}</p>
-          <a href="{{ nextUpcoming.url }}" class="button primary">View Details →</a>
+      <section class="upcoming-event">
+        <div class="event-card">
+          <div class="event-image" style="background-image: url('{{ image ? image.url : '/assets/default-placeholder.jpg' }}');"></div>
+          <div class="event-content">
+            <h2>{{ nextUpcoming.title }}</h2>
+            <p>
+              {% if nextUpcoming.section.handle == 'events' %}
+                {{ nextUpcoming.eventDescription }}
+              {% else %}
+                {{ nextUpcoming.sermonDescription }}
+              {% endif %}
+            </p>
+            <p>
+              <strong>Date:</strong>
+              {{ (nextUpcoming.eventDate ?? nextUpcoming.sermonDate)|date('F j, Y') }}</p>
+            <a href="{{ nextUpcoming.url }}" class="event-link">View Event →</a>
+          </div>
         </div>
       </section>
+
     {% endif %}
 
     {# Search Bar #}

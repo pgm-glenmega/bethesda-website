@@ -1,25 +1,70 @@
 {% extends '_layout.twig' %}
 
-{% block title %}{{ entry.title }} | Bethesda Ministry{% endblock %}
+{% block title %}
+  {{ entry.title }}
+  | Bethesda Ministry
+{% endblock %}
 
 {% block content %}
-    <article>
-        <h1>{{ entry.title }}</h1>
-        <p><strong>Category:</strong> {{ entry.articleCategory }}</p>
-        <p><strong>Published on:</strong> {{ entry.postDate|date('F j, Y') }}</p>
-            
-            {% if entry.articleImage.one() %}
-    <img src="{{ entry.articleImage.one().url }}" alt="{{ entry.title }}">
-{% else %}
-    <p>No image available</p>
-{% endif %}
+  {# Hero Section #}
+  <section class="article-hero" style="background-image: url('{{ entry.articleImage.one() ? entry.articleImage.one().url : " /assets/default-placeholder.jpg" }}');">
+    <div class="article-hero-overlay"></div>
+    <div class="article-hero-content">
+      <h1>{{ entry.title }}</h1>
+      <p class="article-meta">
+        <strong>Category:</strong>
+        {{ entry.articleCategory }}
+        |
+        <strong>Published on:</strong>
+        {{ entry.postDate|date('F j, Y') }}
+      </p>
+    </div>
+  </section>
 
-        
 
-        <div class="article-content">
-            {{ entry.articleContent|raw }}
+  {# Article Content Section #}
+  <article class="article-container">
+    <div class="article-content">
+      {{ entry.articleContent|raw }}
+    </div>
+  </article>
+
+  {# Author and Related Articles Section #}
+  <section
+    class="article-footer">
+    {# Author Section #}
+    <section class="article-author">
+      <div class="author-card">
+        <div class="author-image">
+          {% if entry.authorImage.one() %}
+            <img src="{{ entry.authorImage.one().url }}" alt="{{ entry.authorName }}">
+          {% else %}
+            <img src="/assets/hero-img.jpg" alt="Default Author">
+          {% endif %}
         </div>
+        <div class="author-info">
+          <h3>Written by:{{ entry.authorName }}</h3>
+        </div>
+      </div>
+    </section>
 
-        <p><a href="{{ siteUrl('articles') }}">← Back to Articles</a></p>
-    </article>
+
+    <div class="related-articles">
+      <h3>More Articles</h3>
+      <div class="related-grid">
+        {% for relatedArticle in craft.entries().section('articles').limit(3).all() %}
+          <div class="related-card">
+            <a href="{{ relatedArticle.url }}">
+              <img src="{{ relatedArticle.articleImage.one().url ?? '/assets/default-placeholder.jpg' }}" alt="{{ relatedArticle.title }}">
+              <h4>{{ relatedArticle.title }}</h4>
+            </a>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <div class="back-container">
+    <a href="{{ siteUrl('articles') }}" class="back-link">← Back to Articles</a>
+  </div>
 {% endblock %}

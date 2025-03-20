@@ -68,6 +68,22 @@ fieldLayouts:
             warning: null
             width: 100
           -
+            dateAdded: '2025-03-19T13:35:06+00:00'
+            elementCondition: null
+            fieldUid: 2a86c99c-f2fa-4a9b-96f7-3e138938c1a5 # Author Image
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: fa00ed0e-9b6d-46f1-85f3-0593e875728f
+            userCondition: null
+            warning: null
+            width: 100
+          -
             dateAdded: '2025-02-18T20:28:03+00:00'
             elementCondition: null
             fieldUid: ca6b1da7-ed2f-499f-b2e2-71da635f434e # Article Category	
