@@ -1,8 +1,18 @@
 {% extends "_layout.twig" %}
 
 {% block content %}
-  <div
-    class="container">
+  {% set searchQuery = craft.app.request.getParam('q') %}
+  {% set typeFilter = craft.app.request.getParam('type') %}
+  {% set statusFilter = craft.app.request.getParam('status') %}
+
+  {% set entriesQuery = craft.entries()
+    .section(typeFilter in ['sermons', 'events'] ? typeFilter : ['sermons', 'events']) %}
+
+  {% if searchQuery %}
+    {% set entriesQuery = entriesQuery.search(searchQuery) %}
+  {% endif %}
+
+  <div class="container">
 
     {# Hero Section with Upcoming Event/Sermon #}
     {% set upcomingEvents = craft.entries().section('events').eventDate('>= ' ~ now|atom).all() %}
@@ -42,13 +52,12 @@
           </div>
         </div>
       </section>
-
     {% endif %}
 
     {# Search Bar #}
     <section class="search-section">
       <form method="get" class="search-form">
-        <input type="text" name="q" placeholder="Search sermons or events..." value="{{ craft.app.request.getParam('q') }}">
+        <input type="text" name="q" placeholder="Search for events or sermons" value="{{ searchQuery }}">
         <button type="submit" class="button">Search</button>
       </form>
     </section>
@@ -71,7 +80,7 @@
     {# Container for Filtered Entries #}
     <section class="entries-section">
       <div id="entries-container" class="sermon-event-grid">
-        {% for entry in craft.entries().section(['sermons', 'events']).all() %}
+        {% for entry in entriesQuery.all() %}
           <div class="sermon-event-card" data-type="{{ entry.section.handle }}" data-status="{{ (entry.eventDate ?? entry.sermonDate) >= now ? 'upcoming' : 'past' }}">
             {% set image = entry.sermonImage.one() ?? entry.eventImage.one() ?? null %}
             <img src="{{ image ? image.url : '/assets/default-placeholder.jpg' }}" alt="{{ entry.title }}">
@@ -124,11 +133,12 @@
             } else {
               activeFilters.status.push(filterType);
             }
-          } filterEntries();
+          }
+          filterEntries();
         });
       });
 
-      filterEntries(); // Initial filtering to show all
+      filterEntries();
     });
   </script>
 {% endblock %}

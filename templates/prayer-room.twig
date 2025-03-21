@@ -1,8 +1,6 @@
 {% extends "_layout.twig" %}
 
 {% block content %}
-    <link rel="stylesheet" href="/assets/css/styles.css">
-    
     <div id="threejs-container"></div>
     
     <!-- Prayer Request Form (Hidden by Default) -->
@@ -10,7 +8,7 @@
         <div class="form-box">
             <h2 class="form-title">Submit a Prayer Request</h2>
             <form method="POST" action="{{ url('actions/entries/save-entry') }}">
-                <input type="hidden" name="sectionId" value="YOUR_SECTION_ID_HERE">
+                <input type="hidden" name="sectionId" value="4">
                 <div class="form-group">
                     <label for="requesterName">Name</label>
                     <input type="text" name="fields[requesterName]" id="requesterName" class="form-input">
@@ -65,35 +63,31 @@
             // Loaders
             const loader = new THREE.GLTFLoader();
 
-            // Load Floor Tiles
-            for (let x = -5; x <= 5; x += 2) {
-                for (let z = -5; z <= 5; z += 2) {
-                    loader.load("/assets/models/floor_tile.glb", function (gltf) {
-                        const tile = gltf.scene;
-                        tile.scale.set(2, 2, 2);
-                        tile.position.set(x, -2.5, z);
-                        scene.add(tile);
-                    });
-                }
-            }
+             // Load Floor (Single Large Tile)
+             loader.load("/assets/models/floor_tile.glb", function (gltf) {
+                const floor = gltf.scene;
+                floor.scale.set(6.95, 1, 6.75); // Adjusted scale to cover the entire surface
+                floor.position.set(0, -2.5, 0);
+                scene.add(floor);
+            });
 
             // Load Walls
             loader.load("/assets/models/wall.glb", function (gltf) {
                 const wall = gltf.scene;
                 wall.scale.set(3.5, 3, 1);
-                wall.position.set(-7, -2.8, -7);
+                wall.position.set(-7, -2.5, -7);
                 scene.add(wall);
             });
 
             loader.load("/assets/models/wall.glb", function (gltf) {
                 const wall = gltf.scene;
-                wall.scale.set(3.5, 3, 1);
-                wall.position.set(-7.2, -2.8, 7);
+                wall.scale.set(3.39, 3, 1);
+                wall.position.set(-7.2, -2.5, 6.6);
                 wall.rotation.y = Math.PI / 2;
                 scene.add(wall);
             });
 
-            // Load Altar
+            // Load Alta37
             loader.load("/assets/models/marble_altar.glb", function (gltf) {
                 const altar = gltf.scene;
                 altar.scale.set(1.5, 1.5, 1.5);
@@ -119,7 +113,7 @@
             loader.load("/assets/models/candle_holder.glb", function (gltf) {
                 const candleHolder = gltf.scene;
                 candleHolder.scale.set(0.003, 0.003, 0.003);
-                candleHolder.position.set(0, -0.9, -3);
+                candleHolder.position.set(0, -1.2, -3);
                 scene.add(candleHolder);
             });
 
