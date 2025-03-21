@@ -1,37 +1,74 @@
 {% extends '_layout.twig' %}
 
-{% block title %}
-  {{ entry.title }}
-  | Bethesda Ministry
-{% endblock %}
+{% block title %}{{ entry.title }} | Bethesda Ministry{% endblock %}
 
 {% block content %}
-  <h1>{{ entry.title }}</h1>
-  <p>
-    <strong>Date:</strong>
-    {{ entry.eventDate|date('F j, Y') }}</p>
-  <p>{{ entry.eventDescription|raw }}</p>
+  <div class="container event-detail">
 
-  <h2>Sign Up for This Event</h2>
-  {% if craft.app.session.getFlash('successMessage') %}
-    <p style="color: green;">{{ craft.app.session.getFlash('successMessage') }}</p>
-  {% endif %}
-  {% if craft.app.session.getFlash('errorMessage') %}
-    <p style="color: red;">{{ craft.app.session.getFlash('errorMessage') }}</p>
-  {% endif %}
+    {# Event Hero Section #}
+    {% set eventHeroImage = entry.eventImage.one() %}
+    <section class="hero" style="background: url('{{ eventHeroImage ? eventHeroImage.url : '/assets/images/hero-img.jpg' }}') center/cover no-repeat;">
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <h1>{{ entry.title }}</h1>
+        <p class="event-meta"><strong>Date:</strong> {{ entry.eventDate|date('F j, Y') }}</p>
+      </div>
+    </section>
 
-  <form method="post" action="">
-    {{ csrfInput() }}
-    <input type="hidden" name="action" value="entries/save-entry">
-    <input type="hidden" name="sectionId" value="10">
-    <input type="hidden" name="fields[relatedEvent][]" value="{{ entry.id }}">
+    {# Event Content Section #}
+    <section class="event-content">
+      <div class="event-info">
+        <h2>About This Event</h2>
+        <p>{{ entry.eventDescription|raw }}</p>
+      </div>
+    </section>
 
-    <label for="name">Your Name:</label>
-    <input type="text" id="name" name="fields[attendeeName]" required>
+    {# Signup Section #}
+    <section class="event-signup">
+      <h2>Sign Up for This Event</h2>
+      <p>Be part of this impactful experience by signing up below.</p>
 
-    <label for="email">Your Email:</label>
-    <input type="email" id="email" name="fields[attendeeEmail]" required>
+      {% if craft.app.session.getFlash('successMessage') %}
+        <p class="success-message">{{ craft.app.session.getFlash('successMessage') }}</p>
+      {% endif %}
+      {% if craft.app.session.getFlash('errorMessage') %}
+        <p class="error-message">{{ craft.app.session.getFlash('errorMessage') }}</p>
+      {% endif %}
 
-    <button type="submit">Sign Up</button>
-  </form>
+      <form method="post" action="">
+        {{ csrfInput() }}
+        <input type="hidden" name="action" value="entries/save-entry">
+        <input type="hidden" name="sectionId" value="10">
+        <input type="hidden" name="fields[relatedEvent]" value="{{ entry.id }}">
+
+        <div class="form-group">
+          <label for="name">Your Name:</label>
+          <input type="text" id="name" name="fields[attendeeName]" required>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Your Email:</label>
+          <input type="email" id="email" name="fields[attendeeEmail]" required>
+        </div>
+
+        <button type="submit" class="button event-button-detail primary">Sign Up</button>
+      </form>
+    </section>
+
+    {# Related Events Section #}
+    <section class="related-events">
+      <h2>More Events</h2>
+      <div class="event-cards-detail">
+        {% for related in craft.entries().section('events').limit(3).all() %}
+          <div class="event-card-detail">
+            <img src="{{ related.eventImage.one().url }}" alt="{{ related.title }}">
+            <h3><a href="{{ related.url }}">{{ related.title }}</a></h3>
+            <p><strong>Date:</strong> {{ related.eventDate|date('F j, Y') }}</p>
+            <p>{{ related.eventDescription|slice(0, 100) ~ '...' }}</p>
+              <a href="{{ related.url }}" class="event-card-link">View activity →</a>
+          </div>
+        {% endfor %}
+      </div>
+    </section>
+  </div>
 {% endblock %}

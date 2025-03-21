@@ -6,9 +6,10 @@
   <div class="container sermon-detail">
 
     {# Sermon Hero Section #}
-    <section class="sermon-hero" style="background: url('/assets/images/sermon-hero.jpg') center/cover no-repeat;">
+    {% set sermonHeroImage = entry.sermonImage.one() %}
+    <section class="hero" style="background: url('{{ sermonHeroImage ? sermonHeroImage.url : '/assets/images/hero-img.jpg' }}') center/cover no-repeat;">
       <div class="hero-overlay"></div>
-      <div class="sermon-hero-content">
+      <div class="hero-content">
         <h1>{{ entry.title }}</h1>
         <p class="sermon-meta"><strong>Date:</strong> {{ entry.sermonDate|date('F j, Y') }} | <strong>Speaker:</strong> {{ entry.speakerName }}</p>
       </div>
@@ -21,7 +22,8 @@
         <p>{{ entry.sermonDescription }}</p>
 
         <div class="sermon-speaker">
-          <img src="/assets/images/speaker.jpg" alt="Speaker {{ entry.speakerName }}">
+          {% set speakerImage = entry.speakerImage.one() %}
+          <img src="{{ speakerImage ? speakerImage.url : '/assets/images/speaker.jpg' }}" alt="Speaker {{ entry.speakerName }}">
           <div>
             <h3>{{ entry.speakerName }}</h3>
             <p>Bringing powerful messages of faith and transformation.</p>
@@ -31,13 +33,17 @@
 
       {# Media Section #}
       <div class="sermon-media">
-        {% if entry.sermonVideoUrl is not empty %}
-          {% set videoUrl = entry.sermonVideoUrl is iterable ? entry.sermonVideoUrl|first : entry.sermonVideoUrl %}
-          {% set youtubeId = videoUrl|replace({'https://www.youtube.com/watch?v=': '', 'https://youtu.be/': ''})|split('&')|first %}
-          <div class="sermon-video">
-            <iframe width="100%" height="400" src="https://www.youtube.com/embed/{{ youtubeId|trim }}" frameborder="0" allowfullscreen></iframe>
-          </div>
-        {% endif %}
+      {% if entry.sermonVideoUrl is not empty %}
+      {% set videoUrl = entry.sermonVideoUrl is iterable ? entry.sermonVideoUrl|first : entry.sermonVideoUrl %}
+      {% set youtubeId = videoUrl|replace({
+        'https://www.youtube.com/watch?v=': '',
+        'https://youtu.be/': '',
+        'https://www.youtube.com/live/': ''
+      })|split('?')|first %}
+      <div class="sermon-video">
+        <iframe width="100%" height="400" src="https://www.youtube.com/embed/{{ youtubeId|trim }}" frameborder="0" allowfullscreen></iframe>
+      </div>
+    {% endif %}
 
         {% if entry.sermonAudioFile|length %}
           <div class="sermon-audio">
@@ -89,8 +95,12 @@
       <div class="sermon-cards">
         {% for related in craft.entries().section('sermons').limit(3).all() %}
           <div class="sermon-card">
+            <img src="{{ related.sermonImage.one().url }}" alt="{{ related.title }}">
             <h3><a href="{{ related.url }}">{{ related.title }}</a></h3>
             <p><strong>Speaker:</strong> {{ related.speakerName }}</p>
+            <p><strong>Date:</strong> {{ related.sermonDate|date('F j, Y') }}</p>
+            <p>{{ related.sermonDescription|slice(0, 100) ~ '...' }}</p>
+            <a href="{{ related.url }}" class="sermon-card-link">View activity →</a>
           </div>
         {% endfor %}
       </div>

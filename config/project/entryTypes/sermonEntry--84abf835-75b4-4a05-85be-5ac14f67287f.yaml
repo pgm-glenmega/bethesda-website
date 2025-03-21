@@ -68,6 +68,22 @@ fieldLayouts:
             warning: null
             width: 100
           -
+            dateAdded: '2025-03-21T10:17:11+00:00'
+            elementCondition: null
+            fieldUid: 7b34c506-0bc6-42fd-9711-564a0d3849ab # Speaker image
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: bdfa2c84-de3d-4c72-9747-31e60991a700
+            userCondition: null
+            warning: null
+            width: 100
+          -
             dateAdded: '2025-02-18T19:45:16+00:00'
             elementCondition: null
             fieldUid: 0cfb3f2f-91a0-46dc-8a1f-a3d99e594c4a # Speaker Name	

@@ -1,4 +1,4 @@
-dateModified: 1742391306
+dateModified: 1742555728
 email:
   fromEmail: glen.meganck@gmail.com
   fromName: 'bethesda ministry'
@@ -32,11 +32,11 @@ meta:
     5ca4f7f8-ed12-47aa-b95b-20fd034b5745: 'Related Event' # Related Event
     5d11abcf-1a6b-4dd3-a199-2a26d925f2d3: E-mail # E-mail
     5d90374c-5418-468d-a35e-c6d4f49efc6e: 'Event Sign-ups' # Event Sign-ups
+    7b34c506-0bc6-42fd-9711-564a0d3849ab: 'Speaker image' # Speaker image
     7da2311d-0305-4310-a265-18436572e8bb: "Sermon Video URL\t" # Sermon Video URL	
     8c0ac8cd-6806-41da-bb6c-e899c2c5f331: 'Event Image' # Event Image
     8f9a6657-d317-4437-901b-c6b288884f78: 'Sermon Image' # Sermon Image
     9cdee50b-57cc-4c34-824d-3b090381e3ba: 'Attendee Email' # Attendee Email
-    22d61cb9-a560-45e5-9277-7e114f25c833: 'Event Attendance' # Event Attendance
     30ad0bb3-ce3c-4c42-ae63-dbb1b4b3a0f8: "Event Date\t" # Event Date	
     55fd2f0f-9d2e-483b-ab16-6194ba07e07e: 'Article entry' # Article entry
     66fe051e-37cc-4947-9784-d0a741883d91: 'Related Sermon' # Related Sermon

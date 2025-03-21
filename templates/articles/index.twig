@@ -67,13 +67,11 @@
             <img src="{{ image.url }}" alt="{{ article.title }}">
           {% endif %}
           <div class="article-content">
-            <h3>
-              <a href="{{ article.url }}">{{ article.title }}</a>
-            </h3>
+          <h3> {{ article.title }}</h3>
             <p>
               <strong>Category:</strong>
               {{ article.articleCategory.value ?? 'Uncategorized' }}</p>
-            <p>{{ article.articleContent|striptags|slice(0, 100) ~ '...' }}</p>
+            <p>{{ article.articleContent|striptags|slice(0, 90) ~ '...' }}</p>
             <a href="{{ article.url }}" class="button">Read More</a>
           </div>
         </div>

@@ -102,7 +102,7 @@ fieldLayouts:
           -
             dateAdded: '2025-02-18T20:11:14+00:00'
             elementCondition: null
-            fieldUid: 22d61cb9-a560-45e5-9277-7e114f25c833 # Event Attendance
+            fieldUid: 22d61cb9-a560-45e5-9277-7e114f25c833
             handle: null
             includeInCards: false
             instructions: null

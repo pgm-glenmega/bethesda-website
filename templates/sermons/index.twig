@@ -12,7 +12,8 @@
     {% set entriesQuery = entriesQuery.search(searchQuery) %}
   {% endif %}
 
-  <div class="container">
+  <div
+    class="container">
 
     {# Hero Section with Upcoming Event/Sermon #}
     {% set upcomingEvents = craft.entries().section('events').eventDate('>= ' ~ now|atom).all() %}
@@ -84,10 +85,25 @@
           <div class="sermon-event-card" data-type="{{ entry.section.handle }}" data-status="{{ (entry.eventDate ?? entry.sermonDate) >= now ? 'upcoming' : 'past' }}">
             {% set image = entry.sermonImage.one() ?? entry.eventImage.one() ?? null %}
             <img src="{{ image ? image.url : '/assets/default-placeholder.jpg' }}" alt="{{ entry.title }}">
-            <h3>{{ entry.title }}</h3>
+
+            <h3>{{ entry.title|slice(0, 21) }}
+              {% if entry.title|length > 21 %}...
+              {% endif %}
+            </h3>
+
             <p>
               <strong>Date:</strong>
-              {{ (entry.eventDate ?? entry.sermonDate)|date('F j, Y') }}</p>
+              {{ (entry.eventDate ?? entry.sermonDate)|date('F j, Y') }}
+            </p>
+
+            {% if entry.section.handle == 'events' %}
+              <p>{{ entry.eventDescription|slice(0, 70) ~ '...' }}</p>
+            {% endif %}
+
+            {% if entry.section.handle == 'sermons' %}
+              <p>{{ entry.sermonDescription|slice(0, 70) ~ '...' }}</p>
+            {% endif %}
+
             <a href="{{ entry.url }}" class="button">View Details</a>
           </div>
         {% else %}
@@ -95,6 +111,7 @@
         {% endfor %}
       </div>
     </section>
+
   </div>
 
   <script>
@@ -133,8 +150,7 @@
             } else {
               activeFilters.status.push(filterType);
             }
-          }
-          filterEntries();
+          } filterEntries();
         });
       });
 
