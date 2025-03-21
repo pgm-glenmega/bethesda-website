@@ -1,136 +1,256 @@
 {% extends "_layout.twig" %}
 
 {% block content %}
-    <div id="threejs-container"></div>
-    
-    <!-- Prayer Request Form (Hidden by Default) -->
-    <div id="prayer-form" class="form-container hidden">
-        <div class="form-box">
-            <h2 class="form-title">Submit a Prayer Request</h2>
-            <form method="POST" action="{{ url('actions/entries/save-entry') }}">
-                <input type="hidden" name="sectionId" value="4">
-                <div class="form-group">
-                    <label for="requesterName">Name</label>
-                    <input type="text" name="fields[requesterName]" id="requesterName" class="form-input">
-                </div>
-                <div class="form-group">
-                    <label for="requesterEmail">E-mail</label>
-                    <input type="email" name="fields[requesterEmail]" id="requesterEmail" class="form-input">
-                </div>
-                <div class="form-group">
-                    <label for="prayerMessage">Prayer Request</label>
-                    <textarea name="fields[prayerMessage]" id="prayerMessage" class="form-textarea"></textarea>
-                </div>
-                <div class="form-actions">
-                    <button type="button" id="close-form" class="btn-cancel">Cancel</button>
-                    <button type="submit" class="btn-submit">Submit</button>
-                </div>
-            </form>
+  <div id="threejs-container"></div>
+
+  <!-- Prayer Request Form (Hidden by Default) -->
+  <div id="prayer-form" class="form-container hidden">
+    <div class="form-box">
+      <h2 class="form-title">Submit a Prayer Request</h2>
+      <p>Share your prayer request, and our community will pray for you.</p>
+
+
+      {# Display success and error messages #}
+      {% if craft.app.session.getFlash('successMessage') %}
+        <p class="success-message">{{ craft.app.session.getFlash('successMessage') }}</p>
+      {% endif %}
+      {% if craft.app.session.getFlash('errorMessage') %}
+        <p class="error-message">{{ craft.app.session.getFlash('errorMessage') }}</p>
+      {% endif %}
+
+      {# Prayer Request Form #}
+      <form method="POST" action="">
+        {{ csrfInput() }}
+        {# CSRF token for security #}
+        <input type="hidden" name="action" value="entries/save-entry">
+        <input type="hidden" name="sectionId" value="4">
+        {# Ensure this matches the Prayer Request section ID in CraftCMS #}
+        <div class="form-group">
+          <label for="requesterName">Name</label>
+          <input type="text" name="fields[requesterName]" id="requesterName" class="form-input">
         </div>
+        <div class="form-group">
+          <label for="requesterEmail">E-mail</label>
+          <input type="email" name="fields[requesterEmail]" id="requesterEmail" class="form-input">
+        </div>
+        <div class="form-group">
+          <label for="prayerMessage">Prayer Request</label>
+          <textarea name="fields[prayerMessage]" id="prayerMessage" class="form-textarea"></textarea>
+        </div>
+        <div class="form-actions">
+          <button type="button" id="close-form" class="btn-cancel">Cancel</button>
+          <button type="submit" class="btn-submit">Submit</button>
+        </div>
+      </form>
     </div>
+  </div>
 
-    <!-- Load Three.js Library and GLTFLoader -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/three@0.128/examples/js/loaders/GLTFLoader.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/three@0.128/examples/js/controls/OrbitControls.js"></script>
-    
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const container = document.getElementById("threejs-container");
-            const prayerForm = document.getElementById("prayer-form");
-            const closeForm = document.getElementById("close-form");
-            const scene = new THREE.Scene();
-            const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-            const renderer = new THREE.WebGLRenderer({ antialias: true });
-            renderer.setSize(window.innerWidth, window.innerHeight);
-            container.appendChild(renderer.domElement);
+  <!-- Load Three.js Library and GLTFLoader -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128/examples/js/loaders/GLTFLoader.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128/examples/js/controls/OrbitControls.js"></script>
 
-            // Lighting
-            const directionalLight = new THREE.DirectionalLight(0xffffff, 2);
-            directionalLight.position.set(10, 15, 10);
-            scene.add(directionalLight);
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const container = document.getElementById("threejs-container");
+      const prayerForm = document.getElementById("prayer-form");
+      const closeForm = document.getElementById("close-form");
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+      const renderer = new THREE.WebGLRenderer({antialias: true});
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      container.appendChild(renderer.domElement);
 
-            const ambientLight = new THREE.AmbientLight(0xffffff, 1.2);
-            scene.add(ambientLight);
+      // Lighting
+      const directionalLight = new THREE.DirectionalLight(0xffffff, 2);
+      directionalLight.position.set(10, 15, 10);
+      scene.add(directionalLight);
 
-            // Change Background to Light Gray
-            scene.background = new THREE.Color(0xf0f0f0);
+      const ambientLight = new THREE.AmbientLight(0xffffff, 1.2);
+      scene.add(ambientLight);
 
-            // Orbit Controls
-            const controls = new THREE.OrbitControls(camera, renderer.domElement);
-            controls.enableDamping = true;
+      // Change Background to Light Gray
+      scene.background = new THREE.Color(0xf0f0f0);
 
-            // Loaders
-            const loader = new THREE.GLTFLoader();
+      // Orbit Controls
+      const controls = new THREE.OrbitControls(camera, renderer.domElement);
+      controls.enableDamping = true;
 
-             // Load Floor (Single Large Tile)
-             loader.load("/assets/models/floor_tile.glb", function (gltf) {
-                const floor = gltf.scene;
-                floor.scale.set(6.95, 1, 6.75); // Adjusted scale to cover the entire surface
-                floor.position.set(0, -2.5, 0);
-                scene.add(floor);
-            });
+      // Loaders
+      const loader = new THREE.GLTFLoader();
+      let candleHolder = null;
 
-            // Load Walls
-            loader.load("/assets/models/wall.glb", function (gltf) {
-                const wall = gltf.scene;
-                wall.scale.set(3.5, 3, 1);
-                wall.position.set(-7, -2.5, -7);
-                scene.add(wall);
-            });
+      // Load Floor (Single Large Tile)
+      loader.load("/assets/models/floor_tile.glb", function (gltf) {
+        const floor = gltf.scene;
+        floor.scale.set(6.95, 1, 6.75);
+        floor.position.set(0, -2.5, 0);
+        scene.add(floor);
+      });
 
-            loader.load("/assets/models/wall.glb", function (gltf) {
-                const wall = gltf.scene;
-                wall.scale.set(3.39, 3, 1);
-                wall.position.set(-7.2, -2.5, 6.6);
-                wall.rotation.y = Math.PI / 2;
-                scene.add(wall);
-            });
+      // Load Walls
+      loader.load("/assets/models/wall.glb", function (gltf) {
+        const wall = gltf.scene;
+        wall.scale.set(3.5, 3, 1);
+        wall.position.set(-7, -2.5, -7);
+        scene.add(wall);
+      });
 
-            // Load Alta37
-            loader.load("/assets/models/marble_altar.glb", function (gltf) {
-                const altar = gltf.scene;
-                altar.scale.set(1.5, 1.5, 1.5);
-                altar.position.set(0, -1.8, -3);
-                scene.add(altar);
-            });
+      loader.load("/assets/models/wall.glb", function (gltf) {
+        const wall = gltf.scene;
+        wall.scale.set(3.39, 3, 1);
+        wall.position.set(-7.2, -2.5, 6.6);
+        wall.rotation.y = Math.PI / 2;
+        scene.add(wall);
+      });
 
-            // Load Chairs
-            function createChair(x, z) {
-                loader.load("/assets/models/chair.glb", function (gltf) {
-                    const chair = gltf.scene;
-                    chair.scale.set(0.3, 0.3, 0.3);
-                    chair.position.set(x, 0, 3);
-                    scene.add(chair);
-                });
-            }
-            for (let i = -3; i <= 3; i += 2) {
-                createChair(i, 1);
-                createChair(i, 2);
-            }
+      // Load Altar
+      loader.load("/assets/models/marble_altar.glb", function (gltf) {
+        const altar = gltf.scene;
+        altar.scale.set(1.5, 1.5, 1.5);
+        altar.position.set(0, -1.8, -3);
+        scene.add(altar);
+      });
 
-            // Load Candle Holder and Make Clickable
-            loader.load("/assets/models/candle_holder.glb", function (gltf) {
-                const candleHolder = gltf.scene;
-                candleHolder.scale.set(0.003, 0.003, 0.003);
-                candleHolder.position.set(0, -1.2, -3);
-                scene.add(candleHolder);
-            });
-
-            function animate() {
-                requestAnimationFrame(animate);
-                controls.update();
-                renderer.render(scene, camera);
-            }
-
-            animate();
-            camera.position.set(0, 3, 12);
-
-            window.addEventListener("resize", function () {
-                renderer.setSize(window.innerWidth, window.innerHeight);
-                camera.aspect = window.innerWidth / window.innerHeight;
-                camera.updateProjectionMatrix();
-            });
+      // Load Chairs
+      function createChair(x, z) {
+        loader.load("/assets/models/chair.glb", function (gltf) {
+          const chair = gltf.scene;
+          chair.scale.set(0.3, 0.3, 0.3);
+          chair.position.set(x, 0, 3);
+          scene.add(chair);
         });
-    </script>
+      }
+      for (let i = -3; i <= 3; i += 2) {
+        createChair(i, 1);
+        createChair(i, 2);
+      }
+
+      // Load Candle Holder and Make Clickable
+      loader.load("/assets/models/candle_holder.glb", function (gltf) {
+        candleHolder = gltf.scene;
+        candleHolder.scale.set(0.003, 0.003, 0.003);
+        candleHolder.position.set(0, -1.2, -3);
+        scene.add(candleHolder);
+      });
+
+      // Handle Clicking on Candle Holder
+      const raycaster = new THREE.Raycaster();
+      const mouse = new THREE.Vector2();
+
+      function onMouseClick(event) {
+        mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+        mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+        raycaster.setFromCamera(mouse, camera);
+
+        if (candleHolder) {
+          const intersects = raycaster.intersectObject(candleHolder, true);
+          if (intersects.length > 0) {
+            prayerForm.classList.add("show"); // Use "show" class to make form visible
+          }
+        }
+      }
+
+      window.addEventListener("click", onMouseClick);
+
+      // Close the form when clicking cancel
+      closeForm.addEventListener("click", function () {
+        prayerForm.classList.remove("show"); // Remove "show" class to hide form
+      });
+
+      function animate() {
+        requestAnimationFrame(animate);
+        controls.update();
+        renderer.render(scene, camera);
+      }
+
+      animate();
+      camera.position.set(0, 3, 12);
+
+      window.addEventListener("resize", function () {
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+      });
+    });
+  </script>
+
+
+  <style>
+    /* Styling for Form Pop-up */
+    .hidden {
+      display: none; !important;
+    }
+
+    .form-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+    }
+
+    .form-container.show {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .form-box {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      width: 400px;
+      color: #333;
+    }
+
+    .form-title {
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+
+    .form-group {
+      margin-bottom: 10px;
+    }
+
+    .form-group label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .form-input,
+    .form-textarea {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .form-actions {
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .btn-cancel,
+    .btn-submit {
+      padding: 10px 15px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .btn-cancel {
+      background: #888;
+      color: white;
+    }
+
+    .btn-submit {
+      background: #007bff;
+      color: white;
+    }
+  </style>
 {% endblock %}
