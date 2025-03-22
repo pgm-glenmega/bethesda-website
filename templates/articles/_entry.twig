@@ -30,10 +30,9 @@
   </article>
 
   {# Author and Related Articles Section #}
-  <section
-    class="article-footer">
+  <section class="article-footer">
     {# Author Section #}
-    <section class="article-author">
+    <div class="article-author">
       <div class="author-card">
         <div class="author-image">
           {% if entry.authorImage.one() %}
@@ -46,7 +45,7 @@
           <h3>Written by:{{ entry.authorName }}</h3>
         </div>
       </div>
-    </section>
+    </div>
 
 
     <div class="related-articles">
@@ -64,7 +63,5 @@
     </div>
   </section>
 
-  <div class="back-container">
-    <a href="{{ siteUrl('articles') }}" class="back-link">← Back to Articles</a>
-  </div>
+  <a href="{{ url('articles') }}" class="btn-back">Back to Articles</a>
 {% endblock %}

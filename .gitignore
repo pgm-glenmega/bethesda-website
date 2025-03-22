@@ -29,3 +29,6 @@ Thumbs.db
 # Ignore IDE configuration files
 .vscode/
 .idea/
+
+#ignore config/project folder
+config/project/*

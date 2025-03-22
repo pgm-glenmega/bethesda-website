@@ -43,6 +43,10 @@ nav ul {
   backdrop-filter: blur(10px); /* Blur effect */
 }
 
+a{
+  text-decoration: none;
+}
+
 nav ul li {
   display: inline-block;
 }
@@ -872,8 +876,6 @@ nav ul li .nav-item:hover {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
 }
 
 .article-hero-content {
@@ -997,6 +999,7 @@ nav ul li .nav-item:hover {
   color: #333;
 }
 
+
 /* Back Link */
 .back-container {
   text-align: center;
@@ -1012,6 +1015,7 @@ nav ul li .nav-item:hover {
 
 .back-link:hover {
   color: #5b49c5;
+  cursor: pointer;
 }
 
 .article-hero-image {
@@ -1122,7 +1126,7 @@ nav ul li .nav-item:hover {
   font-weight: bold;
   display: block;
   margin-bottom: 5px;
-  color: black
+  color: black;
 }
 
 .form-group input,
@@ -1609,7 +1613,7 @@ nav ul li .nav-item:hover {
   text-decoration: underline;
 }
 
-.event-card-detail p{
+.event-card-detail p {
   font-size: 14px;
   color: #555;
 }

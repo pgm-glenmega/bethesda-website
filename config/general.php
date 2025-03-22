@@ -14,6 +14,9 @@ return GeneralConfig::create()
     ->aliases([
         '@webroot' => dirname(__DIR__) . '/web',
         'enableCsrfProtection' => false,    
+        'allowAdminChanges' => true,
+'useProjectConfigFile' => true,
+
     ])
     ->enableCsrfProtection(true) // Ensure CSRF is enabled
     ->devMode(true) // Enable debug mode (disable on production!)
