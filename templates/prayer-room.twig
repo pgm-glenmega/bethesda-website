@@ -3,7 +3,6 @@
 {% block content %}
   <div id="threejs-container"></div>
 
-  <!-- Prayer Request Form (Hidden by Default) -->
   <div id="prayer-form" class="form-container hidden">
     <div class="form-box">
       <h2 class="form-title">Submit a Prayer Request</h2>
@@ -18,34 +17,38 @@
         <p class="error-message">{{ craft.app.session.getFlash('errorMessage') }}</p>
       {% endif %}
 
-      {# Prayer Request Form #}
       <form method="POST" action="">
         {{ csrfInput() }}
-        {# CSRF token for security #}
         <input type="hidden" name="action" value="entries/save-entry">
-        <input type="hidden" name="sectionId" value="4">
-        {# Ensure this matches the Prayer Request section ID in CraftCMS #}
+        <input
+        type="hidden" name="sectionId" value="4">
+
+        <input type="hidden" name="title" value="{{ now|date('Y-m-d H:i') }} Prayer">
+
         <div class="form-group">
           <label for="requesterName">Name</label>
-          <input type="text" name="fields[requesterName]" id="requesterName" class="form-input">
+          <input type="text" name="fields[requesterName]" id="requesterName" class="form-input" required>
         </div>
+
         <div class="form-group">
           <label for="requesterEmail">E-mail</label>
-          <input type="email" name="fields[requesterEmail]" id="requesterEmail" class="form-input">
+          <input type="email" name="fields[requesterEmail]" id="requesterEmail" class="form-input" required>
         </div>
+
         <div class="form-group">
           <label for="prayerMessage">Prayer Request</label>
-          <textarea name="fields[prayerMessage]" id="prayerMessage" class="form-textarea"></textarea>
+          <textarea name="fields[prayerMessage]" id="prayerMessage" class="form-textarea" required></textarea>
         </div>
+
         <div class="form-actions">
           <button type="button" id="close-form" class="btn-cancel">Cancel</button>
           <button type="submit" class="btn-submit">Submit</button>
         </div>
       </form>
+
     </div>
   </div>
 
-  <!-- Load Three.js Library and GLTFLoader -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/three@0.128/examples/js/loaders/GLTFLoader.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/three@0.128/examples/js/controls/OrbitControls.js"></script>
