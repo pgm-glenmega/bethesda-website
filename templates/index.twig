@@ -1,9 +1,10 @@
 {% extends '_layout.twig' %}
 
-{% block title %}Welcome to Bethesda Ministry{% endblock %}
+{% block title %}Welcome to Bethesda Ministry
+{% endblock %}
 
 {% block content %}
-  <section class="hero" style="">
+  <section class="hero">
     <div class="hero-overlay"></div>
     <div class="hero-content">
       <h1>Welcome to Bethesda Ministry</h1>
@@ -15,32 +16,74 @@
     </div>
   </section>
 
-  {# Latest Sermons and Articles Section #}
+  {# --- LATEST SERMONS --- #}
   <section class="home-section">
     <h2>Latest Sermons</h2>
     <div class="home-grid">
-      {% for sermon in craft.entries().section('sermons').limit(3).all() %}
+      {% set upcomingSermons = craft.entries()
+    .section('sermons')
+    .sermonDate('>= ' ~ now|atom)
+    .orderBy('sermonDate asc')
+    .limit(3)
+    .all() %}
+
+      {% for sermon in upcomingSermons %}
         <div class="home-card">
           {% set image = sermon.sermonImage.one() ?? null %}
           <img src="{{ image ? image.url : '/assets/default-placeholder.jpg' }}" alt="{{ sermon.title }}">
           <h3>{{ sermon.title }}</h3>
-          <a href="{{ sermon.url }}" class="button">View details</a>
+          <p>{{ sermon.sermonDescription|striptags|slice(0, 150) ~ '...' }}</p>
+          <a href="{{ sermon.url }}" class="button">View Details</a>
         </div>
       {% endfor %}
     </div>
   </section>
 
+
+  {# --- LATEST EVENTS --- #}
+  <section class="home-section">
+    <h2>Upcoming Events</h2>
+    <div class="home-grid">
+      {% set upcomingEvents = craft.entries()
+    .section('events')
+    .eventDate('>= ' ~ now|atom)
+    .orderBy('eventDate asc')
+    .limit(3)
+    .all() %}
+
+      {% for event in upcomingEvents %}
+        <div class="home-card">
+          {% set image = event.eventImage.one() ?? null %}
+          <img src="{{ image ? image.url : '/assets/default-placeholder.jpg' }}" alt="{{ event.title }}">
+          <h3>{{ event.title }}</h3>
+          <p>{{ event.eventDescription|striptags|slice(0, 150) ~ '...' }}</p>
+          <a href="{{ event.url }}" class="button">View Details</a>
+        </div>
+      {% endfor %}
+    </div>
+  </section>
+
+
+  {# --- LATEST ARTICLES --- #}
   <section class="home-section">
     <h2>Latest Articles</h2>
     <div class="home-grid">
-      {% for article in craft.entries().section('articles').limit(3).all() %}
+      {% set recentArticles = craft.entries()
+    .section('articles')
+    .orderBy('postDate desc')
+    .limit(3)
+    .all() %}
+
+      {% for article in recentArticles %}
         <div class="home-card">
           {% set image = article.articleImage.one() ?? null %}
           <img src="{{ image ? image.url : '/assets/default-placeholder.jpg' }}" alt="{{ article.title }}">
           <h3>{{ article.title }}</h3>
+          <p>{{ article.articleContent|striptags|slice(0, 150) ~ '...' }}</p>
           <a href="{{ article.url }}" class="button">Read More</a>
         </div>
       {% endfor %}
     </div>
   </section>
+
 {% endblock %}
