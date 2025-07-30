@@ -21,7 +21,7 @@
     {% set allUpcoming = (upcomingEvents|merge(upcomingSermons))|filter(entry => (entry.eventDate or entry.sermonDate)) %}
     {% set sortedUpcoming = allUpcoming|sort((a, b) => (a.eventDate ?? a.sermonDate)|date('U') <=> (b.eventDate ?? b.sermonDate)|date('U')) %}
     {% set nextUpcoming = sortedUpcoming|first %}
-    {% set image = nextUpcoming.sermonImage.one() ?? nextUpcoming.eventImage.one() %}
+    {% set image = nextUpcoming ? (nextUpcoming.sermonImage.one() ?? nextUpcoming.eventImage.one()) : null %}
 
     {# Hero Section for Activities #}
     <section class="hero" style="background: url('/assets/images/hero-img.jpg') center/cover no-repeat;">

@@ -1,75 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}Bethesda Ministry{% endblock %}</title>
-    <link rel="stylesheet" href="/css/main.css?v={{ now.timestamp }}"> {# Add CSS file #}
-</head>
-<body>
+    <title>
+      {% block title %}Bethesda Ministry
+      {% endblock %}
+    </title>
+    <link rel="stylesheet" href="/css/main.css?v={{ now.timestamp }}">
+  </head>
+  <body>
+    {% set navbar = craft.globalSets.handle('navbarSettings').one() %}
     <header>
-        <nav>
-            <a href="/"><img class="nav-logo" src="/assets/images/bethesda-logo.avif" alt="bethesda logo"></a>
-            <ul>
-                <li><a class="nav-item" href="/">Home</a></li>
-                <li><a class="nav-item" href="{{ siteUrl('about') }}">About</a></li>
-                <li><a class="nav-item" href="{{ siteUrl('sermons') }}">Activities</a></li>
-                <li><a class="nav-item" href="{{ siteUrl('articles') }}">Articles</a></li>
-                <li><a class="nav-item" href="{{ siteUrl('contact') }}">Contact</a></li>
-            </ul>
-        <a class="nav-prayer-room" href="{{ siteUrl('prayer-room') }}">Prayer Room</a>
-        </nav>
+      <nav>
+        <a href="/">
+          {% if navbar.navbarLogo|length %}
+            <img class="nav-logo" src="{{ navbar.navbarLogo.one().url }}" alt="Bethesda logo">
+          {% else %}
+            <img class="nav-logo" src="/assets/images/bethesda-logo.avif" alt="Bethesda logo">
+          {% endif %}
+        </a>
+
+        <ul>
+          <li>
+            <a class="nav-item" href="/">{{ navbar.homeLabel }}</a>
+          </li>
+          <li>
+            <a class="nav-item" href="{{ siteUrl('about') }}">{{ navbar.aboutLabel }}</a>
+          </li>
+          <li>
+            <a class="nav-item" href="{{ siteUrl('sermons') }}">{{ navbar.activitiesLabel }}</a>
+          </li>
+          <li>
+            <a class="nav-item" href="{{ siteUrl('articles') }}">{{ navbar.articlesLabel }}</a>
+          </li>
+          <li>
+            <a class="nav-item" href="{{ siteUrl('contact') }}">{{ navbar.contactLabel }}</a>
+          </li>
+        </ul>
+
+        <a class="nav-prayer-room" href="{{ siteUrl('prayer-room') }}">
+          {{ navbar.prayerRequestLabel }}
+        </a>
+      </nav>
     </header>
 
     <main>
-        {% block content %}{% endblock %}
+      {% block content %}{% endblock %}
     </main>
 
+    {% set footer = craft.globalSets().handle('footerSettings').one() %}
+
     <footer class="footer">
-    <div class="footer-container">
+      <div class="footer-container">
         <div class="footer-logo">
-            <img src="/assets/images/bethesda-logo.avif" alt="Bethesda Ministry Logo">
-            <p class="footer-tagline">"Spreading Faith, Hope, and Worship."</p>
+          {% if footer.footerLogo.one() %}
+            <img src="{{ footer.footerLogo.one().url }}" alt="Bethesda Ministry Logo">
+          {% endif %}
+          <p class="footer-tagline">{{ footer.footerTagline }}</p>
         </div>
 
         <div class="footer-info">
-            <h4>Contact Us</h4>
-            <p>Bethesda Ministry VZW</p>
-            <p>Kalfstraat 26, 9300 AALST</p>
-            <p>BE 0771.642.126</p>
-            <p>IBAN: BE69 3652 1469 3978</p>
-            <p>Email: <a href="mailto:contact.bethesdaministry@gmail.be">contact.bethesdaministry@gmail.be</a></p>
-            <p>Phone number: <a href="tel:+32491143048">+32 491 14 30 48</a></p>
+          {% if footer.contactTitle %}
+            <h4>{{ footer.contactTitle }}</h4>
+          {% endif %}
+          {% if footer.organizationName %}
+            <p>{{ footer.organizationName }}</p>
+          {% endif %}
+          {% if footer.organizationAddress %}
+            <p>{{ footer.organizationAddress }}</p>
+          {% endif %}
+          {% if footer.vat %}
+            <p>{{ footer.vat }}</p>
+          {% endif %}
+          {% if footer.iban %}
+            <p>IBAN:
+              {{ footer.iban }}</p>
+          {% endif %}
+          {% if footer.organizationEmail %}
+            <p>Email:
+              <a href="mailto:{{ footer.organizationEmail }}">{{ footer.organizationEmail }}</a>
+            </p>
+          {% endif %}
+          {% if footer.organizationPhone %}
+            <p>Phone number:
+              <a href="tel:{{ footer.organizationPhone }}">{{ footer.organizationPhone }}</a>
+            </p>
+          {% endif %}
         </div>
 
         <div class="footer-links">
-            <h4>Quick Links</h4>
-            <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="{{ siteUrl('about') }}">About</a></li>
-                <li><a href="{{ siteUrl('sermons') }}">Activities</a></li>
-                <li><a href="{{ siteUrl('articles') }}">Articles</a></li>
-                <li><a href="{{ siteUrl('contact') }}">Contact</a></li>
-                <li><a href="{{ siteUrl('prayer-room') }}">Prayer Room</a></li>
-            </ul>
+          <h4>{{ footer.quickLinksTitle }}</h4>
+          <ul>
+            {% for link in footer.quickLinks %}
+              <li>
+                <a href="{{ link.linkUrl }}">{{ link.linkLabel }}</a>
+              </li>
+            {% endfor %}
+          </ul>
         </div>
+
 
         <div class="footer-socials">
-            <h4>Follow Us</h4>
-            <div class="social-icons">
-                <a href="https://www.facebook.com/apotremartinmakoma1" target="_blank"><img src="/assets/icons/facebook.png" alt="Facebook"></a>
-                <a href="https://www.instagram.com/bethesda.ministry/?hl=en" target="_blank"><img src="/assets/icons/instagram.png" alt="Instagram"></a>
-                <a href="https://www.youtube.com/@apostlemartinmakoma6126" target="_blank"><img src="/assets/icons/youtube.png" alt="YouTube"></a>
-                <a href="https://www.tiktok.com/@bethesda.ministry" target="_blank"><img src="/assets/icons/tiktok.png" alt="TikTok"></a>
-            </div>
+          <div class="social-icons">
+            <h4>{{ footer.socialsTitle }}</h4>
+            {% if footer.socialLinks %}
+              {% for row in footer.socialLinks %}
+                <a href="{{ row.linkUrl }}" target="_blank" rel="noopener">
+                  {{ row.linkLabel }}
+                </a>
+              {% endfor %}
+            {% endif %}
+          </div>
         </div>
-    </div>
+      </div>
 
-    <div class="footer-bottom">
-        <p>&copy; 2024 Bethesda Ministry | All Rights Reserved</p>
-        <p>"Let your light shine before others, that they may see your good deeds and glorify your Father in heaven." – Matthew 5:16</p>
-    </div>
-</footer>
+      <div class="footer-bottom">
+        {% if footer.copyrightText %}
+          <p>{{ footer.copyrightText }}</p>
+        {% endif %}
+        {% if footer.footerBibleVerse %}
+          <p>{{ footer.footerBibleVerse }}</p>
+        {% endif %}
+      </div>
+    </footer>
 
-</body>
+
+  </body>
 </html>

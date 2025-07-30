@@ -13,14 +13,24 @@ previewTargets:
         - label
         - 'Primary entry page'
       -
-        - refresh
-        - '1'
-      -
         - urlFormat
         - '{url}'
+      -
+        - refresh
+        - '1'
 propagationMethod: all
 siteSettings:
-  5607335d-3b23-47a6-acee-41d4ffb0462c: # bethesda ministry
+  3b691aff-4e3c-4d71-8837-7c4c8d0328b1: # bethesda ministry (NL)
+    enabledByDefault: true
+    hasUrls: true
+    template: events/_entry.twig
+    uriFormat: 'evenementen/{slug}'
+  2990f109-c546-4a97-a92f-2c3e7cb2c263: # bethesda ministry
+    enabledByDefault: true
+    hasUrls: true
+    template: 'evenements/{slug}'
+    uriFormat: 'evenements/{slug}'
+  5607335d-3b23-47a6-acee-41d4ffb0462c: # bethesda ministry (ENG)
     enabledByDefault: true
     hasUrls: true
     template: events/_entry.twig

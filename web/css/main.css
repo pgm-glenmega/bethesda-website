@@ -43,7 +43,7 @@ nav ul {
   backdrop-filter: blur(10px); /* Blur effect */
 }
 
-a{
+a {
   text-decoration: none;
 }
 
@@ -59,6 +59,11 @@ nav .nav-prayer-room {
   font-size: 18px;
   padding: 10px 15px;
   transition: all 0.3s ease;
+}
+
+.nav-prayer-room {
+  background-color: rgba(50, 50, 50, 0.6);
+  border-radius: 10px;
 }
 
 nav a {
@@ -136,25 +141,20 @@ nav ul li .nav-item:hover {
   padding: 0;
 }
 
-.footer-links ul li {
+.footer-links ul li,
+.footer-socials a {
   margin-bottom: 8px;
 }
 
-.footer-socials .social-icons {
+.footer-socials {
   display: flex;
   justify-content: center;
   gap: 15px;
-  margin-top: 10px;
 }
 
-.footer-socials .social-icons img {
-  width: 25px;
-  filter: brightness(0) invert(1);
-  transition: transform 0.3s ease;
-}
-
-.footer-socials .social-icons img:hover {
-  transform: scale(1.1);
+.social-icons {
+  display: flex;
+  flex-direction: column;
 }
 
 .footer-bottom {
@@ -998,7 +998,6 @@ nav ul li .nav-item:hover {
   margin-top: 10px;
   color: #333;
 }
-
 
 /* Back Link */
 .back-container {

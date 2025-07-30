@@ -1,4 +1,4 @@
-dateModified: 1742668165
+dateModified: 1753878795
 email:
   fromEmail: glen.meganck@gmail.com
   fromName: 'bethesda ministry'
@@ -29,44 +29,83 @@ meta:
     0ebc9e2c-5cfd-403a-8c3b-46a67551e3f4: 'Article Content' # Article Content
     1cc95ff0-b2d3-40f2-a4b0-0006fbe6a9d7: "Event Description\t" # Event Description	
     2a86c99c-f2fa-4a9b-96f7-3e138938c1a5: 'Author Image' # Author Image
+    2ba2a454-ef15-4f28-9f95-25644abfdf74: 'Footer Tagline' # Footer Tagline
     2ccb4a24-9764-4f39-ade9-57dc2b7526db: "Sermon Audio File\t" # Sermon Audio File	
+    3b691aff-4e3c-4d71-8837-7c4c8d0328b1: 'bethesda ministry (NL)' # bethesda ministry (NL)
     3db45ca2-4cff-46f3-9796-4678f3533148: 'bethesda ministry' # bethesda ministry
     3e96336e-e803-42d5-999f-cb19aa129537: "Sermon Date\t" # Sermon Date	
     4d31aa11-35c6-4cb3-89f0-4537cd0da50c: 'Prayer Request' # Prayer Request
+    04e8336d-7de8-4dc8-aa03-0e87d80c9d3c: "About Label\t" # About Label	
+    4e704074-369e-404e-a897-c34f912f3c77: 'Home Label' # Home Label
+    4fb21f6c-97b4-48a0-b075-517d2fc040b9: 'Event Section Heading' # Event Section Heading
+    4fd824b1-5f0e-4a2d-a04a-88555e2890b2: 'Navbar Settings' # Navbar Settings
     5ca4f7f8-ed12-47aa-b95b-20fd034b5745: 'Related Event' # Related Event
     5d11abcf-1a6b-4dd3-a199-2a26d925f2d3: E-mail # E-mail
     5d90374c-5418-468d-a35e-c6d4f49efc6e: 'Event Sign-ups' # Event Sign-ups
+    5eb9f776-a6a4-4fad-83c0-90bc8da84dee: 'Footer Settings' # Footer Settings
+    5fd03e0f-a382-4c2f-9bf0-960a5c4d0a4d: 'Navbar Logo' # Navbar Logo
+    6eca19a4-b791-4958-abe2-12f97ac7bd77: 'Organization Phone' # Organization Phone
+    7b3e0f03-392a-4f1d-acfe-e435b0de93f1: 'Contact Label' # Contact Label
     7b34c506-0bc6-42fd-9711-564a0d3849ab: 'Speaker image' # Speaker image
     7da2311d-0305-4310-a265-18436572e8bb: "Sermon Video URL\t" # Sermon Video URL	
+    7e5bd6e0-89f5-4fdf-a9cf-e33dc3ce2a96: 'Social Links' # Social Links
     8c0ac8cd-6806-41da-bb6c-e899c2c5f331: 'Event Image' # Event Image
     8f9a6657-d317-4437-901b-c6b288884f78: 'Sermon Image' # Sermon Image
     9cdee50b-57cc-4c34-824d-3b090381e3ba: 'Attendee Email' # Attendee Email
+    9d4819ee-55f5-438b-bdce-bf09a8ec35d1: 'Hero Background' # Hero Background
     30ad0bb3-ce3c-4c42-ae63-dbb1b4b3a0f8: "Event Date\t" # Event Date	
+    39e5101c-a65f-46ae-bf45-8a6e5834012d: 'Sermon Section Heading' # Sermon Section Heading
+    051a68bb-68df-4b31-93ec-fd9302e637bf: 'Contact Title' # Contact Title
     55fd2f0f-9d2e-483b-ab16-6194ba07e07e: 'Article entry' # Article entry
+    62add736-d636-4864-ba23-43416dab080e: 'Prayer Request Label' # Prayer Request Label
+    64ca4471-df3b-440d-9e6c-cc3eca50a917: 'Organization Address' # Organization Address
     66fe051e-37cc-4947-9784-d0a741883d91: 'Related Sermon' # Related Sermon
     68ace6b7-7b88-4651-b40e-e9f6bd29a31f: 'Prayer Request' # Prayer Request
+    81e2de67-7c53-4a1b-bc44-dd28a85159f5: 'Show Articles Section' # Show Articles Section
     84abf835-75b4-4a05-85be-5ac14f67287f: 'Sermon entry' # Sermon entry
     85aacefe-9e4d-4dfa-9b3b-3d7b41ea7b11: Articles # Articles
+    173cc97b-c409-47b2-8ed1-14c59db69971: 'Organization Name' # Organization Name
+    500cda18-d299-4856-93ab-723ff0d3e62b: 'Footer Logo' # Footer Logo
     658fc0b1-afbd-4d02-a6a0-a1a38b353ff8: 'Article Image' # Article Image
     789f6b17-9de5-4839-a76d-94cc5d206f76: 'Event Sign-up' # Event Sign-up
     985a9d96-0516-4595-a0ec-d9c2792e2930: 'Sermon Sign-up' # Sermon Sign-up
+    2990f109-c546-4a97-a92f-2c3e7cb2c263: 'bethesda ministry' # bethesda ministry
     5913f12c-3af8-4eb3-ba8f-03469428c3af: 'Event Entry' # Event Entry
+    6322ca39-e7b4-400b-8076-928d13ba68ad: 'Organization Email' # Organization Email
+    7004a8e4-d437-4484-9ab0-5b3677c1bf8f: VAT # VAT
     8819c3e3-11d8-410c-a36b-506e4369349c: 'Audio Sermon Entry' # Audio Sermon Entry
     9419b81d-7916-4386-a314-6c63a1edd722: Simple # Simple
+    9429b8e0-f522-44d7-82c1-b5f1c998005f: 'Hero Heading' # Hero Heading
+    45978b01-7a1e-4b66-849c-7ed274b95251: Homepage # Homepage
+    77626d4a-4b38-4be5-9be0-43e658e3f03b: Button # Button
     745919af-d07c-47fb-9d1e-7feac74afb06: "Prayer Request\t" # Prayer Request	
-    5607335d-3b23-47a6-acee-41d4ffb0462c: 'bethesda ministry' # bethesda ministry
+    02944889-2b52-4534-841e-74ab9ccef2c7: 'Article Section Heading' # Article Section Heading
+    5607335d-3b23-47a6-acee-41d4ffb0462c: 'bethesda ministry (ENG)' # bethesda ministry (ENG)
     a5bab881-3249-4db3-93ee-4e15ce9915e2: "Sermon Description\t" # Sermon Description	
+    a8ec6387-884d-413d-81dc-d6e2ee349a74: 'Copyright Text' # Copyright Text
     aa556839-181a-415e-96d4-23a662b28155: "Event Location\t" # Event Location	
     ac76c8f2-47cd-4d47-8dc3-f5ecbde75d89: Uploads # Uploads
+    b5d75f62-cd8f-48ce-b099-601b4970f6ff: 'Quick Links Title' # Quick Links Title
+    b173c3f8-b1b3-4873-9083-29d2836ba092: 'Articles Label' # Articles Label
+    b8524df5-30f9-4b31-8723-d97d1c6095c8: 'Item Limit' # Item Limit
     bf72572d-0609-4ca0-be7d-a7defdda31a6: 'Sermon Sign-ups' # Sermon Sign-ups
+    bfa16735-29ce-4784-9d00-66b69cbac228: 'Socials Title' # Socials Title
     c7a317a3-1287-4f96-879f-d270b836f4ec: 'Author Name' # Author Name
+    c70d8d5c-37fc-459c-802a-b98e57cd3a1f: IBAN # IBAN
     ca6b1da7-ed2f-499f-b2e2-71da635f434e: "Article Category\t" # Article Category	
     d8b87d1e-4413-4d9f-b2e2-9f739d500a6e: Name # Name
+    d4652b72-1cb5-4e57-b83a-dd8d06982ca6: Homepage # Homepage
     db0a7ad2-d8b8-4a3c-8e28-6657c55fd2c1: Events # Events
+    ded2bb13-2d34-45ce-8f01-bc15dad85fc5: 'Show Events Section' # Show Events Section
+    e6f7823d-d3d6-4009-9dda-6d6feeb0ae34: 'Footer Bible Verse' # Footer Bible Verse
     e61d63c3-2614-4498-8d3e-ba411de9813a: 'Attendee Name' # Attendee Name
     ea291543-cb8c-4f99-a541-e81e821b4dec: Sermons # Sermons
+    eb5264b2-b9a6-4bf0-b6d7-678d8c5e6b5c: 'Hero Subheading' # Hero Subheading
     ebc53bcc-2888-4223-b872-9c125d09ce9a: 'Video Sermon Entry' # Video Sermon Entry
+    ecf09f93-6a84-4db1-aca3-5a3f12fa877a: 'Quick Links' # Quick Links
     ef693020-53df-4386-8417-1f32571d72c4: general # general
+    f45ed262-4486-4732-ab68-28862cd11781: 'Show Sermons Section' # Show Sermons Section
+    f319371b-1e93-4336-bb12-b88fff3ccac7: 'Activities Label' # Activities Label
 plugins:
   ckeditor:
     edition: standard
@@ -100,10 +139,14 @@ plugins:
                 -
                   - authorUid
                   - baea4cef-3932-4dea-bc17-4278de477acd
+  super-table:
+    edition: standard
+    enabled: true
+    schemaVersion: 4.0.0
 system:
   edition: solo
   live: true
   name: 'bethesda ministry'
   retryDuration: null
-  schemaVersion: 5.6.0.2
+  schemaVersion: 5.8.0.3
   timeZone: Europe/Brussels

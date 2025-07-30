@@ -4,11 +4,12 @@
 {% endblock %}
 
 {% block content %}
+  {% set entry = craft.entries().section('homepage').one() %}
   <section class="hero">
     <div class="hero-overlay"></div>
     <div class="hero-content">
-      <h1>Welcome to Bethesda Ministry</h1>
-      <p>Join us in worship and fellowship.</p>
+      <h1>{{ entry.heroHeading }}</h1>
+      <p>{{ entry.heroSubheading }}</p>
       <div class="hero-buttons">
         <a href="{{ siteUrl('prayer-room') }}" class="button primary">Visit Prayer Room</a>
         <a href="{{ siteUrl('sermons') }}" class="button primary">View Activities</a>
@@ -17,32 +18,35 @@
   </section>
 
   {# --- LATEST SERMONS --- #}
+  {% if entry.showSermonsSection %}
   <section class="home-section">
-    <h2>Latest Sermons</h2>
-    <div class="home-grid">
-      {% set upcomingSermons = craft.entries()
+      <h2>{{ entry.sermonSectionHeading }}</h2>
+      <div class="home-grid">
+        {% set upcomingSermons = craft.entries()
     .section('sermons')
     .sermonDate('>= ' ~ now|atom)
     .orderBy('sermonDate asc')
-    .limit(3)
+    .limit(entry.itemLimit)
     .all() %}
 
-      {% for sermon in upcomingSermons %}
-        <div class="home-card">
-          {% set image = sermon.sermonImage.one() ?? null %}
-          <img src="{{ image ? image.url : '/assets/default-placeholder.jpg' }}" alt="{{ sermon.title }}">
-          <h3>{{ sermon.title }}</h3>
-          <p>{{ sermon.sermonDescription|striptags|slice(0, 150) ~ '...' }}</p>
-          <a href="{{ sermon.url }}" class="button">View Details</a>
-        </div>
-      {% endfor %}
-    </div>
-  </section>
+        {% for sermon in upcomingSermons %}
+          <div class="home-card">
+            {% set image = sermon.sermonImage.one() ?? null %}
+            <img src="{{ image ? image.url : '/assets/default-placeholder.jpg' }}" alt="{{ sermon.title }}">
+            <h3>{{ sermon.title }}</h3>
+            <p>{{ sermon.sermonDescription|striptags|slice(0, 150) ~ '...' }}</p>
+            <a href="{{ sermon.url }}" class="button">View Details</a>
+          </div>
+        {% endfor %}
+      </div>
+    </section>
+  {% endif %}
 
 
   {# --- LATEST EVENTS --- #}
+  {% if entry.showEventsSection %}
   <section class="home-section">
-    <h2>Upcoming Events</h2>
+    <h2>{{ entry.eventSectionHeading }}</h2>
     <div class="home-grid">
       {% set upcomingEvents = craft.entries()
     .section('events')
@@ -62,11 +66,15 @@
       {% endfor %}
     </div>
   </section>
-
+  {% endif %}
 
   {# --- LATEST ARTICLES --- #}
+  {% set entry = craft.entries().section('homepage').one() %}
+
+  {# --- LATEST ARTICLES --- #}
+  {% if entry.showArticlesSection %}
   <section class="home-section">
-    <h2>Latest Articles</h2>
+    <h2>{{ entry.articleSectionHeading }}</h2>
     <div class="home-grid">
       {% set recentArticles = craft.entries()
     .section('articles')
@@ -85,5 +93,6 @@
       {% endfor %}
     </div>
   </section>
+{% endif %}
 
 {% endblock %}

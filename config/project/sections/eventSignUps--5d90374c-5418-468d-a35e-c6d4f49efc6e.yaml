@@ -20,7 +20,7 @@ previewTargets:
         - '{url}'
 propagationMethod: all
 siteSettings:
-  5607335d-3b23-47a6-acee-41d4ffb0462c: # bethesda ministry
+  5607335d-3b23-47a6-acee-41d4ffb0462c: # bethesda ministry (ENG)
     enabledByDefault: true
     hasUrls: true
     template: event-sign-ups/_entry.twig
