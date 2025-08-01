@@ -25,7 +25,7 @@ siteSettings:
     hasUrls: true
     template: articles/_entry.twig
     uriFormat: 'artikels/{slug}'
-  2990f109-c546-4a97-a92f-2c3e7cb2c263: # bethesda ministry
+  2990f109-c546-4a97-a92f-2c3e7cb2c263: # bethesda ministry (FR)
     enabledByDefault: true
     hasUrls: true
     template: articles/_entry.twig

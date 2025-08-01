@@ -23,14 +23,17 @@
     {% set nextUpcoming = sortedUpcoming|first %}
     {% set image = nextUpcoming ? (nextUpcoming.sermonImage.one() ?? nextUpcoming.eventImage.one()) : null %}
 
-    {# Hero Section for Activities #}
-    <section class="hero" style="background: url('/assets/images/hero-img.jpg') center/cover no-repeat;">
+    {% set pageEntry = craft.entries().section('activitiesPage').one() %}
+
+
+    <section class="hero" style="background: url('{{ pageEntry.heroImage.one().url ?? '/assets/images/hero-img.jpg' }}') center/cover no-repeat;">
       <div class="hero-overlay"></div>
       <div class="hero-content">
-        <h1>Engage, Worship, and Grow</h1>
-        <p>Discover upcoming events, powerful sermons, and meaningful ways to connect with our community.</p>
+        <h1>{{ pageEntry.heroHeading }}</h1>
+        <p>{{ pageEntry.heroSubheading }}</p>
       </div>
     </section>
+
 
     {# Upcoming Event/Sermon Section #}
     {% if nextUpcoming %}

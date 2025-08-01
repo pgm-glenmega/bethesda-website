@@ -4,15 +4,15 @@
 {% endblock %}
 
 {% block content %}
-  {% set entry = craft.entries().section('homepage').one() %}
+{% set entry = craft.entries().section('homepage').site(currentSite.handle).one() %}
   <section class="hero">
     <div class="hero-overlay"></div>
     <div class="hero-content">
       <h1>{{ entry.heroHeading }}</h1>
       <p>{{ entry.heroSubheading }}</p>
       <div class="hero-buttons">
-        <a href="{{ siteUrl('prayer-room') }}" class="button primary">Visit Prayer Room</a>
-        <a href="{{ siteUrl('sermons') }}" class="button primary">View Activities</a>
+        <a href="{{ url('prayer-room') }}" class="button primary">Visit Prayer Room</a>
+        <a href="{{ url('sermons') }}" class="button primary">View Activities</a>
       </div>
     </div>
   </section>

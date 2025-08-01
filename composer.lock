@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3fda21a2525c5eeef39796a551b211b0",
+    "content-hash": "14a99fdd650f3cd8903b9ea707868918",
     "packages": [
         {
             "name": "bacon/bacon-qr-code",
@@ -383,11 +383,11 @@
         },
         {
             "name": "craftcms/cms",
-            "version": "5.8.11",
+            "version": "5.8.12",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/craftcms/cms/zipball/3dc338c565c5894ebe6544b8d24a4d776d8f51a8",
-                "reference": "3dc338c565c5894ebe6544b8d24a4d776d8f51a8",
+                "url": "https://api.github.com/repos/craftcms/cms/zipball/43bd41904ddf2902006a96e68e324af3b520ac9b",
+                "reference": "43bd41904ddf2902006a96e68e324af3b520ac9b",
                 "shasum": ""
             },
             "require": {
@@ -484,7 +484,7 @@
                 "docs": "https://craftcms.com/docs/5.x/",
                 "rss": "https://github.com/craftcms/cms/releases.atom"
             },
-            "time": "2025-07-25T19:05:57+00:00"
+            "time": "2025-07-30T00:05:47+00:00"
         },
         {
             "name": "craftcms/guest-entries",

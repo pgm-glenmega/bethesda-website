@@ -1,0 +1,17 @@
+{% extends "_layout.twig" %}
+
+{% block content %}
+  <section class="hero">
+    <h1>Join Our Membership</h1>
+    <p>Support the church and gain access to exclusive content and updates. €10/year.</p>
+    <form method="post">
+      {{ csrfInput() }}
+  <input type="hidden" name="action" value="stripe/stripe/create-checkout-session">
+      <input type="text" name="fullName" placeholder="Full Name">
+      <input type="email" name="email" placeholder="Email">
+      <button type="submit">Subscribe</button>
+    </form>
+
+
+  </section>
+{% endblock %}
