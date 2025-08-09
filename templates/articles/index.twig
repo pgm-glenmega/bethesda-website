@@ -1,6 +1,7 @@
 {% extends "_layout.twig" %}
 
-{% block title %}Articles | Bethesda Ministry{% endblock %}
+{% block title %}Articles | Bethesda Ministry
+{% endblock %}
 
 {% block head %}
   {{ parent() }}
@@ -8,96 +9,100 @@
 {% endblock %}
 
 {% block content %}
-<div class="articles-page">
+  <div
+    class="articles-page">
 
-  {# Hero Section #}
-  {% set pageEntry = craft.entries().section('articlesPage').one() %}
-  {% set hero = pageEntry.heroBackground.one() %}
-  <section class="hero" style="background-image: url('{{ hero ? hero.getUrl() : '/assets/images/hero-img.jpg' }}');">
-    <div class="hero-overlay"></div>
-    <div class="hero-content">
-      <h1>{{ pageEntry.heroHeading }}</h1>
-      <p>{{ pageEntry.heroSubheading }}</p>
-    </div>
-  </section>
-
-  <div class="container">
-
-    {# Search & Filter Section #}
-    {% set allCategories = craft.categories().group('articleCategories').all() %}
-    <section class="search-filter">
-      <form method="get" class="search-form">
-        <input type="text" name="q" placeholder="Search articles..." value="{{ craft.app.request.getParam('q') }}">
-        <button type="submit" class="btn-primary">Search</button>
-      </form>
-
-      <form method="get" class="filter-form">
-        <label for="category">Category:</label>
-        <select name="category" id="category" onchange="this.form.submit()">
-          <option value="">All</option>
-          {% for category in allCategories %}
-            <option value="{{ category.id }}" {% if craft.app.request.getParam('category') == category.id %} selected {% endif %}>
-              {{ category.title }}
-            </option>
-          {% endfor %}
-        </select>
-      </form>
+    {# Hero Section #}
+    {% set pageEntry = craft.entries().section('articlesPage').one() %}
+    {% set hero = pageEntry.heroBackground.one() %}
+    <section class="hero" style="background-image: url('{{ hero ? hero.getUrl() : '/assets/images/hero-img.jpg' }}');">
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <h1>{{ pageEntry.heroHeading }}</h1>
+        <p>{{ pageEntry.heroSubheading }}</p>
+      </div>
     </section>
 
-    {# Fetch Articles Based on Filters #}
-    {% set categoryFilter = craft.app.request.getParam('category') %}
-    {% set searchQuery = craft.app.request.getParam('q') %}
-    {% set articlesQuery = craft.entries().section('articles') %}
+    <div
+      class="container">
 
-    {% if categoryFilter %}
-      {% set articlesQuery = articlesQuery.relatedTo({
+      {# Search & Filter Section #}
+      {% set allCategories = craft.categories().group('articleCategories').all() %}
+      <section class="search-filter">
+        <form method="get" class="search-form">
+          <input type="text" name="q" placeholder="Search articles..." value="{{ craft.app.request.getParam('q') }}">
+          <button type="submit" class="btn-primary">Search</button>
+        </form>
+
+        <form method="get" class="filter-form">
+          <select name="category" id="category" onchange="this.form.submit()">
+            <option value="">All Categories</option>
+            {% for category in allCategories %}
+              <option value="{{ category.id }}" {% if craft.app.request.getParam('category') == category.id %} selected {% endif %}>
+                {{ category.title }}
+              </option>
+            {% endfor %}
+          </select>
+        </form>
+      </section>
+
+
+      {# Fetch Articles Based on Filters #}
+      {% set categoryFilter = craft.app.request.getParam('category') %}
+      {% set searchQuery = craft.app.request.getParam('q') %}
+      {% set articlesQuery = craft.entries().section('articles') %}
+
+      {% if categoryFilter %}
+        {% set articlesQuery = articlesQuery.relatedTo({
         targetElement: categoryFilter,
         field: 'articleCategory'
       }) %}
-    {% endif %}
+      {% endif %}
 
-    {% if searchQuery %}
-      {% set articlesQuery = articlesQuery.search(searchQuery) %}
-    {% endif %}
+      {% if searchQuery %}
+        {% set articlesQuery = articlesQuery.search(searchQuery) %}
+      {% endif %}
 
-    {# Articles Grid Layout #}
-    <section class="articles-grid">
-      {% for article in articlesQuery.all() %}
-        <article class="article-card">
-          {% set image = article.articleImage.one() %}
-          {% if image %}
-            <div class="article-image">
-              <img src="{{ image.getUrl() }}" alt="{{ image.title ?? 'Article image' }}">
+      {# Articles Grid Layout #}
+      <section class="articles-grid">
+        {% for article in articlesQuery.all() %}
+          <article class="article-card">
+            {% set image = article.articleImage.one() %}
+            {% if image %}
+              <div class="article-image">
+                <img src="{{ image.getUrl() }}" alt="{{ image.title ?? 'Article image' }}">
+              </div>
+            {% endif %}
+
+            <div class="article-info">
+              <h3>{{ article.title }}</h3>
+
+              {% set categories = article.articleCategory.all() %}
+              {% if categories|length %}
+                <p class="meta">
+                  <strong>Categories:</strong>
+                  {{ categories | map(c => c.title) | join(', ') }}</p>
+              {% endif %}
+
+              {% set tags = article.articleTags.all() %}
+              {% if tags|length %}
+                <p class="meta">
+                  <strong>Tags:</strong>
+                  {% for tag in tags %}
+                    <a href="{{ url('articles/tag/' ~ tag.slug) }}" class="tag">{{ tag.title }}</a>
+                  {% endfor %}
+                </p>
+              {% endif %}
+
+              <p class="excerpt">{{ article.articleContent|striptags|slice(0, 120) ~ '...' }}</p>
+              <a href="{{ article.url }}" class="btn-secondary">Read More</a>
             </div>
-          {% endif %}
+          </article>
+        {% else %}
+          <p class="no-results">No articles found.</p>
+        {% endfor %}
+      </section>
 
-          <div class="article-info">
-            <h3>{{ article.title }}</h3>
-
-            {% set categories = article.articleCategory.all() %}
-            {% if categories|length %}
-              <p class="meta"><strong>Categories:</strong> {{ categories | map(c => c.title) | join(', ') }}</p>
-            {% endif %}
-
-            {% set tags = article.articleTags.all() %}
-            {% if tags|length %}
-              <p class="meta">
-                <strong>Tags:</strong>
-                {% for tag in tags %}
-                  <a href="{{ url('articles/tag/' ~ tag.slug) }}" class="tag">{{ tag.title }}</a>
-                {% endfor %}
-              </p>
-            {% endif %}
-
-            <p class="excerpt">{{ article.articleContent|striptags|slice(0, 120) ~ '...' }}</p>
-            <a href="{{ article.url }}" class="btn-secondary">Read More</a>
-          </div>
-        </article>
-      {% else %}
-        <p class="no-results">No articles found.</p>
-      {% endfor %}
-    </section>
-
+    </div>
   </div>
-</div>
 {% endblock %}

@@ -39,6 +39,7 @@ header {
   height: 50px;
   max-width: 150px;
   object-fit: contain;
+  border-radius: 50px;
 }
 
 /* Hamburger */
