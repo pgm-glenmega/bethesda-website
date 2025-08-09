@@ -6,7 +6,7 @@ email:
   template: null
   transportSettings:
     host: smtp.sendgrid.net
-    password: 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
+    password: $SENDGRID_API_KEY
     port: '587'
     useAuthentication: '1'
     username: apikey
