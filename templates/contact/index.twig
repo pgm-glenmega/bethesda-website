@@ -1,0 +1,89 @@
+{% extends '_layout.twig' %}
+
+{% block title %}Contact | Bethesda Ministry
+{% endblock %}
+
+{% block head %}
+  {{ parent() }}
+  <link rel="stylesheet" href="/css/contact.css?v={{ now.timestamp }}">
+{% endblock %}
+
+{% block content %}
+  <div class="container">
+    {% set heroImage = entry.heroBackground.one() %}
+    <section class="hero hero--contact" style="background: url('{{ heroImage ? heroImage.url : '/assets/images/hero-img.jpg' }}') center/cover no-repeat;">
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <h1>{{ entry.heroHeading }}</h1>
+        <p>{{ entry.heroSubheading }}</p>
+      </div>
+    </section>
+
+    <section class="contact-wrapper">
+      <div class="contact-info">
+        <div class="info-card">
+          <h3>📍 Address</h3>
+          <p>Kalfstraat 26,
+            <br>9300 AALST</p>
+        </div>
+
+        <div class="info-card">
+          <h3>📞 Phone</h3>
+          <p>
+            <a href="tel:+32491143048">
+              + 32 491 14 30 48</a>
+          </p>
+        </div>
+
+        <div class="info-card">
+          <h3>📧 Email</h3>
+          <p>
+            <a href="mailto:info@bethesdaministry.com">info@bethesdaministry.com</a>
+          </p>
+        </div>
+
+        <div class="info-card">
+          <h3>⏰ Office Hours</h3>
+          <p>Mon – Fri: 9:00 – 17:00<br>Sun: 10:00 – 14:00</p>
+        </div>
+      </div>
+
+      <div class="contact-form-container">
+        <form class="contact-form" method="post" accept-charset="UTF-8">
+          {{ csrfInput() }}
+          {{ actionInput('contact-form/send') }}
+
+          <div class="form-group">
+            <label for="fromName">Name</label>
+            <input type="text" id="fromName" name="fromName" required>
+          </div>
+
+          <div class="form-group">
+            <label for="fromEmail">Email</label>
+            <input type="email" id="fromEmail" name="fromEmail" required>
+          </div>
+
+          <div class="form-group">
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" name="subject" required>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+          </div>
+
+          <button type="submit" class="btn-submit">Send</button>
+        </form>
+
+        {% if craft.app.session.hasFlash('notice') %}
+          <div class="form-response success">{{ craft.app.session.getFlash('notice') }}</div>
+        {% elseif craft.app.session.hasFlash('error') %}
+          <div class="form-response error">{{ craft.app.session.getFlash('error') }}</div>
+        {% endif %}
+      </div>
+    </section>
+  </div>
+
+  <script defer src="{{ url('js/contact.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,96 @@
+{% extends "_layout.twig" %}
+
+{% set tag = craft.tags().slug(craft.app.request.getSegment(3)).group('articleTags').one() %}
+
+{% block title %}Articles Tagged with {{ tag ? tag.title : 'Unknown Tag' }} | Bethesda Ministry{% endblock %}
+
+{% block head %}
+  {{ parent() }}
+  <link rel="stylesheet" href="/css/article-tag.css?v={{ now.timestamp }}">
+{% endblock %}
+
+{% block content %}
+  <div class="container tag-page">
+
+    {% if tag %}
+      <section class="tag-hero">
+        <div class="tag-hero__content">
+          <nav class="breadcrumb">
+            <a href="{{ url('articles') }}">Articles</a>
+            <span>›</span>
+            <span>Tag</span>
+          </nav>
+
+          <h1 class="tag-title">
+            <span class="tag-chip">#{{ tag.title }}</span>
+          </h1>
+
+          {% set articles = craft.entries().section('articles').relatedTo(tag).all() %}
+          <p class="tag-meta">
+            {{ articles|length }} {{ articles|length == 1 ? 'article' : 'articles' }} found
+          </p>
+        </div>
+      </section>
+
+      {% if articles|length %}
+        <section class="grid grid--articles">
+          {% for article in articles %}
+            <article class="card">
+              {% set image = article.articleImage.one() %}
+              {% if image %}
+                <a href="{{ article.url }}" class="card__media">
+                  <img src="{{ image.getUrl() }}" alt="{{ image.title ?? 'Article image' }}">
+                </a>
+              {% endif %}
+
+              <div class="card__body">
+                <h3 class="card__title">
+                  <a href="{{ article.url }}">{{ article.title }}</a>
+                </h3>
+
+                {# Categories #}
+                {% set categories = article.articleCategory.all() %}
+                <p class="card__meta">
+                  <strong>Categories:</strong>
+                  {% if categories|length %}
+                    {{ categories | map(c => c.title) | join(', ') }}
+                  {% else %}
+                    Uncategorized
+                  {% endif %}
+                </p>
+
+                {# Tags (chips, with current highlighted) #}
+                {% set tags = article.articleTags.all() %}
+                {% if tags|length %}
+                  <div class="chips">
+                    {% for t in tags %}
+                      <a class="chip {{ t.id == tag.id ? 'chip--active' : '' }}" href="{{ url('articles/tag/' ~ t.slug) }}">
+                        #{{ t.title }}
+                      </a>
+                    {% endfor %}
+                  </div>
+                {% endif %}
+
+                <p class="card__excerpt">{{ article.articleContent|striptags|slice(0, 110) ~ '…' }}</p>
+
+                <a href="{{ article.url }}" class="button button--primary">Read More</a>
+              </div>
+            </article>
+          {% endfor %}
+        </section>
+      {% else %}
+        <section class="empty-state">
+          <h3>No articles found for “{{ tag.title }}”.</h3>
+          <p>Try browsing all <a href="{{ url('articles') }}">Articles</a> or searching for a different topic.</p>
+        </section>
+      {% endif %}
+
+    {% else %}
+      <section class="empty-state">
+        <h3>Tag not found</h3>
+        <p>The tag you’re looking for doesn’t exist. Head back to <a href="{{ url('articles') }}">Articles</a>.</p>
+      </section>
+    {% endif %}
+
+  </div>
+{% endblock %}

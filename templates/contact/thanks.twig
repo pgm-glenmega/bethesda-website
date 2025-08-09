@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+      {% block title %}Bethesda Ministry
+      {% endblock %}
+    </title>
+    <link rel="stylesheet" href="/css/main.css?v={{ now.timestamp }}">
+  </head>
+  <body>
+    {% set navbar = craft.globalSets.handle('navbarSettings').one() %}
+    <header>
+      <a href="/">
+        {% if navbar.navbarLogo|length %}
+          <img class="nav-logo" src="{{ navbar.navbarLogo.one().url }}" alt="Bethesda logo">
+        {% else %}
+          <img class="nav-logo" src="/assets/images/bethesda-logo.avif" alt="Bethesda logo">
+        {% endif %}
+      </a>
+
+      {# Hamburger Icon for Mobile #}
+      <div class="hamburger" id="hamburger">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+
+      <nav id="navbar">
+        <ul>
+          <li>
+            <a class="nav-item" href="/">{{ navbar.homeLabel }}</a>
+          </li>
+          <li>
+            <a class="nav-item" href="{{ siteUrl('about') }}">{{ navbar.aboutLabel }}</a>
+          </li>
+          <li>
+            <a class="nav-item" href="{{ siteUrl('activities') }}">{{ navbar.activitiesLabel }}</a>
+          </li>
+          <li>
+            <a class="nav-item" href="{{ siteUrl('articles') }}">{{ navbar.articlesLabel }}</a>
+          </li>
+          <li>
+            <a class="nav-item" href="{{ siteUrl('membership') }}">{{ navbar.membershipLabel }}</a>
+          </li>
+          <li>
+            <a class="nav-item" href="{{ siteUrl('contact') }}">{{ navbar.contactLabel }}</a>
+          </li>
+        </ul>
+
+        <a class="nav-prayer-room" href="{{ siteUrl('prayer-room') }}">
+          {{ navbar.prayerRequestLabel }}
+        </a>
+
+        <div class="language-switcher">
+          {% set currentSiteHandle = craft.app.sites.currentSite.handle %}
+          {% set currentPath = craft.app.request.getPathInfo() %}
+
+          {% for site in craft.app.sites.getAllSites() %}
+            {% if site.handle != currentSiteHandle %}
+              {% set switchUrl = site.baseUrl ~ currentPath %}
+              <a class="nav-language" href="{{ switchUrl }}">{{ site.language|upper }}</a>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </nav>
+    </header>
+
+
+    <main>
+      {% block content %}{% endblock %}
+    </main>
+
+    {% set footer = craft.globalSets().handle('footerSettings').one() %}
+
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-logo">
+          {% if footer.footerLogo.one() %}
+            <img src="{{ footer.footerLogo.one().url }}" alt="Bethesda Ministry Logo">
+          {% endif %}
+          <p class="footer-tagline">{{ footer.footerTagline }}</p>
+        </div>
+
+        <div class="footer-info">
+          {% if footer.contactTitle %}
+            <h4>{{ footer.contactTitle }}</h4>
+          {% endif %}
+          {% if footer.organizationName %}
+            <p>{{ footer.organizationName }}</p>
+          {% endif %}
+          {% if footer.organizationAddress %}
+            <p>{{ footer.organizationAddress }}</p>
+          {% endif %}
+          {% if footer.vat %}
+            <p>{{ footer.vat }}</p>
+          {% endif %}
+          {% if footer.iban %}
+            <p>IBAN:
+              {{ footer.iban }}</p>
+          {% endif %}
+          {% if footer.organizationEmail %}
+            <p>Email:
+              <a href="mailto:{{ footer.organizationEmail }}">{{ footer.organizationEmail }}</a>
+            </p>
+          {% endif %}
+          {% if footer.organizationPhone %}
+            <p>Phone number:
+              <a href="tel:{{ footer.organizationPhone }}">{{ footer.organizationPhone }}</a>
+            </p>
+          {% endif %}
+        </div>
+
+        <div class="footer-links">
+          <h4>{{ footer.quickLinksTitle }}</h4>
+          <ul>
+            {% for link in footer.quickLinks %}
+              <li>
+                <a href="{{ link.linkUrl }}">{{ link.linkLabel }}</a>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+
+
+        <div class="footer-socials">
+          <div class="social-icons">
+            <h4>{{ footer.socialsTitle }}</h4>
+            {% if footer.socialLinks %}
+              {% for row in footer.socialLinks %}
+                <a href="{{ row.linkUrl }}" target="_blank" rel="noopener">
+                  {{ row.linkLabel }}
+                </a>
+              {% endfor %}
+            {% endif %}
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        {% if footer.copyrightText %}
+          <p>{{ footer.copyrightText }}</p>
+        {% endif %}
+        {% if footer.footerBibleVerse %}
+          <p>{{ footer.footerBibleVerse }}</p>
+        {% endif %}
+      </div>
+    </footer>
+
+
+  </body>
+  {% block scripts %}
+    <script src="/js/hamburger.js"></script>
+  {% endblock %}
+
+
+</html>

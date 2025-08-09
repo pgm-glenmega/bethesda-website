@@ -1,9 +1,19 @@
 {% extends '_layout.twig' %}
 
-{% block title %}{{ entry.title }} | Bethesda Ministry{% endblock %}
+{% block title %}
+  {{ entry.title }}
+  | Bethesda Ministry
+{% endblock %}
+
+{% block head %}
+  {{ parent() }}
+  <link rel="stylesheet" href="/css/event-detail.css?v={{ now.timestamp }}">
+{% endblock %}
+
 
 {% block content %}
-  <div class="container event-detail">
+  <div
+    class="container event-detail">
 
     {# Event Hero Section #}
     {% set eventHeroImage = entry.eventImage.one() %}
@@ -11,7 +21,9 @@
       <div class="hero-overlay"></div>
       <div class="hero-content">
         <h1>{{ entry.title }}</h1>
-        <p class="event-meta"><strong>Date:</strong> {{ entry.eventDate|date('F j, Y') }}</p>
+        <p class="event-meta">
+          <strong>Date:</strong>
+          {{ entry.eventDate|date('F j, Y') }}</p>
       </div>
     </section>
 
@@ -62,10 +74,14 @@
         {% for related in craft.entries().section('events').limit(3).all() %}
           <div class="event-card-detail">
             <img src="{{ related.eventImage.one().url }}" alt="{{ related.title }}">
-            <h3><a href="{{ related.url }}">{{ related.title }}</a></h3>
-            <p><strong>Date:</strong> {{ related.eventDate|date('F j, Y') }}</p>
+            <h3>
+              <a href="{{ related.url }}">{{ related.title }}</a>
+            </h3>
+            <p>
+              <strong>Date:</strong>
+              {{ related.eventDate|date('F j, Y') }}</p>
             <p>{{ related.eventDescription|slice(0, 100) ~ '...' }}</p>
-              <a href="{{ related.url }}" class="event-card-link">View activity →</a>
+            <a href="{{ related.url }}" class="event-card-link">View activity →</a>
           </div>
         {% endfor %}
       </div>

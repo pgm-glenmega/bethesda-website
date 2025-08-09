@@ -1,67 +1,112 @@
 {% extends '_layout.twig' %}
 
-{% block title %}
-  {{ entry.title }}
-  | Bethesda Ministry
+{% block title %}{{ entry.title }} | Bethesda Ministry{% endblock %}
+
+{% block head %}
+  {{ parent() }}
+  <link rel="stylesheet" href="/css/article-detail.css?v={{ now.timestamp }}">
 {% endblock %}
 
 {% block content %}
-  {# Hero Section #}
-  <section class="article-hero" style="background-image: url('{{ entry.articleImage.one() ? entry.articleImage.one().url : " /assets/default-placeholder.jpg" }}');">
-    <div class="article-hero-overlay"></div>
-    <div class="article-hero-content">
-      <h1>{{ entry.title }}</h1>
-      <p class="article-meta">
-        <strong>Category:</strong>
-        {{ entry.articleCategory }}
-        |
-        <strong>Published on:</strong>
-        {{ entry.postDate|date('F j, Y') }}
+
+  {# --- Data helpers --- #}
+  {% set heroImg = entry.articleImage.one() %}
+  {% set categories = entry.articleCategory.all() %}
+  {% set tags = entry.articleTags.all() %}
+  {% set plain = entry.articleContent|striptags %}
+  {% set wordCount = plain|split(' ')|length %}
+  {% set readingTime = (wordCount / 200)|round(0, 'ceil') %}
+
+  {# --- Hero --- #}
+  <section class="article-hero" style="background-image:url('{{ heroImg ? heroImg.url : '/assets/default-placeholder.jpg' }}')">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="{{ url('/') }}">Home</a>
+        <span aria-hidden="true">›</span>
+        <a href="{{ url('articles') }}">Articles</a>
+        <span aria-hidden="true">›</span>
+        <span class="current">{{ entry.title }}</span>
+      </nav>
+
+      <h1 class="hero-title">{{ entry.title }}</h1>
+
+      <p class="meta-line">
+        <span><strong>Published:</strong> {{ entry.postDate|date('F j, Y') }}</span>
+        <span class="dot">•</span>
+        <span><strong>Read:</strong> ~{{ readingTime }} min</span>
+        {% if categories|length %}
+          <span class="dot">•</span>
+          <span>
+            <strong>Categories:</strong>
+            {{ categories|map(c => c.title)|join(', ') }}
+          </span>
+        {% endif %}
       </p>
+
+      {% if tags|length %}
+        <div class="chips">
+          {% for tag in tags %}
+            <a href="{{ url('articles/tag/' ~ tag.slug) }}" class="chip">#{{ tag.title }}</a>
+          {% endfor %}
+        </div>
+      {% endif %}
     </div>
   </section>
 
-
-  {# Article Content Section #}
-  <article class="article-container">
-    <div class="article-content">
+  {# --- Article body --- #}
+  <article class="article-wrap container">
+    <div class="prose">
       {{ entry.articleContent|raw }}
     </div>
   </article>
 
-  {# Author and Related Articles Section #}
-  <section class="article-footer">
-    {# Author Section #}
-    <div class="article-author">
-      <div class="author-card">
-        <div class="author-image">
-          {% if entry.authorImage.one() %}
-            <img src="{{ entry.authorImage.one().url }}" alt="{{ entry.authorName }}">
-          {% else %}
-            <img src="/assets/hero-img.jpg" alt="Default Author">
-          {% endif %}
-        </div>
-        <div class="author-info">
-          <h3>Written by:{{ entry.authorName }}</h3>
-        </div>
+  {# --- Author --- #}
+  <section class="article-author container">
+    <div class="author-card">
+      <div class="author-image">
+        {% set aImg = entry.authorImage.one() %}
+        <img src="{{ aImg ? aImg.url : '/assets/images/default-profile.jpg' }}" alt="{{ entry.authorName ?? 'Author' }}">
       </div>
-    </div>
-
-
-    <div class="related-articles">
-      <h3>More Articles</h3>
-      <div class="related-grid">
-        {% for relatedArticle in craft.entries().section('articles').limit(3).all() %}
-          <div class="related-card">
-            <a href="{{ relatedArticle.url }}">
-              <img src="{{ relatedArticle.articleImage.one().url ?? '/assets/default-placeholder.jpg' }}" alt="{{ relatedArticle.title }}">
-              <h4>{{ relatedArticle.title }}</h4>
-            </a>
-          </div>
-        {% endfor %}
+      <div class="author-info">
+        <h3>{{ entry.authorName ?: 'Bethesda Ministry' }}</h3>
+          <p>Sharing messages of hope, faith, and practical wisdom for everyday life.</p>
       </div>
     </div>
   </section>
 
-  <a href="{{ url('articles') }}" class="btn-back">Back to Articles</a>
+  {# --- Related articles --- #}
+  <section class="related container">
+    <h2>More Articles</h2>
+    <div class="related-grid">
+      {% set related = craft.entries()
+        .section('articles')
+        .id(['not', entry.id])
+        .orderBy('postDate desc')
+        .limit(3)
+        .all() %}
+
+      {% for item in related %}
+        {% set rImg = item.articleImage.one() %}
+        <article class="related-card">
+          <a href="{{ item.url }}" class="related-link">
+            <img src="{{ rImg ? rImg.url : '/assets/default-placeholder.jpg' }}" alt="{{ item.title }}">
+            <div class="rc-body">
+              <h3>{{ item.title }}</h3>
+              <p class="rc-date">{{ item.postDate|date('F j, Y') }}</p>
+              <p class="rc-excerpt">
+                {{ item.articleContent|striptags|slice(0, 110) ~ '…' }}
+              </p>
+              <span class="button">Read More</span>
+            </div>
+          </a>
+        </article>
+      {% endfor %}
+    </div>
+
+    <div class="back">
+      <a href="{{ url('articles') }}" class="btn-back">← Back to Articles</a>
+    </div>
+  </section>
+
 {% endblock %}

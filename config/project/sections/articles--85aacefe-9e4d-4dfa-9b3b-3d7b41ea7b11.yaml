@@ -5,7 +5,7 @@ entryTypes:
     uid: 55fd2f0f-9d2e-483b-ab16-6194ba07e07e # Article entry
 handle: articles
 maxAuthors: 1
-name: Articles
+name: 'Manage Articles'
 previewTargets:
   -
     __assoc__:
@@ -18,7 +18,7 @@ previewTargets:
       -
         - refresh
         - '1'
-propagationMethod: all
+propagationMethod: none
 siteSettings:
   3b691aff-4e3c-4d71-8837-7c4c8d0328b1: # bethesda ministry (NL)
     enabledByDefault: true

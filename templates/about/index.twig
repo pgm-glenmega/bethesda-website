@@ -3,17 +3,23 @@
 {% block title %}About Us | Bethesda Ministry
 {% endblock %}
 
-{% block content %}
-  <div
-    class="container about-page">
+{% block head %}
+  {{ parent() }}
+  <link rel="stylesheet" href="/css/about.css?v={{ now.timestamp }}">
+{% endblock %}
 
-    <section class="hero hero--about">
+
+{% block content %}
+  <div class="container">
+    {% set heroImage = entry.heroBackground.one() %}
+    <section class="hero hero--about" style="background: url('{{ heroImage ? heroImage.url : '/assets/images/hero-img.jpg' }}') center/cover no-repeat;">
       <div class="hero-overlay"></div>
       <div class="hero-content">
         <h1>{{ entry.heroHeading }}</h1>
         <p>{{ entry.heroSubheading }}</p>
       </div>
     </section>
+
 
     <section class="about-history">
       <div class="history-content">
@@ -55,8 +61,14 @@
         <div class="about-grid">
           {% for block in entry.membersList %}
             <div class="about-card">
-              <img src="{{ block.memberImage.one().url }}" alt="{{ block.memberName }}">
-                <div class="about-card-content"> <h3>{{ block.memberName }}</h3>
+              {% set memberImage = block.memberImage.one() %}
+              {% if memberImage %}
+                <img src="{{ memberImage.url }}" alt="{{ block.memberName }}">
+              {% else %}
+                <img src="/assets/images/default-profile.jpg" alt="{{ block.memberName }}">
+              {% endif %}
+              <div class="about-card-content">
+                <h3>{{ block.memberName }}</h3>
                 <p>{{ block.memberDescription }}</p>
               </div>
             </div>
@@ -70,46 +82,34 @@
 
     <section class="about-section">
       <h2>{{ entry.artistsHeading }}</h2>
-      <div class="about-grid">
-        <div class="about-card">
-          <img src="/assets/images/artist-1.webp" alt="Jonathan">
-          <div class="about-card-content">
-            <h3>Jonathan Blake</h3>
-            <p>Gospel musician & songwriter. His music inspires worship worldwide.</p>
-          </div>
+
+      {% if entry.artistsList|length %}
+        <div class="about-grid">
+          {% for block in entry.artistsList %}
+            {% set img = block.artistImage.one() %}
+            <div class="about-card">
+              {% if img %}
+                <img src="{{ img.url }}" alt="{{ block.artistName }}">
+              {% endif %}
+              <div class="about-card-content">
+                <h3>{{ block.artistName }}</h3>
+                <p>{{ block.artistDescription }}</p>
+              </div>
+            </div>
+          {% endfor %}
         </div>
-      </div>
+      {% else %}
+        <p>No artists have been added yet.</p>
+      {% endif %}
     </section>
+
 
   </div>
 
   {# GSAP Animation Script #}
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="/js/title-fade.js"></script>
 
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      gsap.registerPlugin(ScrollTrigger);
-
-      // Select all elements with moveUpTitle animation
-      const $fadeTitles = document.querySelectorAll("[data-animation='moveUpTitle']");
-
-      // Apply GSAP animation
-      $fadeTitles.forEach(e => {
-        gsap.from(e, {
-          y: 100, // Moves up
-          opacity: 0,
-          rotate: 2, // Slight rotation for effect
-          duration: 1.5,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: e,
-            start: "top 80%", // Triggers animation when element is in viewport
-            toggleActions: "play none none reset"
-          }
-        });
-      });
-    });
-  </script>
 
 {% endblock %}

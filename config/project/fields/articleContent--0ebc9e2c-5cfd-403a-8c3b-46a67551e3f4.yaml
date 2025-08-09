@@ -6,9 +6,13 @@ searchable: false
 settings:
   availableTransforms: ''
   availableVolumes: ''
+  characterLimit: null
   ckeConfig: ef693020-53df-4386-8417-1f32571d72c4 # general
   createButtonLabel: null
   defaultTransform: null
+  expandEntryButtons: false
+  fullGraphqlData: false
+  parseEmbeds: false
   purifierConfig: null
   purifyHtml: true
   showUnpermittedFiles: false
@@ -18,5 +22,5 @@ settings:
     - __ADMINS__
   wordLimit: null
 translationKeyFormat: null
-translationMethod: none
+translationMethod: site
 type: craft\ckeditor\Field

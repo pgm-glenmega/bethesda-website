@@ -11,5 +11,10 @@
 
  return [
   'prayer-room' => ['template' => 'prayer-room'],
+  'membership/success' => ['template' => 'membership/success'],
+  'membership/cancel' => ['template' => 'membership/cancel'],
+  
+  'articles/tag/<slug>' => ['template' => 'articles/tag'],
+  'activities/tag/<slug>' => ['template' => 'activities/tag'],
 ];
 

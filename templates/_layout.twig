@@ -7,20 +7,32 @@
       {% block title %}Bethesda Ministry
       {% endblock %}
     </title>
-    <link rel="stylesheet" href="/css/main.css?v={{ now.timestamp }}">
+    <link
+    rel="stylesheet" href="/css/layout.css?v={{ now.timestamp }}">
+
+    {# Page-specific CSS can be injected here #}
+    {% block head %}{% endblock %}
   </head>
+
   <body>
     {% set navbar = craft.globalSets.handle('navbarSettings').one() %}
     <header>
-      <nav>
-        <a href="/">
-          {% if navbar.navbarLogo|length %}
-            <img class="nav-logo" src="{{ navbar.navbarLogo.one().url }}" alt="Bethesda logo">
-          {% else %}
-            <img class="nav-logo" src="/assets/images/bethesda-logo.avif" alt="Bethesda logo">
-          {% endif %}
-        </a>
+      <a href="/">
+        {% if navbar.navbarLogo|length %}
+          <img class="nav-logo" src="{{ navbar.navbarLogo.one().url }}" alt="Bethesda logo">
+        {% else %}
+          <img class="nav-logo" src="/assets/images/bethesda-logo.avif" alt="Bethesda logo">
+        {% endif %}
+      </a>
 
+      {# Hamburger Icon for Mobile #}
+      <div class="hamburger" id="hamburger">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+
+      <nav id="navbar">
         <ul>
           <li>
             <a class="nav-item" href="/">{{ navbar.homeLabel }}</a>
@@ -36,6 +48,7 @@
           </li>
           <li>
             <a class="nav-item" href="{{ siteUrl('membership') }}">{{ navbar.membershipLabel }}</a>
+          </li>
           <li>
             <a class="nav-item" href="{{ siteUrl('contact') }}">{{ navbar.contactLabel }}</a>
           </li>
@@ -44,8 +57,21 @@
         <a class="nav-prayer-room" href="{{ siteUrl('prayer-room') }}">
           {{ navbar.prayerRequestLabel }}
         </a>
+
+        <div class="language-switcher">
+          {% set currentSiteHandle = craft.app.sites.currentSite.handle %}
+          {% set currentPath = craft.app.request.getPathInfo() %}
+
+          {% for site in craft.app.sites.getAllSites() %}
+            {% if site.handle != currentSiteHandle %}
+              {% set switchUrl = site.baseUrl ~ currentPath %}
+              <a class="nav-language" href="{{ switchUrl }}">{{ site.language|upper }}</a>
+            {% endif %}
+          {% endfor %}
+        </div>
       </nav>
     </header>
+
 
     <main>
       {% block content %}{% endblock %}
@@ -127,6 +153,8 @@
       </div>
     </footer>
 
-
+    {% block scripts %}
+      <script defer src="{{ url('js/hamburger.js') }}"></script>
+    {% endblock %}
   </body>
 </html>

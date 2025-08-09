@@ -1,17 +1,24 @@
-dateModified: 1754050665
+dateModified: 1754673954
 email:
   fromEmail: glen.meganck@gmail.com
   fromName: 'bethesda ministry'
   replyToEmail: null
   template: null
   transportSettings:
-    host: smtp.gmail.com
-    password: 'ctup sqoz tayx preu'
+    host: smtp.sendgrid.net
+    password: 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
     port: '587'
     useAuthentication: '1'
-    username: glen.meganck@gmail.com
+    username: apikey
   transportType: craft\mail\transportadapters\Smtp
 fs:
+  localAssets:
+    hasUrls: true
+    name: 'Local Assets'
+    settings:
+      path: '@webroot/assets'
+    type: craft\fs\Local
+    url: $ASSETS_BASE_URL
   uploads:
     hasUrls: true
     name: Uploads
@@ -25,18 +32,26 @@ graphql:
     expiryDate: null
 meta:
   __names__:
+    0bcd67df-4d87-4476-9115-6f35b838f8ec: ' Social Icons' #  Social Icons
     0cfb3f2f-91a0-46dc-8a1f-a3d99e594c4a: "Speaker Name\t" # Speaker Name	
+    0e8b7ef5-eb40-4037-9dd3-77b40f54e0c9: 'Category Icon' # Category Icon
     0ebc9e2c-5cfd-403a-8c3b-46a67551e3f4: 'Article Content' # Article Content
     1b50102f-9871-479c-bcf6-43f3ec7e9154: Subscribers # Subscribers
+    1c2bf94b-b23a-45d3-8177-38b99a16a272: 'Event Category' # Event Category
     1cc95ff0-b2d3-40f2-a4b0-0006fbe6a9d7: "Event Description\t" # Event Description	
+    1d818189-3d06-4eea-affa-1145b23ccda3: Contact # Contact
+    1f1a96c0-30df-4056-b845-75885dd0a8d0: Language # Language
     2a86c99c-f2fa-4a9b-96f7-3e138938c1a5: 'Author Image' # Author Image
     2ba2a454-ef15-4f28-9f95-25644abfdf74: 'Footer Tagline' # Footer Tagline
     2ccb4a24-9764-4f39-ade9-57dc2b7526db: "Sermon Audio File\t" # Sermon Audio File	
+    2ec843f0-6674-440b-918a-9ac29a42f189: 'Article Tags' # Article Tags
     3b691aff-4e3c-4d71-8837-7c4c8d0328b1: 'bethesda ministry (NL)' # bethesda ministry (NL)
     3bca10a6-55c2-4e8a-8c60-22d27328d028: 'Email Address' # Email Address
+    3c1026ca-bb6d-495a-974a-18094ba3f755: Subscribers # Subscribers
     3c656027-7627-4c25-8f60-fb38a23b1e1d: 'Member Image' # Member Image
     3db45ca2-4cff-46f3-9796-4678f3533148: 'bethesda ministry' # bethesda ministry
     3e96336e-e803-42d5-999f-cb19aa129537: "Sermon Date\t" # Sermon Date	
+    3ed5ee34-ab64-4eea-860d-9b2b4e314a56: Active # Active
     4b3422ae-8c59-4e85-877b-3d44224fba27: 'Artists List' # Artists List
     4d31aa11-35c6-4cb3-89f0-4537cd0da50c: 'Prayer Request' # Prayer Request
     04e8336d-7de8-4dc8-aa03-0e87d80c9d3c: "About Label\t" # About Label	
@@ -50,12 +65,13 @@ meta:
     5eb9f776-a6a4-4fad-83c0-90bc8da84dee: 'Footer Settings' # Footer Settings
     5fd03e0f-a382-4c2f-9bf0-960a5c4d0a4d: 'Navbar Logo' # Navbar Logo
     6eca19a4-b791-4958-abe2-12f97ac7bd77: 'Organization Phone' # Organization Phone
+    6ef092bb-52fc-4480-99c1-b3c40bce6d82: 'Sermon Category Color' # Sermon Category Color
+    7a9b464a-e1f5-42a2-aa0e-2bd6cb802c7f: 'Event Tags' # Event Tags
     7b3e0f03-392a-4f1d-acfe-e435b0de93f1: 'Contact Label' # Contact Label
     7b34c506-0bc6-42fd-9711-564a0d3849ab: 'Speaker image' # Speaker image
     7da2311d-0305-4310-a265-18436572e8bb: "Sermon Video URL\t" # Sermon Video URL	
     7e5bd6e0-89f5-4fdf-a9cf-e33dc3ce2a96: 'Social Links' # Social Links
     07fd0532-03a9-4f8b-b916-d426ff142b38: 'Stripe Customer ID' # Stripe Customer ID
-    8a38f646-a11e-4302-831d-ad44a36defca: 'Scripture Text' # Scripture Text
     8c0ac8cd-6806-41da-bb6c-e899c2c5f331: 'Event Image' # Event Image
     8f9a6657-d317-4437-901b-c6b288884f78: 'Sermon Image' # Sermon Image
     9bb5be90-ca7b-42e1-be2f-444e7271fb20: 'Scripture Reference' # Scripture Reference
@@ -63,7 +79,9 @@ meta:
     9cdee50b-57cc-4c34-824d-3b090381e3ba: 'Attendee Email' # Attendee Email
     9d4819ee-55f5-438b-bdce-bf09a8ec35d1: 'Hero Background' # Hero Background
     13f3c795-bd3b-480e-958e-fb239c07ecc1: 'Membership Expiry Date' # Membership Expiry Date
+    16b27a9c-7f10-47cd-b95c-f577b20a7461: 'Navbar Logo' # Navbar Logo
     23ba55d3-3a37-46b6-a533-4f60242be75e: Members # Members
+    23c892fe-25e7-42e3-a16b-ed8665c8d52a: 'Artist Image' # Artist Image
     30ad0bb3-ce3c-4c42-ae63-dbb1b4b3a0f8: "Event Date\t" # Event Date	
     38eb30ec-c584-4d43-81a0-7178e228c2b9: About # About
     39e5101c-a65f-46ae-bf45-8a6e5834012d: 'Sermon Section Heading' # Sermon Section Heading
@@ -71,47 +89,59 @@ meta:
     55fd2f0f-9d2e-483b-ab16-6194ba07e07e: 'Article entry' # Article entry
     59eeda3f-c8f8-4617-b754-4f571c73f340: 'Artists Heading' # Artists Heading
     62add736-d636-4864-ba23-43416dab080e: 'Prayer Request Label' # Prayer Request Label
-    63c51da8-6f4e-4545-bdc0-76c59bfa3618: Articles # Articles
     64ca4471-df3b-440d-9e6c-cc3eca50a917: 'Organization Address' # Organization Address
     66fe051e-37cc-4947-9784-d0a741883d91: 'Related Sermon' # Related Sermon
     68ace6b7-7b88-4651-b40e-e9f6bd29a31f: 'Prayer Request' # Prayer Request
+    69ad6397-0aae-4568-8b2d-9094a05c8f6b: 'Sermon Tags' # Sermon Tags
     81e2de67-7c53-4a1b-bc44-dd28a85159f5: 'Show Articles Section' # Show Articles Section
     84abf835-75b4-4a05-85be-5ac14f67287f: 'Sermon entry' # Sermon entry
-    84b2509c-3550-4fd6-b84a-cb3b5624bcb8: Activities # Activities
-    85aacefe-9e4d-4dfa-9b3b-3d7b41ea7b11: Articles # Articles
+    84b2509c-3550-4fd6-b84a-cb3b5624bcb8: 'Activities Page' # Activities Page
+    85aacefe-9e4d-4dfa-9b3b-3d7b41ea7b11: 'Manage Articles' # Manage Articles
+    99de5408-8513-4105-baef-345386843444: 'History Image' # History Image
     173cc97b-c409-47b2-8ed1-14c59db69971: 'Organization Name' # Organization Name
     177a279d-6718-4c6e-b56c-9d4ee7ecd597: Activities # Activities
     376b505a-60eb-404b-8fb6-68d58e2dcc1a: 'History Image' # History Image
     500cda18-d299-4856-93ab-723ff0d3e62b: 'Footer Logo' # Footer Logo
+    572d0e0e-a750-472a-ab0c-0121ec2229d0: 'Articles Page' # Articles Page
     577d24be-9686-4508-a87b-43a71e299ed5: 'Members list' # Members list
+    635cf54a-60d8-4542-b432-a6967bd0e1c8: 'Article Category' # Article Category
     658fc0b1-afbd-4d02-a6a0-a1a38b353ff8: 'Article Image' # Article Image
     789f6b17-9de5-4839-a76d-94cc5d206f76: 'Event Sign-up' # Event Sign-up
     819fac36-d9ff-447c-a3f9-699129793368: 'Artist Description' # Artist Description
     985a9d96-0516-4595-a0ec-d9c2792e2930: 'Sermon Sign-up' # Sermon Sign-up
+    1879a591-0b34-44c8-bef1-f9f0926b3c9e: Articles # Articles
     2990f109-c546-4a97-a92f-2c3e7cb2c263: 'bethesda ministry (FR)' # bethesda ministry (FR)
     3876d3cd-a553-4b20-abc7-b1c76d3ca60c: 'Scripture Verse' # Scripture Verse
     4118fd88-778b-420c-beb7-f37c003fc9c4: Artists # Artists
     5913f12c-3af8-4eb3-ba8f-03469428c3af: 'Event Entry' # Event Entry
     6322ca39-e7b4-400b-8076-928d13ba68ad: 'Organization Email' # Organization Email
     7004a8e4-d437-4484-9ab0-5b3677c1bf8f: VAT # VAT
+    7362cc91-ba31-44e2-8dbe-036b9259fc53: 'Sermon Categories' # Sermon Categories
     8819c3e3-11d8-410c-a36b-506e4369349c: 'Audio Sermon Entry' # Audio Sermon Entry
     9419b81d-7916-4386-a314-6c63a1edd722: Simple # Simple
     9429b8e0-f522-44d7-82c1-b5f1c998005f: 'Hero Heading' # Hero Heading
+    15897ed4-3473-479f-8ad5-767df9bb3602: 'Article Categories' # Article Categories
     45978b01-7a1e-4b66-849c-7ed274b95251: Homepage # Homepage
-    77626d4a-4b38-4be5-9be0-43e658e3f03b: Button # Button
-    415899f1-a67e-49a5-84b7-505f53f6546f: Subscribers # Subscribers
+    80257e58-d8ca-426a-b37f-d0a44ec869d9: 'Event Images' # Event Images
+    415899f1-a67e-49a5-84b7-505f53f6546f: Membership # Membership
+    607277a0-786e-4391-bfe0-93d479b72ba5: 'Event Tags' # Event Tags
     745919af-d07c-47fb-9d1e-7feac74afb06: "Prayer Request\t" # Prayer Request	
     02944889-2b52-4534-841e-74ab9ccef2c7: 'Article Section Heading' # Article Section Heading
     4839429d-ea58-4e81-953b-778afdfe9a2d: About # About
     5607335d-3b23-47a6-acee-41d4ffb0462c: 'bethesda ministry (ENG)' # bethesda ministry (ENG)
+    63894715-1ed2-494d-88da-2895978b6476: 'Article Images' # Article Images
     71665268-972c-4495-971b-0fd42dcbb164: 'Payment Status' # Payment Status
     a5bab881-3249-4db3-93ee-4e15ce9915e2: "Sermon Description\t" # Sermon Description	
     a8ec6387-884d-413d-81dc-d6e2ee349a74: 'Copyright Text' # Copyright Text
+    a55aba6e-0327-4a04-8be3-c194a74750b2: 'Event Categories' # Event Categories
+    aa797d4a-9fc9-465d-9832-1c5634442307: 'Event Category Color' # Event Category Color
     aa556839-181a-415e-96d4-23a662b28155: "Event Location\t" # Event Location	
-    ac76c8f2-47cd-4d47-8dc3-f5ecbde75d89: Uploads # Uploads
     b5d75f62-cd8f-48ce-b099-601b4970f6ff: 'Quick Links Title' # Quick Links Title
+    b51e2f60-6bd0-42a4-9a52-68bdf2e2554c: 'Artists Images' # Artists Images
     b173c3f8-b1b3-4873-9083-29d2836ba092: 'Articles Label' # Articles Label
     b8524df5-30f9-4b31-8723-d97d1c6095c8: 'Item Limit' # Item Limit
+    bb1eb688-4847-4d6b-9127-7588398927f9: 'Member Images' # Member Images
+    bbf387a1-5fb0-4ac6-9061-b15ff17eca7c: 'Article Category Color' # Article Category Color
     bf72572d-0609-4ca0-be7d-a7defdda31a6: 'Sermon Sign-ups' # Sermon Sign-ups
     bfa16735-29ce-4784-9d00-66b69cbac228: 'Socials Title' # Socials Title
     c7a64df5-eeb1-47d2-97f4-8d421ac91e0b: 'Members Heading' # Members Heading
@@ -119,32 +149,51 @@ meta:
     c13a97ef-b9ab-419b-ba15-480e42c05ae4: 'Membership Label' # Membership Label
     c33daae6-2b77-4492-8908-b0ffcb0827ca: 'Member Name' # Member Name
     c70d8d5c-37fc-459c-802a-b98e57cd3a1f: IBAN # IBAN
-    ca6b1da7-ed2f-499f-b2e2-71da635f434e: "Article Category\t" # Article Category	
     ce69aaf9-14e7-4516-967f-4da001fa34d9: 'History Text' # History Text
     d8b87d1e-4413-4d9f-b2e2-9f739d500a6e: Name # Name
     d27a885a-2ce7-4097-9bb3-87a38f6c18b2: 'Membership Start Date' # Membership Start Date
+    d61bf3d1-f6a3-4b03-9ee1-47f2b18d945a: 'Category Icons' # Category Icons
     d4652b72-1cb5-4e57-b83a-dd8d06982ca6: Homepage # Homepage
-    db0a7ad2-d8b8-4a3c-8e28-6657c55fd2c1: Events # Events
+    d9939b03-6ff5-4a6f-be27-def038637d20: 'Article Tags' # Article Tags
+    db0a7ad2-d8b8-4a3c-8e28-6657c55fd2c1: 'Manage Events' # Manage Events
+    dd28f384-75d3-4d9b-affa-99688c8a54d4: 'Contact Page' # Contact Page
     ded2bb13-2d34-45ce-8f01-bc15dad85fc5: 'Show Events Section' # Show Events Section
+    dfd9c0a3-8c47-419c-a09d-63dc7665984c: 'Hero Images' # Hero Images
     dfdda872-f9b4-47ab-81c7-dcc1b690b84d: 'Member Description' # Member Description
     e6f7823d-d3d6-4009-9dda-6d6feeb0ae34: 'Footer Bible Verse' # Footer Bible Verse
     e61d63c3-2614-4498-8d3e-ba411de9813a: 'Attendee Name' # Attendee Name
-    e69beff0-9914-494c-bc74-82a3f4ad9567: 'Activities Page' # Activities Page
-    ea291543-cb8c-4f99-a541-e81e821b4dec: Sermons # Sermons
+    ea291543-cb8c-4f99-a541-e81e821b4dec: 'Manage Sermons' # Manage Sermons
     eb5264b2-b9a6-4bf0-b6d7-678d8c5e6b5c: 'Hero Subheading' # Hero Subheading
     ebc53bcc-2888-4223-b872-9c125d09ce9a: 'Video Sermon Entry' # Video Sermon Entry
     ecf09f93-6a84-4db1-aca3-5a3f12fa877a: 'Quick Links' # Quick Links
+    ed29c221-d057-4f95-aeec-a7d020536972: 'Author Images' # Author Images
+    edfe0d81-ae7b-4c6c-9506-985036934cf4: 'Sermon Images' # Sermon Images
     ef2ac2d5-766e-45f9-9b7f-1a21ab3b79a7: 'History Heading' # History Heading
     ef693020-53df-4386-8417-1f32571d72c4: general # general
+    f0bec7e5-6cf6-4fa6-bb2f-565f395c5355: 'category Description' # category Description
     f4d0b0b2-31ea-4858-93ac-ac6e033395f3: 'Daily Scripture' # Daily Scripture
     f5e03df3-060e-41a7-8676-af0703556208: 'Full Name' # Full Name
     f45ed262-4486-4732-ab68-28862cd11781: 'Show Sermons Section' # Show Sermons Section
+    f355e747-cedd-4692-a62c-98b581850f3d: isFeatured # isFeatured
+    f14483b9-afe9-4218-8b2e-9c8aa5c67c31: 'Sermon Category' # Sermon Category
     f319371b-1e93-4336-bb12-b88fff3ccac7: 'Activities Label' # Activities Label
+    fa3eab38-9594-4e3f-b39f-3bbacf22248a: 'Sermon Tags' # Sermon Tags
 plugins:
   ckeditor:
     edition: standard
     enabled: true
     schemaVersion: 3.0.0.0
+  contact-form:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+    settings:
+      allowAttachments: ''
+      allowedMessageFields: null
+      prependSender: 'On behalf of'
+      prependSubject: 'New message from bethesda ministry (ENG)'
+      successFlashMessage: 'Your message has been sent.'
+      toEmail: glen.meganck@gmail.com
   guest-entries:
     edition: standard
     enabled: true

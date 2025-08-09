@@ -3,7 +3,8 @@
   "prefer-stable": true,
   "require": {
     "craftcms/ckeditor": "4.9.0",
-    "craftcms/cms": "5.8.12",
+    "craftcms/cms": "5.8.13.2",
+    "craftcms/contact-form": "^3.1",
     "craftcms/guest-entries": "^4.0",
     "stripe/stripe-php": "^17.4",
     "verbb/super-table": "4.0.5",

@@ -5,6 +5,11 @@
   | Bethesda Ministry
 {% endblock %}
 
+{% block head %}
+  {{ parent() }}
+  <link rel="stylesheet" href="/css/sermon-detail.css?v={{ now.timestamp }}">
+{% endblock %}
+
 {% block content %}
   <div
     class="container sermon-detail">

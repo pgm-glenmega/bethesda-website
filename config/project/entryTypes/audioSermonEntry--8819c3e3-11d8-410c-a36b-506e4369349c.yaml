@@ -1,6 +1,8 @@
 color: null
+description: null
 fieldLayouts:
   8e1fdb74-e71a-4e0a-a925-28b19fe57019:
+    cardThumbAlignment: end
     tabs:
       -
         elementCondition: null
@@ -37,6 +39,7 @@ fieldLayouts:
             width: 100
           -
             dateAdded: '2025-02-19T19:44:16+00:00'
+            editCondition: null
             elementCondition: null
             fieldUid: 8f9a6657-d317-4437-901b-c6b288884f78 # Sermon Image
             handle: null
@@ -53,6 +56,7 @@ fieldLayouts:
             width: 100
           -
             dateAdded: '2025-02-18T19:56:42+00:00'
+            editCondition: null
             elementCondition: null
             fieldUid: 3e96336e-e803-42d5-999f-cb19aa129537 # Sermon Date	
             handle: null
@@ -69,6 +73,7 @@ fieldLayouts:
             width: 100
           -
             dateAdded: '2025-02-18T19:56:42+00:00'
+            editCondition: null
             elementCondition: null
             fieldUid: 0cfb3f2f-91a0-46dc-8a1f-a3d99e594c4a # Speaker Name	
             handle: null
@@ -85,6 +90,7 @@ fieldLayouts:
             width: 100
           -
             dateAdded: '2025-03-21T10:18:34+00:00'
+            editCondition: null
             elementCondition: null
             fieldUid: 7b34c506-0bc6-42fd-9711-564a0d3849ab # Speaker image
             handle: null
@@ -101,6 +107,7 @@ fieldLayouts:
             width: 100
           -
             dateAdded: '2025-02-18T19:56:42+00:00'
+            editCondition: null
             elementCondition: null
             fieldUid: a5bab881-3249-4db3-93ee-4e15ce9915e2 # Sermon Description	
             handle: null
@@ -117,6 +124,7 @@ fieldLayouts:
             width: 100
           -
             dateAdded: '2025-02-18T19:56:42+00:00'
+            editCondition: null
             elementCondition: null
             fieldUid: 2ccb4a24-9764-4f39-ade9-57dc2b7526db # Sermon Audio File	
             handle: null
@@ -128,6 +136,40 @@ fieldLayouts:
             tip: null
             type: craft\fieldlayoutelements\CustomField
             uid: e0224f6d-3fa2-430d-baf6-dd73d6a1e67a
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-08-06T08:06:55+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: f14483b9-afe9-4218-8b2e-9c8aa5c67c31 # Sermon Category
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: f2644528-e3e6-4ee9-9e73-952653f4b950
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-08-06T16:19:31+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: fa3eab38-9594-4e3f-b39f-3bbacf22248a # Sermon Tags
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: e7047427-f2f4-4bc4-ae28-de55e53e0a72
             userCondition: null
             warning: null
             width: 100

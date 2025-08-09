@@ -13,7 +13,7 @@ settings:
   showCardsInGrid: false
   showSiteMenu: false
   sources:
-    - 'section:ea291543-cb8c-4f99-a541-e81e821b4dec' # Sermons
+    - 'section:ea291543-cb8c-4f99-a541-e81e821b4dec' # Manage Sermons
   targetSiteId: null
   validateRelatedElements: false
   viewMode: list

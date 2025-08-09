@@ -1,11 +1,20 @@
 {% extends '_layout.twig' %}
 
+
 {% block title %}Welcome to Bethesda Ministry
 {% endblock %}
 
+{% block head %}
+  {{ parent() }}
+  <link rel="stylesheet" href="/css/homepage.css?v={{ now.timestamp }}">
+{% endblock %}
+
+
 {% block content %}
-{% set entry = craft.entries().section('homepage').site(currentSite.handle).one() %}
-  <section class="hero">
+  {% set entry = craft.entries().section('homepage').site(currentSite.handle).one() %}
+  {% set hero = entry.heroBackground.one() %}
+
+  <section class="hero" style="background: url('{{ hero ? hero.getUrl() : '/assets/images/hero-img.jpg' }}') center/cover no-repeat;">
     <div class="hero-overlay"></div>
     <div class="hero-content">
       <h1>{{ entry.heroHeading }}</h1>
@@ -17,9 +26,10 @@
     </div>
   </section>
 
+
   {# --- LATEST SERMONS --- #}
   {% if entry.showSermonsSection %}
-  <section class="home-section">
+    <section class="home-section">
       <h2>{{ entry.sermonSectionHeading }}</h2>
       <div class="home-grid">
         {% set upcomingSermons = craft.entries()
@@ -45,27 +55,27 @@
 
   {# --- LATEST EVENTS --- #}
   {% if entry.showEventsSection %}
-  <section class="home-section">
-    <h2>{{ entry.eventSectionHeading }}</h2>
-    <div class="home-grid">
-      {% set upcomingEvents = craft.entries()
+    <section class="home-section">
+      <h2>{{ entry.eventSectionHeading }}</h2>
+      <div class="home-grid">
+        {% set upcomingEvents = craft.entries()
     .section('events')
     .eventDate('>= ' ~ now|atom)
     .orderBy('eventDate asc')
     .limit(3)
     .all() %}
 
-      {% for event in upcomingEvents %}
-        <div class="home-card">
-          {% set image = event.eventImage.one() ?? null %}
-          <img src="{{ image ? image.url : '/assets/default-placeholder.jpg' }}" alt="{{ event.title }}">
-          <h3>{{ event.title }}</h3>
-          <p>{{ event.eventDescription|striptags|slice(0, 150) ~ '...' }}</p>
-          <a href="{{ event.url }}" class="button">View Details</a>
-        </div>
-      {% endfor %}
-    </div>
-  </section>
+        {% for event in upcomingEvents %}
+          <div class="home-card">
+            {% set image = event.eventImage.one() ?? null %}
+            <img src="{{ image ? image.url : '/assets/default-placeholder.jpg' }}" alt="{{ event.title }}">
+            <h3>{{ event.title }}</h3>
+            <p>{{ event.eventDescription|striptags|slice(0, 150) ~ '...' }}</p>
+            <a href="{{ event.url }}" class="button">View Details</a>
+          </div>
+        {% endfor %}
+      </div>
+    </section>
   {% endif %}
 
   {# --- LATEST ARTICLES --- #}
@@ -73,26 +83,26 @@
 
   {# --- LATEST ARTICLES --- #}
   {% if entry.showArticlesSection %}
-  <section class="home-section">
-    <h2>{{ entry.articleSectionHeading }}</h2>
-    <div class="home-grid">
-      {% set recentArticles = craft.entries()
+    <section class="home-section">
+      <h2>{{ entry.articleSectionHeading }}</h2>
+      <div class="home-grid">
+        {% set recentArticles = craft.entries()
     .section('articles')
     .orderBy('postDate desc')
     .limit(3)
     .all() %}
 
-      {% for article in recentArticles %}
-        <div class="home-card">
-          {% set image = article.articleImage.one() ?? null %}
-          <img src="{{ image ? image.url : '/assets/default-placeholder.jpg' }}" alt="{{ article.title }}">
-          <h3>{{ article.title }}</h3>
-          <p>{{ article.articleContent|striptags|slice(0, 150) ~ '...' }}</p>
-          <a href="{{ article.url }}" class="button">Read More</a>
-        </div>
-      {% endfor %}
-    </div>
-  </section>
-{% endif %}
-
+        {% for article in recentArticles %}
+          <div class="home-card">
+            {% set image = article.articleImage.one() ?? null %}
+            <img src="{{ image ? image.url : '/assets/default-placeholder.jpg' }}" alt="{{ article.title }}">
+            <h3>{{ article.title }}</h3>
+            <p>{{ article.articleContent|striptags|slice(0, 150) ~ '...' }}</p>
+            <a href="{{ article.url }}" class="button">Read More</a>
+          </div>
+        {% endfor %}
+      </div>
+    </section>
+  {% endif %}
+  
 {% endblock %}

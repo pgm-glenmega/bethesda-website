@@ -9,7 +9,8 @@ settings:
   allowUploads: true
   allowedKinds: null
   branchLimit: null
-  defaultUploadLocationSource: 'volume:ac76c8f2-47cd-4d47-8dc3-f5ecbde75d89' # Uploads
+  defaultPlacement: end
+  defaultUploadLocationSource: 'volume:63894715-1ed2-494d-88da-2895978b6476' # Article Images
   defaultUploadLocationSubpath: null
   maintainHierarchy: false
   maxRelations: null
@@ -18,10 +19,11 @@ settings:
   restrictFiles: false
   restrictLocation: true
   restrictedDefaultUploadSubpath: sermons/
-  restrictedLocationSource: 'volume:ac76c8f2-47cd-4d47-8dc3-f5ecbde75d89' # Uploads
+  restrictedLocationSource: 'volume:edfe0d81-ae7b-4c6c-9506-985036934cf4' # Sermon Images
   restrictedLocationSubpath: null
   selectionLabel: null
   showCardsInGrid: false
+  showSearchInput: true
   showSiteMenu: true
   showUnpermittedFiles: false
   showUnpermittedVolumes: false

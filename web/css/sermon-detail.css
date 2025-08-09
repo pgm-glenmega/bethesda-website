@@ -1,0 +1,265 @@
+/* =========================================
+   Sermon Detail Page Styles
+   ========================================= */
+
+:root {
+  --primary: #7b61ff;
+  --primary-hover: #5b49c5;
+  --text: #333;
+  --muted: #666;
+  --bg: #fff;
+  --surface: #fdfcff;
+  --soft-border: #eee9ff;
+  --shadow: 0 2px 10px rgba(0,0,0,.08);
+  --elev: 0 6px 16px rgba(0,0,0,.12);
+  --ring: 0 0 0 3px rgba(123,97,255,.18);
+}
+
+/* --- Page container --- */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  color: var(--text);
+}
+
+/* --- Hero --- */
+.hero {
+  position: relative;
+  min-height: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 14px;
+  overflow: hidden;
+  margin: 1.25rem 0 2rem;
+  background-size: cover !important;
+  background-position: center !important;
+  box-shadow: var(--shadow);
+}
+.hero-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(0deg, rgba(0,0,0,.5), rgba(0,0,0,.25));
+}
+.hero-content {
+  position: relative;
+  color: #fff;
+  text-align: center;
+  padding: 1rem;
+}
+.hero-content h1 {
+  font-size: 2.25rem;
+  margin-bottom: .5rem;
+}
+.sermon-meta {
+  font-size: 1rem;
+  opacity: .95;
+}
+
+/* --- Sermon Content --- */
+.sermon-content {
+  display: grid;
+  grid-template-columns: 1.15fr .85fr;
+  gap: 2rem;
+  margin-bottom: 2.5rem;
+}
+@media (max-width: 960px) {
+  .sermon-content { grid-template-columns: 1fr; }
+}
+
+.sermon-info h2 {
+  font-size: 1.5rem;
+  margin-bottom: .5rem;
+}
+.sermon-info p {
+  line-height: 1.7;
+  font-size: 1rem;
+  color: var(--text);
+}
+
+/* Speaker block */
+.sermon-speaker {
+  display: grid;
+  grid-template-columns: 84px 1fr;
+  gap: 1rem;
+  align-items: center;
+  margin-top: 1.25rem;
+  padding: 1rem;
+  border: 1px solid var(--soft-border);
+  background: var(--surface);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+}
+.sermon-speaker img {
+  width: 84px; height: 84px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #ddd;
+}
+.sermon-speaker h3 {
+  margin: 0 0 .25rem;
+  font-size: 1.05rem;
+}
+.sermon-speaker p {
+  margin: 0;
+  color: var(--muted);
+  font-size: .95rem;
+}
+
+/* Media column */
+.sermon-media {
+  background: var(--bg);
+  border: 1px solid #f1efff;
+  border-radius: 14px;
+  padding: 1rem;
+  box-shadow: var(--shadow);
+  height: fit-content;
+}
+.sermon-video iframe {
+  width: 100%;
+  aspect-ratio: 16/9;
+  border: 0;
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+}
+.sermon-audio {
+  margin-top: 1rem;
+}
+.sermon-audio h2 {
+  font-size: 1.1rem;
+  margin-bottom: .5rem;
+}
+.sermon-audio audio {
+  width: 100%;
+  outline: none;
+}
+
+/* --- Signup --- */
+.sermon-signup {
+  margin: 3rem 0;
+  padding: 2rem;
+  background: var(--surface);
+  border: 1px solid var(--soft-border);
+  border-radius: 14px;
+  box-shadow: 0 6px 20px rgba(0,0,0,.06);
+}
+.sermon-signup h2 { margin-bottom: .5rem; }
+.sermon-signup p { margin-bottom: 1.25rem; }
+
+.success-message {
+  color: #27ae60;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+.error-message {
+  color: #c0392b;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.form-group { margin-bottom: 1rem; }
+.form-group label {
+  display: block;
+  margin-bottom: .35rem;
+  font-weight: 600;
+}
+.form-group input {
+  width: 100%;
+  padding: .65rem .8rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: .95rem;
+  transition: border-color .2s ease, box-shadow .2s ease;
+}
+.form-group input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: var(--ring);
+}
+
+/* Primary button (uses your existing class names) */
+.button.primary {
+  display: inline-block;
+  background: var(--primary);
+  color: #fff;
+  padding: .7rem 1.2rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 700;
+  transition: background .2s ease, transform .02s ease;
+}
+.button.primary:hover { background: var(--primary-hover); }
+.button.primary:active { transform: translateY(1px); }
+
+/* --- Related Sermons --- */
+.related-sermons {
+  margin: 3rem 0;
+}
+.related-sermons h2 {
+  margin-bottom: 1rem;
+}
+.sermon-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.25rem;
+}
+.sermon-card {
+  background: var(--bg);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  padding: 1rem;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.sermon-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--elev);
+}
+.sermon-card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+.sermon-card h3 {
+  font-size: 1.05rem;
+  margin: .75rem 0 .35rem;
+}
+.sermon-card p {
+  font-size: .9rem;
+  color: var(--muted);
+  margin-bottom: .4rem;
+}
+.sermon-card-link {
+  display: inline-block;
+  margin-top: .3rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+/* --- Back link --- */
+.back-container {
+  text-align: center;
+  margin: 2rem 0 3rem;
+}
+.btn-back {
+  display: inline-block;
+  padding: .65rem 1rem;
+  border: 1px solid var(--soft-border);
+  border-radius: 10px;
+  color: var(--primary);
+  background: #fff;
+  font-weight: 700;
+  box-shadow: var(--shadow);
+  transition: transform .15s ease, box-shadow .2s ease, border-color .2s ease;
+}
+.btn-back:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--elev);
+  border-color: var(--primary);
+}
+
+/* --- Responsive tweaks --- */
+@media (max-width: 768px) {
+  .hero-content h1 { font-size: 1.8rem; }
+}

@@ -1,17 +1,41 @@
 {% extends "_layout.twig" %}
 
+{% block title %}Membership | Bethesda Ministry{% endblock %}
+
+{% block head %}
+  {{ parent() }}
+  <link rel="stylesheet" href="/css/membership.css?v={{ now.timestamp }}">
+{% endblock %}
+
 {% block content %}
-  <section class="hero">
-    <h1>Join Our Membership</h1>
-    <p>Support the church and gain access to exclusive content and updates. €10/year.</p>
-    <form method="post">
-      {{ csrfInput() }}
-  <input type="hidden" name="action" value="stripe/stripe/create-checkout-session">
-      <input type="text" name="fullName" placeholder="Full Name">
-      <input type="email" name="email" placeholder="Email">
-      <button type="submit">Subscribe</button>
-    </form>
+<section class="membership-hero">
+  <div class="hero-overlay"></div>
+  <div class="membership-container">
+    <div class="membership-content">
+      <h1>Become a Member</h1>
+      <p class="subheading">
+        Join our growing community and make an impact. Your membership helps fund events, outreach, and meaningful projects that change lives.
+      </p>
+      <ul class="benefits-list">
+        <li>✔ Exclusive access to member-only podcasts and articles</li>
+        <li>✔ Invitations to special events & workshops</li>
+        <li>✔ Influence in shaping the future of our mission</li>
+        <li>✔ Direct support for local and global outreach</li>
+      </ul>
+      <p class="price">Only €10/year</p>
 
+      <form method="post" class="membership-form">
+        {{ csrfInput() }}
+        <input type="hidden" name="action" value="stripe/stripe/create-checkout-session">
 
-  </section>
+        <input type="text" name="fullName" placeholder="Full Name" required>
+        <input type="email" name="email" placeholder="Email Address" required>
+
+        <button type="submit" class="button primary">Join Now</button>
+      </form>
+
+      <p class="guarantee">Your contribution is secure and goes directly to our mission work.</p>
+    </div>
+  </div>
+</section>
 {% endblock %}

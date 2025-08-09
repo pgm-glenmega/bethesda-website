@@ -1,6 +1,8 @@
 color: null
+description: null
 fieldLayouts:
   dfa230ae-57ec-4c79-908f-5eedd7b51944:
+    cardThumbAlignment: end
     tabs:
       -
         elementCondition: null
@@ -37,6 +39,7 @@ fieldLayouts:
             width: 100
           -
             dateAdded: '2025-02-19T19:43:28+00:00'
+            editCondition: null
             elementCondition: null
             fieldUid: 8c0ac8cd-6806-41da-bb6c-e899c2c5f331 # Event Image
             handle: null
@@ -53,6 +56,7 @@ fieldLayouts:
             width: 100
           -
             dateAdded: '2025-02-18T20:11:14+00:00'
+            editCondition: null
             elementCondition: null
             fieldUid: 30ad0bb3-ce3c-4c42-ae63-dbb1b4b3a0f8 # Event Date	
             handle: null
@@ -69,6 +73,7 @@ fieldLayouts:
             width: 100
           -
             dateAdded: '2025-02-18T20:11:14+00:00'
+            editCondition: null
             elementCondition: null
             fieldUid: aa556839-181a-415e-96d4-23a662b28155 # Event Location	
             handle: null
@@ -85,6 +90,7 @@ fieldLayouts:
             width: 100
           -
             dateAdded: '2025-02-18T20:11:14+00:00'
+            editCondition: null
             elementCondition: null
             fieldUid: 1cc95ff0-b2d3-40f2-a4b0-0006fbe6a9d7 # Event Description	
             handle: null
@@ -96,6 +102,40 @@ fieldLayouts:
             tip: null
             type: craft\fieldlayoutelements\CustomField
             uid: b2869b20-ba64-4915-892d-99ddf42ef7cd
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-08-06T08:42:14+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 1c2bf94b-b23a-45d3-8177-38b99a16a272 # Event Category
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 2f962b7a-22d4-4098-809d-499e6d389245
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-08-06T16:15:05+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 607277a0-786e-4391-bfe0-93d479b72ba5 # Event Tags
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 4a267ad7-a3b6-4d39-b88b-a6b5a82d568b
             userCondition: null
             warning: null
             width: 100

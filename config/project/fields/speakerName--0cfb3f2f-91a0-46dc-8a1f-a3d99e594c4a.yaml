@@ -12,5 +12,5 @@ settings:
   placeholder: 'Name of the pastor/speaker.'
   uiMode: normal
 translationKeyFormat: null
-translationMethod: none
+translationMethod: site
 type: craft\fields\PlainText

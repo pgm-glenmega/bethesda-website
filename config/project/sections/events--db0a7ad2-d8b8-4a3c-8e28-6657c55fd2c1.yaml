@@ -5,7 +5,7 @@ entryTypes:
     uid: 5913f12c-3af8-4eb3-ba8f-03469428c3af # Event Entry
 handle: events
 maxAuthors: 1
-name: Events
+name: 'Manage Events'
 previewTargets:
   -
     __assoc__:

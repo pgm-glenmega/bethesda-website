@@ -20,7 +20,7 @@ protected array|bool|int $allowAnonymous = true;
         \Stripe\Stripe::setApiKey('sk_test_51Rqfn0362luTOlRBcO0HAsv7lrS1AT4PetZXr1EyTRBXbGIpH0R0ZsOvaQUsMwWqDdRACCygbFRtvQG3zAuYn9d400wGHAbbEu');
 
         $checkoutSession = \Stripe\Checkout\Session::create([
-            'payment_method_types' => ['card'],
+            'payment_method_types' => ['card', 'bancontact','paypal'],
             'mode' => 'subscription',
             'line_items' => [[
                 'price' => 'price_1RqrCm362luTOlRBXjOTOEfo', // Replace with your real price ID

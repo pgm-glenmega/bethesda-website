@@ -1,0 +1,92 @@
+.cancel-hero {
+  background: url('/assets/images/cancel-bg.jpg') center/cover no-repeat;
+  padding: 5rem 1rem;
+  text-align: center;
+  position: relative;
+}
+
+.cancel-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.65);
+}
+
+.cancel-container {
+  position: relative;
+  z-index: 1;
+  max-width: 650px;
+  margin: 0 auto;
+  color: white;
+}
+
+.cancel-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  animation: shake 0.6s infinite alternate;
+}
+
+@keyframes shake {
+  0% { transform: rotate(-5deg); }
+  100% { transform: rotate(5deg); }
+}
+
+.cancel-heading {
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+  color: #ff6b6b;
+}
+
+.cancel-message {
+  font-size: 1.05rem;
+  margin-bottom: 2rem;
+  color: #e0e0e0;
+}
+
+.cancel-actions {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.btn-primary {
+  background: #6a4bc4;
+  padding: 0.8rem 1.5rem;
+  color: white;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.btn-primary:hover {
+  background: #5537a0;
+}
+
+.btn-secondary {
+  background: transparent;
+  border: 2px solid white;
+  padding: 0.8rem 1.5rem;
+  color: white;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.btn-secondary:hover {
+  background: white;
+  color: #333;
+}
+
+.cancel-note {
+  font-size: 0.95rem;
+  color: #d0d0d0;
+}
+
+.cancel-note a {
+  color: #ffd700;
+  text-decoration: underline;
+}

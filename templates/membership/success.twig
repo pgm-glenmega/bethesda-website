@@ -1,0 +1,42 @@
+{% extends "_layout.twig" %}
+
+{% block title %}Membership Success | Bethesda Ministry{% endblock %}
+
+{% block head %}
+  {{ parent() }}
+  <link rel="stylesheet" href="/css/membership-succes.css?v={{ now.timestamp }}">
+{% endblock %}
+
+{% block content %}
+<section class="success-hero">
+  <div class="success-container">
+    <div class="success-icon">🎉</div>
+    <h1 class="success-heading">Thank You for Joining the Family</h1>
+    <p class="success-message">
+      Your membership subscription was successful.  
+      We’re blessed to have you walk alongside us in faith, community, and purpose.
+    </p>
+
+    <div class="success-actions">
+      <a href="{{ url('activities') }}" class="btn-primary">
+        Discover Upcoming Activities
+      </a>
+      <a href="{{ url('articles') }}" class="btn-primary">
+        View Our Latest Articles
+      </a>
+    </div>
+
+    <p class="success-note">
+      A confirmation email has been sent to you.  
+      If you have any questions, feel free to
+      <a href="{{ url('membership/contact') }}">reach out to us here</a>.
+    </p>
+  </div>
+</section>
+
+<section class="membership-footer">
+  <p>
+    Thank you for your support! Your membership helps us continue our mission and serve our community.
+  </p>
+</section>
+{% endblock %}

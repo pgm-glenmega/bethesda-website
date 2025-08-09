@@ -1,9 +1,24 @@
 {% extends "_layout.twig" %}
 
 {% block content %}
-  <section class="membership-section">
-    <h1>Payment Cancelled</h1>
-    <p>Your subscription was not completed. If this was a mistake, please try again.</p>
-    <a href="{{ url('membership') }}" class="button">Try Again</a>
-  </section>
+<section class="cancel-hero">
+  <div class="cancel-container">
+    <div class="cancel-icon">⚠️</div>
+    <h1 class="cancel-heading">Payment Cancelled</h1>
+    <p class="cancel-message">
+      Your membership subscription was not completed.  
+      If this was a mistake, you can try again below.
+    </p>
+
+    <div class="cancel-actions">
+      <a href="{{ url('membership') }}" class="btn-primary">Try Again</a>
+      <a href="{{ url('contact') }}" class="btn-secondary">Contact Support</a>
+    </div>
+
+    <p class="cancel-note">
+      No payment was processed. If you believe this is an error, please
+      <a href="{{ url('contact') }}">let us know</a>.
+    </p>
+  </div>
+</section>
 {% endblock %}

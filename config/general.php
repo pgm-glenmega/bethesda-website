@@ -11,13 +11,17 @@ return GeneralConfig::create()
     ->omitScriptNameInUrls() // Remove "index.php" from URLs
     ->preloadSingles() // Preload single entries
     ->preventUserEnumeration() // Security feature
-    ->aliases([
-        '@webroot' => dirname(__DIR__) . '/web',
-        'enableCsrfProtection' => false,    
-        'allowAdminChanges' => true,
-'useProjectConfigFile' => true,
+->aliases([
+    '@webroot' => dirname(__DIR__) . '/web',
 
-    ])
+    '@assetBasePath' => '@webroot/assets',
+    '@assetBaseUrl' => 'http://localhost:8000/assets', // or your actual dev URL
+
+    'enableCsrfProtection' => false,
+    'allowAdminChanges' => true,
+    'useProjectConfigFile' => true,
+])
+
     ->enableCsrfProtection(true) // Ensure CSRF is enabled
     ->devMode(true) // Enable debug mode (disable on production!)
     ->useEmailAsUsername(true) // Ensure emails can be used as usernames

@@ -1,0 +1,97 @@
+{% extends "_layout.twig" %}
+
+{% block title %}
+  Tagged with “{{ craft.app.request.getSegment(3) }}” | Bethesda Ministry
+{% endblock %}
+
+{% block head %}
+  {{ parent() }}
+  <link rel="stylesheet" href="/css/activity-tag.css?v={{ now.timestamp }}">
+{% endblock %}
+
+{% block content %}
+  {# Get tag from either sermonTags or eventTags group #}
+  {% set tag = craft.tags()
+    .slug(craft.app.request.getSegment(3))
+    .group(['sermonTags', 'eventTags'])
+    .one() %}
+
+  {% if not tag %}
+    <div class="container">
+      <p class="text-error">Tag not found.</p>
+    </div>
+    {% exit %}
+  {% endif %}
+
+  {# Count related items without loading them all #}
+  {% set relatedCount = craft.entries()
+    .section(['sermons','events'])
+    .relatedTo(tag)
+    .count() %}
+
+  {# Tag hero + breadcrumb #}
+  <section class="tag-hero-wrap">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="{{ url('activities') }}">Activities</a>
+      <span aria-hidden="true">›</span>
+      <span>Tag</span>
+    </nav>
+
+    <div class="tag-hero-card">
+      <h1 class="tag-pill">#{{ tag.title }}</h1>
+      <p class="tag-count">{{ relatedCount }} {{ relatedCount == 1 ? 'item' : 'items' }} found</p>
+    </div>
+  </section>
+
+  <div class="container">
+    {% set relatedEntries = craft.entries()
+      .section(['sermons', 'events'])
+      .relatedTo(tag)
+      .orderBy('postDate desc')
+      .all() %}
+
+    {% if relatedEntries|length %}
+      <div class="tag-grid">
+        {% for entry in relatedEntries %}
+          <div class="tag-card" data-type="{{ entry.section.handle }}">
+            {% set image = entry.sermonImage.one() ?? entry.eventImage.one() ?? null %}
+            <img src="{{ image ? image.url : '/assets/default-placeholder.jpg' }}" alt="{{ entry.title }}">
+
+            <div class="tag-card-content">
+              <h3>{{ entry.title|length > 21 ? entry.title|slice(0, 21) ~ '…' : entry.title }}</h3>
+
+              {# Category Badge #}
+              {% set category = entry.section.handle == 'sermons' ? entry.sermonCategory.one() : entry.eventCategory.one() %}
+              {% if category %}
+                <span class="category-badge" style="background-color: {{ category.sermonCategoryColor ?? category.eventCategoryColor }};">
+                  {{ category.title }}
+                </span>
+              {% endif %}
+
+              {# Tag Chips #}
+              <div class="chips">
+                {% set tags = entry.section.handle == 'sermons' ? entry.sermonTags.all() : entry.eventTags.all() %}
+                {% for t in tags %}
+                  <a class="chip" href="{{ url('activities/tag/' ~ t.slug) }}">#{{ t.title }}</a>
+                {% endfor %}
+              </div>
+
+              <p class="date"><strong>Date:</strong> {{ (entry.sermonDate ?? entry.eventDate)|date('F j, Y') }}</p>
+
+              <p>
+                {{ entry.section.handle == 'sermons'
+                  ? entry.sermonDescription|striptags|slice(0, 70) ~ '…'
+                  : entry.eventDescription|striptags|slice(0, 70) ~ '…'
+                }}
+              </p>
+
+              <a href="{{ entry.url }}" class="button">View Details</a>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    {% else %}
+      <p>No sermons or events found for this tag.</p>
+    {% endif %}
+  </div>
+{% endblock %}

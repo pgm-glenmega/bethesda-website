@@ -9,20 +9,22 @@ settings:
   allowUploads: true
   allowedKinds: null
   branchLimit: null
-  defaultUploadLocationSource: 'volume:ac76c8f2-47cd-4d47-8dc3-f5ecbde75d89' # Uploads
+  defaultPlacement: end
+  defaultUploadLocationSource: 'volume:63894715-1ed2-494d-88da-2895978b6476' # Article Images
   defaultUploadLocationSubpath: null
   maintainHierarchy: false
   maxRelations: null
   minRelations: null
   previewMode: full
   restrictFiles: false
-  restrictLocation: false
+  restrictLocation: true
   restrictedDefaultUploadSubpath: null
-  restrictedLocationSource: 'volume:ac76c8f2-47cd-4d47-8dc3-f5ecbde75d89' # Uploads
+  restrictedLocationSource: 'volume:bb1eb688-4847-4d6b-9127-7588398927f9' # Member Images
   restrictedLocationSubpath: null
   selectionLabel: null
   showCardsInGrid: false
-  showSiteMenu: false
+  showSearchInput: true
+  showSiteMenu: true
   showUnpermittedFiles: false
   showUnpermittedVolumes: false
   sources: '*'

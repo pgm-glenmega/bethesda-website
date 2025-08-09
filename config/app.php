@@ -4,6 +4,7 @@ use craft\helpers\App;
 use modules\contactform\ContactFormModule;
 use modules\stripe\StripeModule;
 
+
 return [
     'id' => App::env('CRAFT_APP_ID') ?: 'CraftCMS',
 
@@ -13,7 +14,7 @@ return [
         ],
         'stripe' => [
             'class' => StripeModule::class,
-        ],
+        ]
     ],
     'bootstrap' => ['contact-form', 'stripe'],
 ];

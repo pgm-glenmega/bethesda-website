@@ -1,0 +1,177 @@
+/* ===== Page Shell ===== */
+.tag-page {
+  padding-bottom: 4rem;
+}
+
+/* ===== Hero-lite ===== */
+.tag-hero {
+  position: relative;
+  padding: 3.5rem 1rem 2.25rem;
+  background: linear-gradient(135deg, #f7f5ff, #ffffff);
+  border: 1px solid #eee9ff;
+  border-radius: 16px;
+  margin-top: 1.25rem;
+  box-shadow: 0 10px 30px rgba(0,0,0,.04);
+}
+
+.tag-hero__content {
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.breadcrumb {
+  display: inline-flex;
+  gap: .5rem;
+  align-items: center;
+  font-size: .9rem;
+  color: #666;
+  margin-bottom: .5rem;
+}
+.breadcrumb a { color: #6c63ff; }
+.breadcrumb a:hover { text-decoration: underline; }
+
+.tag-title { margin: .25rem 0 .5rem; }
+.tag-chip {
+  display: inline-block;
+  padding: .35rem .65rem;
+  border-radius: 999px;
+  background: #efeaff;
+  color: #4328d1;
+  font-weight: 700;
+  font-size: 1.85rem;
+  line-height: 1.2;
+}
+
+.tag-meta {
+  color: #666;
+  margin-top: .5rem;
+}
+
+/* ===== Grid & Cards ===== */
+.grid--articles {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 22px;
+  max-width: 1100px;
+  margin: 2rem auto 0;
+}
+
+.card {
+  background: #fff;
+  border: 1px solid #eee9ff;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 8px 28px rgba(0,0,0,.06);
+  transition: transform .2s ease, box-shadow .2s ease;
+  display: flex;
+  flex-direction: column;
+}
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 36px rgba(0,0,0,.1);
+}
+
+.card__media img {
+  display: block;
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.card__body {
+  padding: 1rem 1rem 1.15rem;
+  display: flex;
+  flex-direction: column;
+  gap: .55rem;
+}
+
+.card__title {
+  margin: .2rem 0 .15rem;
+  font-size: 1.05rem;
+  line-height: 1.35;
+  color: #222;
+}
+.card__title a { color: inherit; }
+.card__title a:hover { text-decoration: underline; }
+
+.card__meta {
+  font-size: .9rem;
+  color: #666;
+}
+
+/* Chips for tags */
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .35rem;
+  margin-top: .2rem;
+}
+.chip {
+  display: inline-block;
+  font-size: .78rem;
+  padding: .32rem .55rem;
+  border-radius: 999px;
+  border: 1px solid #e8e3ff;
+  background: #f7f5ff;
+  color: #5b49c5;
+  transition: background .15s ease, border-color .15s ease;
+}
+.chip:hover {
+  background: #efeaff;
+  border-color: #d8d0ff;
+}
+.chip--active {
+  background: #6c63ff;
+  color: #fff;
+  border-color: #6c63ff;
+}
+
+/* Excerpt */
+.card__excerpt {
+  color: #444;
+  font-size: .95rem;
+  line-height: 1.55;
+  margin-top: .2rem;
+}
+
+/* Buttons — match your Events/Sermons CTAs */
+.button {
+  display: inline-block;
+  padding: .65rem .9rem;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: .95rem;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+  transition: background .2s ease, transform .02s ease;
+}
+.button--primary {
+  background: #7b61ff; /* same CTA color used elsewhere */
+  color: #fff;
+}
+.button--primary:hover { background: #5b49c5; }
+.button--primary:active { transform: translateY(1px); }
+
+/* ===== Empty State ===== */
+.empty-state {
+  max-width: 760px;
+  margin: 3rem auto 0;
+  text-align: center;
+  background: #fff;
+  border: 1px solid #eee9ff;
+  border-radius: 14px;
+  padding: 2rem 1.5rem;
+  box-shadow: 0 8px 28px rgba(0,0,0,.05);
+}
+.empty-state h3 { margin-bottom: .5rem; color: #222; }
+.empty-state p  { color: #555; }
+.empty-state a  { color: #6c63ff; }
+.empty-state a:hover { text-decoration: underline; }
+
+/* ===== Responsive ===== */
+@media (max-width: 640px) {
+  .tag-chip { font-size: 1.45rem; }
+  .card__media img { height: 160px; }
+}
