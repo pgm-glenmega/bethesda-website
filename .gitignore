@@ -1,34 +1,37 @@
-# Ignore environment files
+# --- Env ---
 .env
 .env.*
 
-# Ignore DDEV configuration
-.ddev/
+# --- Composer ---
+/vendor/
 
-# Ignore Craft storage (logs, caches)
-storage/
+# --- Craft runtime ---
+/storage/
+/web/cpresources/
 
-# Ignore Composer dependencies (installed separately)
-vendor/
+# Optional: keep storage/rebrand if you use CP rebrand assets
+#!/storage/rebrand/
 
-# Allow the uploads folder but ignore everything inside
+# --- Uploads ---
 web/uploads/*
 !web/uploads/.gitkeep
 
+# --- Node/bundler ---
+/node_modules/
+/dist/
+/build/
+/web/assets/build/
+/web/build/
 
-# Ignore Craft Control Panel resources
-web/cpresources/
+# --- DDEV (ignore everything; keep if you collaborate) ---
+.ddev/
 
-# Ignore Node.js dependencies (if applicable)
-node_modules/
-
-# Ignore system files
+# --- IDE / OS ---
 .DS_Store
 Thumbs.db
-
-# Ignore IDE configuration files
 .vscode/
 .idea/
 
-#ignore config/project folder
-config/project/*
+# --- Security ---
+config/license.key
+config/license.key.*
