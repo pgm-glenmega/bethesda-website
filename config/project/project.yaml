@@ -1,10 +1,9 @@
-dateModified: 1754744891
+dateModified: 1755540715
 email:
   fromEmail: glen.meganck@gmail.com
   fromName: 'bethesda ministry'
-  replyToEmail: null
-  template: null
   transportSettings:
+    encryption: tls
     host: smtp.sendgrid.net
     password: $SENDGRID_API_KEY
     port: '587'
@@ -42,6 +41,7 @@ meta:
     1d818189-3d06-4eea-affa-1145b23ccda3: Contact # Contact
     1f1a96c0-30df-4056-b845-75885dd0a8d0: Language # Language
     2a86c99c-f2fa-4a9b-96f7-3e138938c1a5: 'Author Image' # Author Image
+    2b7e5251-bbfa-466e-8130-243065c9294e: 'Donate Page' # Donate Page
     2ba2a454-ef15-4f28-9f95-25644abfdf74: 'Footer Tagline' # Footer Tagline
     2ccb4a24-9764-4f39-ade9-57dc2b7526db: "Sermon Audio File\t" # Sermon Audio File	
     2ec843f0-6674-440b-918a-9ac29a42f189: 'Article Tags' # Article Tags
@@ -98,8 +98,10 @@ meta:
     84b2509c-3550-4fd6-b84a-cb3b5624bcb8: 'Activities Page' # Activities Page
     85aacefe-9e4d-4dfa-9b3b-3d7b41ea7b11: 'Manage Articles' # Manage Articles
     99de5408-8513-4105-baef-345386843444: 'History Image' # History Image
+    169bd049-3109-42ab-a1f4-08425d793ce5: 'Membership Page' # Membership Page
     173cc97b-c409-47b2-8ed1-14c59db69971: 'Organization Name' # Organization Name
     177a279d-6718-4c6e-b56c-9d4ee7ecd597: Activities # Activities
+    225bc01c-fecd-4c94-bc45-27ca292fc0a4: 'Membership Guarantee' # Membership Guarantee
     376b505a-60eb-404b-8fb6-68d58e2dcc1a: 'History Image' # History Image
     500cda18-d299-4856-93ab-723ff0d3e62b: 'Footer Logo' # Footer Logo
     572d0e0e-a750-472a-ab0c-0121ec2229d0: 'Articles Page' # Articles Page
@@ -116,6 +118,8 @@ meta:
     5913f12c-3af8-4eb3-ba8f-03469428c3af: 'Event Entry' # Event Entry
     6322ca39-e7b4-400b-8076-928d13ba68ad: 'Organization Email' # Organization Email
     7004a8e4-d437-4484-9ab0-5b3677c1bf8f: VAT # VAT
+    7242aa27-0e8d-45a9-aee6-7b3fdb6a809d: 'Show Benefit' # Show Benefit
+    7356bf1b-7f48-446c-baa1-d4e58ef99865: 'Membership Benefits' # Membership Benefits
     7362cc91-ba31-44e2-8dbe-036b9259fc53: 'Sermon Categories' # Sermon Categories
     8819c3e3-11d8-410c-a36b-506e4369349c: 'Audio Sermon Entry' # Audio Sermon Entry
     9419b81d-7916-4386-a314-6c63a1edd722: Simple # Simple
@@ -123,6 +127,7 @@ meta:
     15897ed4-3473-479f-8ad5-767df9bb3602: 'Article Categories' # Article Categories
     45978b01-7a1e-4b66-849c-7ed274b95251: Homepage # Homepage
     80257e58-d8ca-426a-b37f-d0a44ec869d9: 'Event Images' # Event Images
+    89226c1f-2d7f-4d1b-a5d1-0f4ed31fc49b: 'Membership Page' # Membership Page
     415899f1-a67e-49a5-84b7-505f53f6546f: Membership # Membership
     607277a0-786e-4391-bfe0-93d479b72ba5: 'Event Tags' # Event Tags
     745919af-d07c-47fb-9d1e-7feac74afb06: "Prayer Request\t" # Prayer Request	
@@ -131,12 +136,16 @@ meta:
     5607335d-3b23-47a6-acee-41d4ffb0462c: 'bethesda ministry (ENG)' # bethesda ministry (ENG)
     63894715-1ed2-494d-88da-2895978b6476: 'Article Images' # Article Images
     71665268-972c-4495-971b-0fd42dcbb164: 'Payment Status' # Payment Status
+    74813528-e72a-43b2-ae05-2add4a793354: 'Donation Usage' # Donation Usage
+    77794834-cc99-4f10-a105-ae078dc70f6d: 'Donation Label' # Donation Label
     a5bab881-3249-4db3-93ee-4e15ce9915e2: "Sermon Description\t" # Sermon Description	
     a8ec6387-884d-413d-81dc-d6e2ee349a74: 'Copyright Text' # Copyright Text
     a55aba6e-0327-4a04-8be3-c194a74750b2: 'Event Categories' # Event Categories
+    a331c5a7-5245-4510-bcc5-13fc8762f571: 'Donate Page' # Donate Page
     aa797d4a-9fc9-465d-9832-1c5634442307: 'Event Category Color' # Event Category Color
     aa556839-181a-415e-96d4-23a662b28155: "Event Location\t" # Event Location	
     b5d75f62-cd8f-48ce-b099-601b4970f6ff: 'Quick Links Title' # Quick Links Title
+    b9d2f1d8-00a5-4f86-8792-37010e1ff0dc: 'Benefit Text' # Benefit Text
     b51e2f60-6bd0-42a4-9a52-68bdf2e2554c: 'Artists Images' # Artists Images
     b173c3f8-b1b3-4873-9083-29d2836ba092: 'Articles Label' # Articles Label
     b8524df5-30f9-4b31-8723-d97d1c6095c8: 'Item Limit' # Item Limit
@@ -160,6 +169,7 @@ meta:
     ded2bb13-2d34-45ce-8f01-bc15dad85fc5: 'Show Events Section' # Show Events Section
     dfd9c0a3-8c47-419c-a09d-63dc7665984c: 'Hero Images' # Hero Images
     dfdda872-f9b4-47ab-81c7-dcc1b690b84d: 'Member Description' # Member Description
+    e5ad05c7-d80a-4b19-90db-a03dd55c70f9: 'Donation Suggested Amounts' # Donation Suggested Amounts
     e6f7823d-d3d6-4009-9dda-6d6feeb0ae34: 'Footer Bible Verse' # Footer Bible Verse
     e61d63c3-2614-4498-8d3e-ba411de9813a: 'Attendee Name' # Attendee Name
     ea291543-cb8c-4f99-a541-e81e821b4dec: 'Manage Sermons' # Manage Sermons

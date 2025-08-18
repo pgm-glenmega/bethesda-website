@@ -1,0 +1,88 @@
+columnSuffix: null
+handle: eventCategoryColor
+instructions: null
+name: 'Event Category Color'
+searchable: false
+settings:
+  allowCustomColors: false
+  palette:
+    0:
+      __assoc__:
+        -
+          - color
+          - '#f6aa1c'
+        -
+          - label
+          - Amber
+        -
+          - default
+          - ''
+    1:
+      __assoc__:
+        -
+          - color
+          - '#3a86ff'
+        -
+          - label
+          - 'Light Blue'
+        -
+          - default
+          - ''
+    2:
+      __assoc__:
+        -
+          - color
+          - '#a3b18a'
+        -
+          - label
+          - Olive
+        -
+          - default
+          - ''
+    3:
+      __assoc__:
+        -
+          - color
+          - '#9a031e'
+        -
+          - label
+          - Burgundy
+        -
+          - default
+          - ''
+    4:
+      __assoc__:
+        -
+          - color
+          - '#ff6b6b'
+        -
+          - label
+          - Coral
+        -
+          - default
+          - ''
+    6:
+      __assoc__:
+        -
+          - color
+          - '#4b5d67'
+        -
+          - label
+          - 'Slate Blue'
+        -
+          - default
+          - ''
+    7:
+      __assoc__:
+        -
+          - color
+          - '#495057'
+        -
+          - label
+          - Charcoal
+        -
+          - default
+          - ''
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Color

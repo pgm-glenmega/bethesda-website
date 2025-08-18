@@ -1,0 +1,88 @@
+columnSuffix: null
+handle: categorycolor
+instructions: null
+name: 'Article Category Color'
+searchable: false
+settings:
+  allowCustomColors: false
+  palette:
+    -
+      __assoc__:
+        -
+          - color
+          - '#f4a261'
+        -
+          - label
+          - Orange
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - color
+          - '#6a4c93'
+        -
+          - label
+          - Purple
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - color
+          - '#2a9d8f'
+        -
+          - label
+          - Teal
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - color
+          - '#264653'
+        -
+          - label
+          - Navy
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - color
+          - '#e9c46a'
+        -
+          - label
+          - Gold
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - color
+          - '#d62828'
+        -
+          - label
+          - Crimson
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - color
+          - '#2b9348'
+        -
+          - label
+          - 'Forest Green'
+        -
+          - default
+          - ''
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Color

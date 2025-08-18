@@ -1,0 +1,9 @@
+baseUrl: $BETHESDA_MINISTRY_FR_URL
+enabled: '1'
+handle: fr
+hasUrls: true
+language: fr-BE
+name: 'bethesda ministry (FR)'
+primary: false
+siteGroup: 3db45ca2-4cff-46f3-9796-4678f3533148 # bethesda ministry
+sortOrder: 3

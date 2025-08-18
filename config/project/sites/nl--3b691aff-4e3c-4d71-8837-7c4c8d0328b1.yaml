@@ -1,0 +1,9 @@
+baseUrl: $BETHESDA_MINISTRY_NL_URL
+enabled: '1'
+handle: nl
+hasUrls: true
+language: nl-BE
+name: 'bethesda ministry (NL)'
+primary: false
+siteGroup: 3db45ca2-4cff-46f3-9796-4678f3533148 # bethesda ministry
+sortOrder: 2

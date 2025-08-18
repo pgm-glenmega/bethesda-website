@@ -1,0 +1,172 @@
+color: null
+description: null
+fieldLayouts:
+  1612ae97-704b-4359-852e-69a8de7ffcd8:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            dateAdded: '2025-08-15T14:34:13+00:00'
+            disabled: false
+            elementCondition: null
+            id: null
+            includeInCards: false
+            inputType: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            providesThumbs: false
+            readonly: false
+            required: true
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: 9d48d763-27de-4305-a6fc-180d98421ea1
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-08-15T14:37:01+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 9429b8e0-f522-44d7-82c1-b5f1c998005f # Hero Heading
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: ce6e1a0b-543f-46db-ab31-8cf0b294c810
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-08-15T14:37:01+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: eb5264b2-b9a6-4bf0-b6d7-678d8c5e6b5c # Hero Subheading
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: cd60b131-5d25-4a91-8b00-c926979a4051
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-08-15T14:37:01+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 9d4819ee-55f5-438b-bdce-bf09a8ec35d1 # Hero Background
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 339cb466-c8ff-4eea-ab2a-ab2119c001aa
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-08-18T13:28:24+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 7356bf1b-7f48-446c-baa1-d4e58ef99865 # Membership Benefits
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: c5471b3c-02b3-44de-84c4-707b76da885a
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-08-17T17:41:38+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: ad63bc23-be1b-4b31-ab76-e3ae5a137e41
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: e6ffde14-f131-4eea-b956-7c8fd0f3e54c
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-08-17T17:41:38+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 225bc01c-fecd-4c94-bc45-27ca292fc0a4 # Membership Guarantee
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: f07ce283-4d69-4308-86b4-b36944474f14
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-08-15T14:37:01+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 391be77b-8275-47a7-8970-feb355228fcf
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 68c540ab-0f23-4368-a975-c73c1414bb99
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: 1252e445-1b78-4da6-a504-3e19deb63ff1
+        userCondition: null
+handle: membershipPage
+hasTitleField: true
+icon: null
+name: 'Membership Page'
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

@@ -1,0 +1,42 @@
+fieldLayouts:
+  57b60a2d-9a99-4f70-8fca-7a2e82a165de:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            dateAdded: '2025-08-06T16:08:24+00:00'
+            disabled: false
+            elementCondition: null
+            id: null
+            includeInCards: false
+            inputType: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            providesThumbs: false
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\TitleField
+            uid: 26e19ead-5e2b-4268-adb8-9160d59ff5d0
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: c624bd8d-7b11-417d-ae15-9b09bd3659fe
+        userCondition: null
+handle: eventTags
+name: 'Event Tags'

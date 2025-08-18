@@ -1,0 +1,104 @@
+color: null
+description: null
+fieldLayouts:
+  ad614dac-f762-4979-9345-0c8f0ea8f360:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            dateAdded: '2025-07-30T16:49:00+00:00'
+            disabled: false
+            elementCondition: null
+            id: null
+            includeInCards: false
+            inputType: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            providesThumbs: false
+            readonly: false
+            required: true
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: 34a359c0-a9cb-4890-9f03-846bd48bcbc7
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-07-30T16:50:37+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 05a5091d-0536-4dc6-8ee1-d57b17d59d8f # Artist Name
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: c5d336f9-822b-4fcc-ad5c-d2fc483f15be
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-07-30T16:50:37+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 819fac36-d9ff-447c-a3f9-699129793368 # Artist Description
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 26c767dd-57d5-4e63-8fe7-3235b81288bc
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-08-04T16:02:29+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 23c892fe-25e7-42e3-a16b-ed8665c8d52a # Artist Image
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: d7059634-031d-4829-8441-38dd75bd194c
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: c4e19b9a-3e80-497c-ae09-ebb7ce08da0e
+        userCondition: null
+handle: artists
+hasTitleField: true
+icon: null
+name: Artists
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

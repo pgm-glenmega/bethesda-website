@@ -1,0 +1,138 @@
+color: null
+description: null
+fieldLayouts:
+  1ce39e6e-da71-4f0a-8a0b-2a1d3dbcbc53:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            dateAdded: '2025-08-18T15:36:32+00:00'
+            disabled: false
+            elementCondition: null
+            id: null
+            includeInCards: false
+            inputType: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            providesThumbs: false
+            readonly: false
+            required: true
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: 2dd2f1b2-0555-4c14-acc2-c806de0af379
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-08-18T16:00:20+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 9429b8e0-f522-44d7-82c1-b5f1c998005f # Hero Heading
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: a1e790bf-71ba-4311-ae55-db7b696f89d4
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-08-18T16:00:20+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: eb5264b2-b9a6-4bf0-b6d7-678d8c5e6b5c # Hero Subheading
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 1d0fa877-ade6-4339-b5ea-c5e4f959ca57
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-08-18T16:00:20+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 9d4819ee-55f5-438b-bdce-bf09a8ec35d1 # Hero Background
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 35c3415c-270f-4487-920e-99c7737cf88c
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-08-18T16:00:20+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 74813528-e72a-43b2-ae05-2add4a793354 # Donation Usage
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: a9ee036f-e656-4a93-938a-cf9846b5b77a
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-08-18T16:00:20+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: e5ad05c7-d80a-4b19-90db-a03dd55c70f9 # Donation Suggested Amounts
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 9ace14cf-0f93-4324-b8de-3ebd74db8a02
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: de1406ef-12c0-4d9f-8489-6d2840557546
+        userCondition: null
+handle: donatePage
+hasTitleField: true
+icon: null
+name: 'Donate Page'
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

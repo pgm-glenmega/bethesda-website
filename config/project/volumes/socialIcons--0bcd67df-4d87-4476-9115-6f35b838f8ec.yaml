@@ -1,0 +1,51 @@
+altTranslationKeyFormat: null
+altTranslationMethod: none
+fieldLayouts:
+  6cffc90c-ef22-46eb-b177-bb85eefe3566:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            dateAdded: '2025-08-04T15:58:21+00:00'
+            disabled: false
+            elementCondition: null
+            id: null
+            includeInCards: false
+            inputType: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            providesThumbs: false
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\assets\AssetTitleField
+            uid: 601899b1-2810-4d57-86f8-0339c1a45ab1
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: 802f0cc4-7105-4eef-969c-3810371bd3fb
+        userCondition: null
+fs: localAssets
+handle: socialIcons
+name: ' Social Icons'
+sortOrder: 9
+subpath: social-icons
+titleTranslationKeyFormat: null
+titleTranslationMethod: site
+transformFs: ''
+transformSubpath: ''

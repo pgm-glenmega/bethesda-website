@@ -1,0 +1,38 @@
+defaultPlacement: end
+enableVersioning: true
+entryTypes:
+  -
+    uid: 177a279d-6718-4c6e-b56c-9d4ee7ecd597 # Activities
+handle: activitiesPage
+maxAuthors: 1
+name: 'Activities Page'
+previewTargets:
+  -
+    __assoc__:
+      -
+        - label
+        - 'Primary entry page'
+      -
+        - urlFormat
+        - '{url}'
+      -
+        - refresh
+        - '1'
+propagationMethod: all
+siteSettings:
+  3b691aff-4e3c-4d71-8837-7c4c8d0328b1: # bethesda ministry (NL)
+    enabledByDefault: true
+    hasUrls: false
+    template: null
+    uriFormat: null
+  2990f109-c546-4a97-a92f-2c3e7cb2c263: # bethesda ministry (FR)
+    enabledByDefault: true
+    hasUrls: false
+    template: null
+    uriFormat: null
+  5607335d-3b23-47a6-acee-41d4ffb0462c: # bethesda ministry (ENG)
+    enabledByDefault: true
+    hasUrls: false
+    template: null
+    uriFormat: null
+type: single

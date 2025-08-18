@@ -1,0 +1,23 @@
+columnSuffix: null
+handle: sermonTags
+instructions: null
+name: 'Sermon Tags'
+searchable: false
+settings:
+  allowSelfRelations: false
+  branchLimit: null
+  defaultPlacement: end
+  maintainHierarchy: false
+  maxRelations: null
+  minRelations: null
+  selectionLabel: null
+  showCardsInGrid: false
+  showSearchInput: true
+  showSiteMenu: false
+  source: 'taggroup:69ad6397-0aae-4568-8b2d-9094a05c8f6b' # Sermon Tags
+  targetSiteId: null
+  validateRelatedElements: false
+  viewMode: null
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Tags

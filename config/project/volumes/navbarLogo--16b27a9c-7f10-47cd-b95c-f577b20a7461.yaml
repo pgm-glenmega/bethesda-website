@@ -1,0 +1,51 @@
+altTranslationKeyFormat: null
+altTranslationMethod: none
+fieldLayouts:
+  f9f2d192-f8c4-4ef2-ad70-df4ffaf80be0:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            dateAdded: '2025-08-05T17:55:22+00:00'
+            disabled: false
+            elementCondition: null
+            id: null
+            includeInCards: false
+            inputType: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            providesThumbs: false
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\assets\AssetTitleField
+            uid: c509221b-8231-40be-82fa-b4cbdcc7b0bc
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: 7223d7c0-432f-488f-b51c-5a936817fe52
+        userCondition: null
+fs: localAssets
+handle: navbarLogo
+name: 'Navbar Logo'
+sortOrder: 12
+subpath: navbar-logos
+titleTranslationKeyFormat: null
+titleTranslationMethod: site
+transformFs: ''
+transformSubpath: ''

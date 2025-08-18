@@ -1,0 +1,166 @@
+fieldLayouts:
+  e6f73fcc-8c2a-42be-8b03-884b7dc280b3:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2025-07-27T17:10:54+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 5fd03e0f-a382-4c2f-9bf0-960a5c4d0a4d # Navbar Logo
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 55698afa-8c07-4e0c-a5e6-a78445e4d5fc
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-07-27T17:10:54+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 4e704074-369e-404e-a897-c34f912f3c77 # Home Label
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: b772ffe5-7c9d-45f0-abf1-fe465e8a71fb
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-07-27T17:10:54+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 04e8336d-7de8-4dc8-aa03-0e87d80c9d3c # About Label	
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 877be93c-11f3-46f1-9d7c-39a1f13621d7
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-07-27T17:10:54+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: f319371b-1e93-4336-bb12-b88fff3ccac7 # Activities Label
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 39fe38ff-a6cd-47f3-8b37-df125cb4688a
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-07-27T17:10:54+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: b173c3f8-b1b3-4873-9083-29d2836ba092 # Articles Label
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: a7fc506f-85c4-4286-a0a9-195bb33c8cd4
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-07-31T12:11:08+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: c13a97ef-b9ab-419b-ba15-480e42c05ae4 # Membership Label
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: beef5a54-4d94-4e47-a8f9-3bcca1841c1e
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-08-18T18:11:55+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 77794834-cc99-4f10-a105-ae078dc70f6d # Donation Label
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 752165ec-26ed-4f97-ba0d-9bb1ca58c76a
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-07-27T17:10:54+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 7b3e0f03-392a-4f1d-acfe-e435b0de93f1 # Contact Label
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 62b54811-9b55-4d5a-ba80-4d6b3bdf130e
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-07-27T17:10:54+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 62add736-d636-4864-ba23-43416dab080e # Prayer Request Label
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: bcf4f571-d744-45cd-b847-73b8a61233c7
+            userCondition: null
+            warning: null
+            width: 100
+        name: 'Navbar Labels'
+        uid: 8226596c-b28a-4277-8dad-8b0b4738238f
+        userCondition: null
+handle: navbarSettings
+name: 'Navbar Settings'
+sortOrder: 7

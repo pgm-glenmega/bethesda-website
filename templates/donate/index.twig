@@ -1,0 +1,187 @@
+{% extends "_layout.twig" %}
+
+{% block title %}Donate | Bethesda Ministry{% endblock %}
+
+{% block head %}
+  {{ parent() }}
+  <link rel="stylesheet" href="/css/donation.css?v={{ now.timestamp }}">
+{% endblock %}
+
+{% block content %}
+{# Get the Donate single #}
+{% set entry = craft.entries().section('donatePage').site(currentSite.handle).one() %}
+
+{% set hero = entry.heroBackground.one() ?? null %}
+{% set heading = entry.heroHeading ?? 'Fuel the Mission' %}
+{% set subheading = entry.heroSubheading ?? 'Your gift creates real impact.' %}
+
+{# Suggested amounts from Table field: donationSuggestedAmounts (column: amount) #}
+{% set rows = entry.donationSuggestedAmounts ?? [] %}
+{% set amounts = [] %}
+{% for r in rows %}
+  {% set val = r.amount ?? null %}
+  {% if val is not empty %}
+    {% set amounts = amounts|merge([val]) %}
+  {% endif %}
+{% endfor %}
+{% if amounts is empty %}
+  {% set amounts = [10, 25, 50, 100] %}
+{% endif %}
+
+<section class="donation-hero" style="background-image: url('{{ hero ? hero.url : '/assets/images/hero-donate.jpg' }}')">
+  <div class="overlay"></div>
+  <div class="wrap hero-inner">
+    <h1>{{ heading }}</h1>
+    {% if subheading %}<p class="sub">{{ subheading }}</p>{% endif %}
+  </div>
+</section>
+
+<section class="donation-body">
+  <div class="wrap grid">
+
+    <div class="donation-card">
+      <header class="card-head alt">
+  <div class="head-top">
+    <span class="glyph">
+      <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M12 21s-6.716-4.434-9.428-7.146A6 6 0 1 1 12 5a6 6 0 1 1 9.428 8.854C18.716 16.566 12 21 12 21z"/>
+      </svg>
+    </span>
+    <h2 class="card-title">Make a Donation</h2>
+  </div>
+
+  <span class="rule"></span>
+
+  <p class="microcopy">
+    <svg class="lock" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M12 2a5 5 0 00-5 5v3H6a2 2 0 00-2 2v8a2 2 0 002 2h12a2 2 0 002-2v-8a2 2 0 00-2-2h-1V7a5 5 0 00-5-5zm-3 8V7a3 3 0 116 0v3H9z"/>
+    </svg>
+    100% secure • Cancel anytime for recurring gifts
+  </p>
+</header>
+
+
+      <form id="donation-form" method="post" class="donation-form" novalidate>
+        {{ csrfInput() }}
+  {{ actionInput('stripe/stripe/create-donation-checkout-session') }}
+        <input type="hidden" name="successUrl" value="{{ url('succes') }}">
+        <input type="hidden" name="cancelUrl" value="{{ url('donate') }}">
+       
+
+        {# Amount #}
+        <div class="field">
+          <label class="label">Amount</label>
+          <div class="amounts">
+            {% for amt in amounts %}
+              <label class="chip amount">
+                <input type="radio" name="amountChoice" value="{{ amt }}">
+                €{{ amt|number_format(0, '.', ' ') }}
+              </label>
+            {% endfor %}
+            <label class="chip amount custom">
+              <input type="radio" name="amountChoice" value="custom">
+              <span>Custom</span>
+            </label>
+          </div>
+          <div class="custom-amount">
+            <span class="prefix">€</span>
+            <input type="number" name="customAmount" step="1" min="1" placeholder="Enter amount">
+          </div>
+          <input type="hidden" name="amount" value="">
+        </div>
+
+        {# Donor info #}
+        <div class="grid-2">
+          <div class="field">
+            <label class="label" for="fullName">Full name</label>
+            <input id="fullName" name="fullName" type="text" required placeholder="john Smith">
+          </div>
+          <div class="field">
+            <label class="label" for="email">Email</label>
+            <input id="email" name="email" type="email" required placeholder="johne@example.com">
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="label" for="message">Message (optional)</label>
+          <textarea id="message" name="message" rows="3" placeholder="Leave a prayer or note…"></textarea>
+        </div>
+
+        <button type="submit" class="button primary wide" id="donateBtn">
+          Proceed to Secure Payment
+        </button>
+
+        <p class="secure-note">Payments are processed over encrypted connections. You’ll get a receipt by email.</p>
+      </form>
+    </div>
+
+    <aside class="donation-aside">
+      <div class="aside-card">
+        <h3>How your donation is used</h3>
+
+        {# Table field: donationUsage (showDonationUsage + donationUsageText) #}
+        {% set uses = entry.donationUsage ?? [] %}
+        {% if uses|length %}
+          <ul class="bullets">
+            {% for row in uses %}
+              {% if row.showDonationUsage and row.donationUsageText %}
+                <li>{{ row.donationUsageText }}</li>
+              {% endif %}
+            {% endfor %}
+          </ul>
+        {% else %}
+          <ul class="bullets">
+            <li>Community outreach & care</li>
+            <li>Events, workshops & youth programs</li>
+            <li>Local and global charity projects</li>
+          </ul>
+        {% endif %}
+      </div>
+    </aside>
+
+  </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+  {{ parent() }}
+  <script>
+    (function() {
+      const form = document.getElementById('donation-form');
+      if (!form) return;
+
+      const radios = form.querySelectorAll('input[name="amountChoice"]');
+      const customWrap = form.querySelector('.custom-amount');
+      const customInput = form.querySelector('input[name="customAmount"]');
+      const finalAmount = form.querySelector('input[name="amount"]');
+
+      function updateAmount() {
+        const chosen = form.querySelector('input[name="amountChoice"]:checked');
+        if (!chosen) return;
+
+        if (chosen.value === 'custom') {
+          customWrap.classList.add('show');
+          const val = parseFloat(customInput.value || '0');
+          finalAmount.value = isFinite(val) && val > 0 ? Math.round(val) : '';
+        } else {
+          customWrap.classList.remove('show');
+          finalAmount.value = parseInt(chosen.value, 10);
+        }
+      }
+
+      radios.forEach(r => r.addEventListener('change', updateAmount));
+      customInput.addEventListener('input', updateAmount);
+
+      if (radios.length) { radios[0].checked = true; }
+      updateAmount();
+
+      form.addEventListener('submit', function(e) {
+        if (!finalAmount.value) {
+          e.preventDefault();
+          customWrap.classList.add('show');
+          customInput.focus();
+        }
+      });
+    })();
+  </script>
+{% endblock %}

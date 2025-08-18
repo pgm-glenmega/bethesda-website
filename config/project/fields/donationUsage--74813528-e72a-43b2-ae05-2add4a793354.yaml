@@ -1,0 +1,56 @@
+columnSuffix: null
+handle: donationUsage
+instructions: null
+name: 'Donation Usage'
+searchable: false
+settings:
+  addRowLabel: 'Add a row'
+  columns:
+    __assoc__:
+      -
+        - col1
+        -
+          __assoc__:
+            -
+              - heading
+              - 'Show Donation Usage'
+            -
+              - handle
+              - showDonationUsage
+            -
+              - width
+              - ''
+            -
+              - type
+              - lightswitch
+      -
+        - col2
+        -
+          __assoc__:
+            -
+              - heading
+              - 'Donation Usage Text'
+            -
+              - handle
+              - donationUsageText
+            -
+              - width
+              - ''
+            -
+              - type
+              - singleline
+  defaults:
+    -
+      __assoc__:
+        -
+          - col1
+          - ''
+        -
+          - col2
+          - ''
+  maxRows: null
+  minRows: null
+  staticRows: false
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Table

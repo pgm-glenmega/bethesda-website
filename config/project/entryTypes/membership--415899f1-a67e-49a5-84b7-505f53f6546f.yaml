@@ -1,0 +1,155 @@
+color: null
+description: null
+fieldLayouts:
+  96952308-7437-4b2f-aacd-74788fcd1265:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            dateAdded: '2025-07-30T19:31:17+00:00'
+            disabled: false
+            elementCondition: null
+            id: null
+            includeInCards: false
+            inputType: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            providesThumbs: false
+            readonly: false
+            required: true
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: d8cac22a-1c82-4844-ac82-fa84e96f4e78
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-07-30T19:34:35+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: f5e03df3-060e-41a7-8676-af0703556208 # Full Name
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 7498758d-348e-4640-9376-85ee9aef512e
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-07-30T19:34:35+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 3bca10a6-55c2-4e8a-8c60-22d27328d028 # Email Address
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: f22b1316-3448-4d90-b290-12fb3e5d4b9f
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-07-30T19:34:35+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 71665268-972c-4495-971b-0fd42dcbb164 # Payment Status
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 2566fec3-0cb1-4e0a-bcdb-278bbafed2aa
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-07-30T19:34:35+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: d27a885a-2ce7-4097-9bb3-87a38f6c18b2 # Membership Start Date
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 5120bcc4-0615-4a3c-9b21-da6b710f3d10
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-07-30T19:34:35+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 13f3c795-bd3b-480e-958e-fb239c07ecc1 # Membership Expiry Date
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 514bd29a-13e4-46a0-8628-7b110ff6d1f3
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-07-30T19:34:35+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 07fd0532-03a9-4f8b-b916-d426ff142b38 # Stripe Customer ID
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 7179f3a4-c7cb-4a21-8c8a-7a8b78a52d78
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: 01ad8732-2736-482a-9f1c-ea2a05090049
+        userCondition: null
+handle: membership
+hasTitleField: true
+icon: null
+name: Membership
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

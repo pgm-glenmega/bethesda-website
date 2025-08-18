@@ -1,0 +1,104 @@
+color: null
+description: null
+fieldLayouts:
+  aa7dd132-28fa-4f57-9018-f33a9a7f64c2:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            dateAdded: '2025-07-30T16:47:24+00:00'
+            disabled: false
+            elementCondition: null
+            id: null
+            includeInCards: false
+            inputType: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            providesThumbs: false
+            readonly: false
+            required: true
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: c722b5e8-d92f-4dda-99bf-4cd5afce747e
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-07-30T16:49:04+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: c33daae6-2b77-4492-8908-b0ffcb0827ca # Member Name
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: e396fbc5-794c-4f5d-8575-0f4b9a6d9f09
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-07-30T16:49:04+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: dfdda872-f9b4-47ab-81c7-dcc1b690b84d # Member Description
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 587230c6-4522-4375-bf0b-28fdc8c825e5
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-07-30T16:57:10+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 3c656027-7627-4c25-8f60-fb38a23b1e1d # Member Image
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: a8683fb9-5597-48ad-a572-f74855775554
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: 59538240-9453-481b-a142-30c30597b15b
+        userCondition: null
+handle: members
+hasTitleField: true
+icon: null
+name: Members
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

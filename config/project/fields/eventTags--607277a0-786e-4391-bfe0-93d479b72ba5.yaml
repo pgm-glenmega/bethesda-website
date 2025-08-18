@@ -1,0 +1,23 @@
+columnSuffix: null
+handle: eventTags
+instructions: null
+name: 'Event Tags'
+searchable: false
+settings:
+  allowSelfRelations: false
+  branchLimit: null
+  defaultPlacement: end
+  maintainHierarchy: false
+  maxRelations: null
+  minRelations: null
+  selectionLabel: null
+  showCardsInGrid: false
+  showSearchInput: true
+  showSiteMenu: false
+  source: 'taggroup:7a9b464a-e1f5-42a2-aa0e-2bd6cb802c7f' # Event Tags
+  targetSiteId: null
+  validateRelatedElements: false
+  viewMode: null
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Tags

@@ -1,0 +1,110 @@
+defaultPlacement: end
+fieldLayouts:
+  a7a1b248-b99e-4f1c-8508-dca74b087a37:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            dateAdded: '2025-08-06T06:40:40+00:00'
+            disabled: false
+            elementCondition: null
+            id: null
+            includeInCards: false
+            inputType: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            providesThumbs: false
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\TitleField
+            uid: a2d234c6-bb63-413c-a5cd-3f9b86517b34
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-08-06T06:45:21+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: f0bec7e5-6cf6-4fa6-bb2f-565f395c5355 # category Description
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 39c0b64e-b592-4b75-b01f-e0a406d5eca8
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-08-06T06:45:21+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 0e8b7ef5-eb40-4037-9dd3-77b40f54e0c9 # Category Icon
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: f5229eee-fca1-4065-8689-1ecee4488192
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-08-06T07:50:58+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 6ef092bb-52fc-4480-99c1-b3c40bce6d82 # Sermon Category Color
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 069888e8-8e19-449f-9ca5-6973cccec735
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: 02f9f102-ecb9-4826-8f93-987b192aa0cb
+        userCondition: null
+handle: sermonCategories
+name: 'Sermon Categories'
+siteSettings:
+  3b691aff-4e3c-4d71-8837-7c4c8d0328b1: # bethesda ministry (NL)
+    hasUrls: true
+    template: sermon-categories/_category.twig
+    uriFormat: 'sermon-categories/{slug}'
+  2990f109-c546-4a97-a92f-2c3e7cb2c263: # bethesda ministry (FR)
+    hasUrls: true
+    template: sermon-categories/_category.twig
+    uriFormat: 'sermon-categories/{slug}'
+  5607335d-3b23-47a6-acee-41d4ffb0462c: # bethesda ministry (ENG)
+    hasUrls: true
+    template: sermon-categories/_category.twig
+    uriFormat: 'sermon-categories/{slug}'
+structure:
+  maxLevels: null
+  uid: caf86149-8cb4-4a89-abfc-45cf955b9d30

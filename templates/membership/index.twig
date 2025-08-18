@@ -1,6 +1,7 @@
 {% extends "_layout.twig" %}
 
-{% block title %}Membership | Bethesda Ministry{% endblock %}
+{% block title %}Membership | Bethesda Ministry
+{% endblock %}
 
 {% block head %}
   {{ parent() }}
@@ -8,34 +9,61 @@
 {% endblock %}
 
 {% block content %}
-<section class="membership-hero">
-  <div class="hero-overlay"></div>
-  <div class="membership-container">
-    <div class="membership-content">
-      <h1>Become a Member</h1>
-      <p class="subheading">
-        Join our growing community and make an impact. Your membership helps fund events, outreach, and meaningful projects that change lives.
-      </p>
-      <ul class="benefits-list">
-        <li>✔ Exclusive access to member-only podcasts and articles</li>
-        <li>✔ Invitations to special events & workshops</li>
-        <li>✔ Influence in shaping the future of our mission</li>
-        <li>✔ Direct support for local and global outreach</li>
-      </ul>
-      <p class="price">Only €10/year</p>
 
-      <form method="post" class="membership-form">
-        {{ csrfInput() }}
-        <input type="hidden" name="action" value="stripe/stripe/create-checkout-session">
+  {# Fetch the Membership single (adjust section handle if different) #}
+  {% set entry = craft.entries()
+  .section('membershipPage')
+  .site(currentSite.handle)
+  .one() %}
 
-        <input type="text" name="fullName" placeholder="Full Name" required>
-        <input type="email" name="email" placeholder="Email Address" required>
+  {% if not entry %}
+    <section class="membership-hero">
+      <div class="membership-container">
+        <p>No Membership entry found. Create a Single named “Membership” (handle: membership).</p>
+      </div>
+    </section>
+  {% else %}
+    {% set hero = entry.heroBackground.one() %}
+    <section class="membership-hero" style="background: {% if hero %}url('{{ hero.getUrl() }}'){% else %}#111{% endif %} center/cover no-repeat;">
+      <div class="hero-overlay"></div>
 
-        <button type="submit" class="button primary">Join Now</button>
-      </form>
+      <div class="membership-container">
+        <div class="membership-content">
+          <h1>{{ entry.heroHeading ?? 'Become a Member' }}</h1>
 
-      <p class="guarantee">Your contribution is secure and goes directly to our mission work.</p>
-    </div>
-  </div>
-</section>
+          {% if entry.heroSubheading %}
+            <p class="subheading">{{ entry.heroSubheading }}</p>
+          {% endif %}
+          {# ── Benefits from Table field ── #}
+          {% set rows = entry.membershipBenefits ?? [] %}
+
+          {% if rows|length %}
+            <ul class="benefits-list">
+              {% for row in rows %}
+                {% if row.showBenefit %}
+                  <li>✔ {{ row.benefitText }}</li>
+                {% endif %}
+              {% endfor %}
+            </ul>
+          {% endif %}
+
+          {# If you later add a price field, swap this hardcoded line for that handle #}
+          <p class="price">Only €10/year</p>
+
+          <form method="post" class="membership-form">
+            {{ csrfInput() }}
+            <input type="hidden" name="action" value="stripe/stripe/create-checkout-session">
+            <input type="text" name="fullName" placeholder="Full Name" required>
+            <input type="email" name="email" placeholder="Email Address" required>
+            <button type="submit" class="button primary">Join Now</button>
+          </form>
+
+          {% if entry.membershipGuarantee %}
+            <p class="guarantee">{{ entry.membershipGuarantee }}</p>
+          {% endif %}
+        </div>
+      </div>
+    </section>
+  {% endif %}
+
 {% endblock %}

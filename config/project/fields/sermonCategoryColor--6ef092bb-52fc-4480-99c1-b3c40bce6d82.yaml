@@ -1,0 +1,88 @@
+columnSuffix: null
+handle: sermonCategoryColor
+instructions: null
+name: 'Sermon Category Color'
+searchable: false
+settings:
+  allowCustomColors: false
+  palette:
+    -
+      __assoc__:
+        -
+          - color
+          - '#4361ee'
+        -
+          - label
+          - 'Royal Blue'
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - color
+          - '#2d6a4f'
+        -
+          - label
+          - Emerald
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - color
+          - '#8d6e63'
+        -
+          - label
+          - 'Warm Brown'
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - color
+          - '#5e548e'
+        -
+          - label
+          - 'Deep Purple'
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - color
+          - '#4ea8de'
+        -
+          - label
+          - 'Sky Blue'
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - color
+          - '#e76f51'
+        -
+          - label
+          - Rose
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - color
+          - '#6c757d'
+        -
+          - label
+          - 'Steel Gray'
+        -
+          - default
+          - ''
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Color

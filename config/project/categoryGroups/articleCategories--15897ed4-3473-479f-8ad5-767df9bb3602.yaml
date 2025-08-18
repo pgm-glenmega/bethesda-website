@@ -1,0 +1,127 @@
+defaultPlacement: end
+fieldLayouts:
+  ea7428b3-5dea-45fc-a8e3-110a58d21bb2:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            dateAdded: '2025-08-04T15:08:07+00:00'
+            disabled: false
+            elementCondition: null
+            id: null
+            includeInCards: false
+            inputType: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            providesThumbs: false
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\TitleField
+            uid: 1459518f-2665-4fcd-a437-01f28a4162a5
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-08-04T15:27:05+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: f0bec7e5-6cf6-4fa6-bb2f-565f395c5355 # category Description
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 5cf74571-7c36-4bdf-ae40-e6998e60acf4
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-08-04T15:27:05+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: f355e747-cedd-4692-a62c-98b581850f3d # isFeatured
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 3d4953b4-08e3-462c-b301-11005b2c6d08
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-08-04T16:09:52+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 0e8b7ef5-eb40-4037-9dd3-77b40f54e0c9 # Category Icon
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 155131d1-2e03-405c-b8d9-a1079dc894e3
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-08-04T15:27:05+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: bbf387a1-5fb0-4ac6-9061-b15ff17eca7c # Article Category Color
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 0e0293fa-19dd-46e4-88a6-879802bc92c3
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: 59f5025d-a5e3-4e19-8486-937ff0171eba
+        userCondition: null
+handle: articleCategories
+name: 'Article Categories'
+siteSettings:
+  3b691aff-4e3c-4d71-8837-7c4c8d0328b1: # bethesda ministry (NL)
+    hasUrls: true
+    template: article-categories/_category.twig
+    uriFormat: 'article-categories/{slug}'
+  2990f109-c546-4a97-a92f-2c3e7cb2c263: # bethesda ministry (FR)
+    hasUrls: true
+    template: article-categories/_category.twig
+    uriFormat: 'article-categories/{slug}'
+  5607335d-3b23-47a6-acee-41d4ffb0462c: # bethesda ministry (ENG)
+    hasUrls: true
+    template: article-categories/_category.twig
+    uriFormat: 'article-categories/{slug}'
+structure:
+  maxLevels: null
+  uid: a508643a-d471-4453-a43f-6c7c1a712b8a

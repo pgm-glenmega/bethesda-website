@@ -1,0 +1,12 @@
+columnSuffix: null
+handle: showSermonsSection
+instructions: null
+name: 'Show Sermons Section'
+searchable: false
+settings:
+  default: false
+  offLabel: null
+  onLabel: null
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Lightswitch

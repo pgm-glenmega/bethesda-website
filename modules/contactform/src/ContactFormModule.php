@@ -1,28 +1,24 @@
 <?php
-
 namespace modules\contactform;
 
-use Craft;
-use yii\base\Module;
-use yii\base\Event;
 use craft\web\UrlManager;
-use craft\events\RegisterUrlRulesEvent;
+use yii\base\Event;
+use yii\base\Module as BaseModule;
 
-class ContactFormModule extends Module
+final class ContactFormModule extends BaseModule
 {
-    public function init()
+    /** must be untyped */
+    public $controllerNamespace = 'modules\contactform\controllers';
+
+    public function init(): void
     {
         parent::init();
 
-        // Define alias for autoloading
-        Craft::setAlias('@modules/contactform', __DIR__);
-
-        // Register the Controller
         Event::on(
             UrlManager::class,
             UrlManager::EVENT_REGISTER_SITE_URL_RULES,
-            function (RegisterUrlRulesEvent $event) {
-                $event->rules['contact-form/send-message'] = 'contact-form/contact-form/send-message';
+            static function($event) {
+                $event->rules['contactform/send-message'] = 'contactform/contact-form/send-message';
             }
         );
     }

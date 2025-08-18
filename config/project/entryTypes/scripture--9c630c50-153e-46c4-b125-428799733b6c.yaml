@@ -1,0 +1,87 @@
+color: null
+description: null
+fieldLayouts:
+  a1ef44dc-0677-4d75-9234-6adc3f2fdced:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            dateAdded: '2025-07-30T13:54:55+00:00'
+            disabled: false
+            elementCondition: null
+            id: null
+            includeInCards: false
+            inputType: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            providesThumbs: false
+            readonly: false
+            required: true
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: 334955a2-060f-43f7-8deb-38ee1621fcf1
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-07-30T16:32:55+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 3876d3cd-a553-4b20-abc7-b1c76d3ca60c # Scripture Verse
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 93f20109-af1c-413c-bf1f-6405f1c3bfc4
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-07-30T13:56:52+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 9bb5be90-ca7b-42e1-be2f-444e7271fb20 # Scripture Reference
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 1a4ddb61-bb20-4a67-90f4-00141d5e6a23
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: c14c6a3d-554a-4c95-89d9-138a706922d8
+        userCondition: null
+handle: scripture
+hasTitleField: true
+icon: null
+name: scripture
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site
