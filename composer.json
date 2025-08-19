@@ -3,10 +3,12 @@
   "prefer-stable": true,
   "require": {
     "craftcms/ckeditor": "4.10.0",
+    "craftcms/cloud": "2.14",
     "craftcms/cms": "5.8.15",
     "craftcms/contact-form": "^3.1",
     "craftcms/guest-entries": "^4.0",
     "stripe/stripe-php": "^17.4",
+    "symfony/process": "6.4",
     "verbb/super-table": "4.0.5",
     "vlucas/phpdotenv": "^5.4.0"
   },
