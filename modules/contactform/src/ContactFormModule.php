@@ -7,7 +7,6 @@ use yii\base\Module as BaseModule;
 
 final class ContactFormModule extends BaseModule
 {
-    /** must be untyped */
     public $controllerNamespace = 'modules\contactform\controllers';
 
     public function init(): void

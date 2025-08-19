@@ -31,14 +31,13 @@ class ContactFormController extends Controller
         // Admin recipient (where the message is sent)
         $adminEmail = 'glen.meganck@gmail.com';
 
-        // Your SMTP sender email (must match your Gmail SMTP account)
         $smtpSenderEmail = 'glen.meganckl@gmail.com';
 
         // Email service
         $emailService = Craft::$app->getMailer()
             ->compose()
             ->setTo($adminEmail)
-            ->setFrom([$smtpSenderEmail => "$name"]) // This makes the sender's name visible
+            ->setFrom([$smtpSenderEmail => "$name"])
             ->setReplyTo($email) // Reply goes to the sender
             ->setSubject($title)
             ->setTextBody("Name: $name\nEmail: $email\n\nMessage:\n$message");

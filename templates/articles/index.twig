@@ -12,7 +12,6 @@
   <div
     class="articles-page">
 
-    {# Hero Section #}
     {% set pageEntry = craft.entries().section('articlesPage').one() %}
     {% set hero = pageEntry.heroBackground.one() %}
     <section class="hero" style="background-image: url('{{ hero ? hero.getUrl() : '/assets/images/hero-img.jpg' }}');">
@@ -26,7 +25,6 @@
     <div
       class="container">
 
-      {# Search & Filter Section #}
       {% set allCategories = craft.categories().group('articleCategories').all() %}
       <section class="search-filter">
         <form method="get" class="search-form">
@@ -47,7 +45,6 @@
       </section>
 
 
-      {# Fetch Articles Based on Filters #}
       {% set categoryFilter = craft.app.request.getParam('category') %}
       {% set searchQuery = craft.app.request.getParam('q') %}
       {% set articlesQuery = craft.entries().section('articles') %}
@@ -63,7 +60,6 @@
         {% set articlesQuery = articlesQuery.search(searchQuery) %}
       {% endif %}
 
-      {# Articles Grid Layout #}
       <section class="articles-grid">
         {% for article in articlesQuery.all() %}
           <article class="article-card">

@@ -52,7 +52,6 @@
   background: #574ee0;
 }
 
-/* ========== HOME SECTIONS (Sermons, Events, Articles) ========== */
 .home-section {
   padding: 4rem 1rem;
   max-width: 1200px;
@@ -132,7 +131,6 @@
   background: #574ee0;
 }
 
-/* ========== RESPONSIVE HERO & GRID ========== */
 @media (max-width: 768px) {
   .hero {
     height: 60vh;

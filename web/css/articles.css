@@ -68,8 +68,6 @@
   background: #5537a0;
 }
 
-
-/* ===== ARTICLES GRID ===== */
 .articles-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -131,7 +129,6 @@
   background: #5537a0;
 }
 
-/* ===== NO RESULTS ===== */
 .no-results {
   text-align: center;
   font-size: 1.2rem;

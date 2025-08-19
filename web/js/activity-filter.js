@@ -1,4 +1,3 @@
-// Guard so this only runs on pages that have the filter UI
 document.addEventListener("DOMContentLoaded", () => {
   const buttons = document.querySelectorAll(".filter-btn");
   const entries = document.querySelectorAll(".sermon-event-card");

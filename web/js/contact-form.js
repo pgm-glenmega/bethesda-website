@@ -14,7 +14,6 @@ document.addEventListener('DOMContentLoaded', () => {
         body: new FormData(form),
       });
 
-      // Try to parse JSON; if HTML came back (e.g., an error page), show generic error
       let data;
       try { data = await res.json(); }
       catch { throw new Error('Unexpected response from server'); }

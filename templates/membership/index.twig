@@ -10,7 +10,6 @@
 
 {% block content %}
 
-  {# Fetch the Membership single (adjust section handle if different) #}
   {% set entry = craft.entries()
   .section('membershipPage')
   .site(currentSite.handle)
@@ -34,7 +33,6 @@
           {% if entry.heroSubheading %}
             <p class="subheading">{{ entry.heroSubheading }}</p>
           {% endif %}
-          {# ── Benefits from Table field ── #}
           {% set rows = entry.membershipBenefits ?? [] %}
 
           {% if rows|length %}
@@ -47,7 +45,6 @@
             </ul>
           {% endif %}
 
-          {# If you later add a price field, swap this hardcoded line for that handle #}
           <p class="price">Only €10/year</p>
 
           <form method="post" class="membership-form">

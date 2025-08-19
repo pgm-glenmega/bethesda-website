@@ -1,6 +1,5 @@
 /* =========================================
    Event Detail Page Styles
-   Matches Activities page aesthetic
    ========================================= */
 
 :root {
@@ -13,14 +12,12 @@
   --ring: 0 0 0 3px rgba(123,97,255,.18);
 }
 
-/* --- Container --- */
 .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 1rem;
 }
 
-/* --- Hero --- */
 .hero {
   position: relative;
   min-height: 300px;
@@ -53,7 +50,6 @@
   opacity: 0.9;
 }
 
-/* --- Event Content --- */
 .event-content {
   margin-bottom: 2.5rem;
 }
@@ -67,7 +63,6 @@
   color: var(--text);
 }
 
-/* --- Signup Form --- */
 .event-signup {
   margin: 3rem 0;
   padding: 2rem;
@@ -130,7 +125,6 @@
   transform: translateY(1px);
 }
 
-/* --- Related Events --- */
 .related-events {
   margin: 3rem 0;
 }
@@ -175,7 +169,6 @@
   color: var(--primary);
 }
 
-/* --- Responsive --- */
 @media (max-width: 768px) {
   .hero-content h1 {
     font-size: 1.8rem;

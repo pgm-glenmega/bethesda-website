@@ -15,7 +15,7 @@ return GeneralConfig::create()
     '@webroot' => dirname(__DIR__) . '/web',
 
     '@assetBasePath' => '@webroot/assets',
-    '@assetBaseUrl' => 'http://localhost:8000/assets', // or your actual dev URL
+    '@assetBaseUrl' => 'http://localhost:8000/assets',
 
     'enableCsrfProtection' => false,
     'allowAdminChanges' => true,

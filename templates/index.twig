@@ -27,7 +27,6 @@
   </section>
 
 
-  {# --- LATEST SERMONS --- #}
   {% if entry.showSermonsSection %}
     <section class="home-section">
       <h2>{{ entry.sermonSectionHeading }}</h2>
@@ -53,7 +52,6 @@
   {% endif %}
 
 
-  {# --- LATEST EVENTS --- #}
   {% if entry.showEventsSection %}
     <section class="home-section">
       <h2>{{ entry.eventSectionHeading }}</h2>
@@ -77,10 +75,7 @@
       </div>
     </section>
   {% endif %}
-
-  {# --- LATEST ARTICLES --- #}
-  {% set entry = craft.entries().section('homepage').one() %}
-
+  
   {# --- LATEST ARTICLES --- #}
   {% if entry.showArticlesSection %}
     <section class="home-section">

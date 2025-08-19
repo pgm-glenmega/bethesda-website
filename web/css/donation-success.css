@@ -49,7 +49,6 @@
   margin-bottom: 1.75rem;
 }
 
-/* Actions */
 .success-actions {
   display: flex;
   justify-content: center;
@@ -101,7 +100,6 @@
   margin-top: 2rem;
 }
 
-/* Responsive */
 @media (max-width: 720px) {
   .success-heading {
     font-size: 1.9rem;

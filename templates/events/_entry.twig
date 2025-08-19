@@ -15,7 +15,6 @@
   <div
     class="container event-detail">
 
-    {# Event Hero Section #}
     {% set eventHeroImage = entry.eventImage.one() %}
     <section class="hero" style="background: url('{{ eventHeroImage ? eventHeroImage.url : '/assets/images/hero-img.jpg' }}') center/cover no-repeat;">
       <div class="hero-overlay"></div>
@@ -27,7 +26,6 @@
       </div>
     </section>
 
-    {# Event Content Section #}
     <section class="event-content">
       <div class="event-info">
         <h2>About This Event</h2>
@@ -35,7 +33,6 @@
       </div>
     </section>
 
-    {# Signup Section #}
     <section class="event-signup">
       <h2>Sign Up for This Event</h2>
       <p>Be part of this impactful experience by signing up below.</p>
@@ -67,7 +64,6 @@
       </form>
     </section>
 
-    {# Related Events Section #}
     <section class="related-events">
       <h2>More Events</h2>
       <div class="event-cards-detail">

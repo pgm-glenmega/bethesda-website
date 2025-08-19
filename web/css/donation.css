@@ -244,7 +244,6 @@ select:focus {
   height: 16px;
 }
 
-/* Button */
 .button.primary.wide {
   width: 100%;
   padding: 14px 16px;
@@ -259,7 +258,6 @@ select:focus {
   filter: brightness(1.04);
 }
 
-/* Aside */
 .donation-aside {
   display: flex;
   flex-direction: column;
@@ -293,7 +291,6 @@ select:focus {
   top: 0;
 }
 
-/* Guarantee */
 .guarantee {
   display: flex;
   gap: 10px;
@@ -308,7 +305,6 @@ select:focus {
   fill: #9ad06b;
 }
 
-/* Mini card */
 .aside-card.mini ul {
   margin: 0;
 }

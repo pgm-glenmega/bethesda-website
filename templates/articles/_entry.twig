@@ -9,7 +9,6 @@
 
 {% block content %}
 
-  {# --- Data helpers --- #}
   {% set heroImg = entry.articleImage.one() %}
   {% set categories = entry.articleCategory.all() %}
   {% set tags = entry.articleTags.all() %}
@@ -17,7 +16,6 @@
   {% set wordCount = plain|split(' ')|length %}
   {% set readingTime = (wordCount / 200)|round(0, 'ceil') %}
 
-  {# --- Hero --- #}
   <section class="article-hero" style="background-image:url('{{ heroImg ? heroImg.url : '/assets/default-placeholder.jpg' }}')">
     <div class="hero-overlay"></div>
     <div class="hero-content">
@@ -54,14 +52,12 @@
     </div>
   </section>
 
-  {# --- Article body --- #}
   <article class="article-wrap container">
     <div class="prose">
       {{ entry.articleContent|raw }}
     </div>
   </article>
 
-  {# --- Author --- #}
   <section class="article-author container">
     <div class="author-card">
       <div class="author-image">
@@ -75,7 +71,6 @@
     </div>
   </section>
 
-  {# --- Related articles --- #}
   <section class="related container">
     <h2>More Articles</h2>
     <div class="related-grid">

@@ -100,7 +100,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (candleHolder) {
       const intersects = raycaster.intersectObject(candleHolder, true);
       if (intersects.length > 0) {
-        // Make sure the form actually becomes visible
+        // Makes sure the form actually becomes visible
         prayerForm.classList.remove("hidden");
         prayerForm.classList.add("show");
       }

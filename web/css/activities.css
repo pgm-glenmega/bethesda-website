@@ -1,6 +1,5 @@
 /* =========================================
-   Activities Page (self-contained)
-   Depends only on layout.css for header/footer
+   Activities Page
    ========================================= */
 
 /* --- Theme tokens --- */
@@ -15,7 +14,6 @@
   --ring: 0 0 0 3px rgba(123, 97, 255, 0.18);
 }
 
-/* --- Base utilities (lightweight) --- */
 * {
   box-sizing: border-box;
 }
@@ -205,7 +203,6 @@ ul {
   font-weight: 700;
 }
 
-/* --- Responsive tweaks --- */
 @media (max-width: 640px) {
   .hero-content h1 {
     font-size: 1.8rem;
@@ -221,7 +218,6 @@ ul {
   }
 }
 
-/* ---- Tag chips under cards ---- */
 .chips {
   display: flex;
   flex-wrap: wrap;

@@ -10,7 +10,6 @@ return [
 ],
 
     'modules' => [
-        // use NO hyphen so it matches your route target: contactform/...
         'contactform' => ContactFormModule::class,
         'stripe'      => StripeModule::class,
     ],
