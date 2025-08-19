@@ -105,7 +105,7 @@
 .card-head.alt .glyph .icon {
   width: 18px;
   height: 18px;
-  fill: #9ad06b;
+  fill: #6a4bc4;
 }
 
 .card-head.alt .card-title {
@@ -119,7 +119,7 @@
   display: block;
   height: 2px;
   border-radius: 2px;
-  background: linear-gradient(90deg, #9ad06b, #3f73ff);
+  background: linear-gradient(90deg, #6a4bc4, #3f73ff);
   margin: 10px 0 8px;
   opacity: 0.6;
 }
@@ -135,7 +135,7 @@
 .card-head.alt .microcopy .lock {
   width: 14px;
   height: 14px;
-  fill: #9ad06b;
+  fill: #6a4bc4;
   opacity: 0.9;
 }
 
@@ -202,8 +202,8 @@ select:focus {
   position: relative;
 }
 .chip input:checked {
-  border-color: #9ad06b;
-  box-shadow: inset 0 0 0 4px #9ad06b;
+  border-color: #6a4bc4;
+  box-shadow: inset 0 0 0 4px #6a4bc4;
 }
 
 .amounts {
@@ -251,8 +251,8 @@ select:focus {
   font-weight: 700;
   border-radius: 12px;
   border: 0;
-  background: linear-gradient(90deg, #9ad06b, #67b866);
-  color: #0b1016;
+  background: linear-gradient(90deg, #6a4bc4, #5537a0);
+  color: #dfe7f3;
   cursor: pointer;
 }
 .button.primary.wide:hover {

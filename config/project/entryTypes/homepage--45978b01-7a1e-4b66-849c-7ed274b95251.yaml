@@ -88,6 +88,40 @@ fieldLayouts:
             userCondition: null
             warning: null
             width: 100
+          -
+            dateAdded: '2025-08-19T11:59:22+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: ffa49ea9-b56a-4a08-b0bc-d35faedb49e6 # Hero Button Activities
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 8ee36092-b8e7-4ab4-b4f5-398a5f61bd54
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-08-19T12:00:56+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 78219a98-1179-402d-96e7-07843edab0b4 # Hero Button Prayer Room
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 62197397-574f-40a5-99d3-11d6686065a1
+            userCondition: null
+            warning: null
+            width: 100
         name: Hero
         uid: 8608f454-07b9-4d20-b12a-945ec49bc3ee
         userCondition: null

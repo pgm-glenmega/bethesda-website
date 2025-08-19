@@ -1,4 +1,4 @@
-dateModified: 1755540715
+dateModified: 1755604856
 email:
   fromEmail: glen.meganck@gmail.com
   fromName: 'bethesda ministry'
@@ -126,6 +126,7 @@ meta:
     9429b8e0-f522-44d7-82c1-b5f1c998005f: 'Hero Heading' # Hero Heading
     15897ed4-3473-479f-8ad5-767df9bb3602: 'Article Categories' # Article Categories
     45978b01-7a1e-4b66-849c-7ed274b95251: Homepage # Homepage
+    78219a98-1179-402d-96e7-07843edab0b4: 'Hero Button Prayer Room' # Hero Button Prayer Room
     80257e58-d8ca-426a-b37f-d0a44ec869d9: 'Event Images' # Event Images
     89226c1f-2d7f-4d1b-a5d1-0f4ed31fc49b: 'Membership Page' # Membership Page
     415899f1-a67e-49a5-84b7-505f53f6546f: Membership # Membership
@@ -188,6 +189,7 @@ meta:
     f14483b9-afe9-4218-8b2e-9c8aa5c67c31: 'Sermon Category' # Sermon Category
     f319371b-1e93-4336-bb12-b88fff3ccac7: 'Activities Label' # Activities Label
     fa3eab38-9594-4e3f-b39f-3bbacf22248a: 'Sermon Tags' # Sermon Tags
+    ffa49ea9-b56a-4a08-b0bc-d35faedb49e6: 'Hero Button Activities' # Hero Button Activities
 plugins:
   ckeditor:
     edition: standard

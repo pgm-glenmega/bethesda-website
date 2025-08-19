@@ -20,8 +20,8 @@
       <h1>{{ entry.heroHeading }}</h1>
       <p>{{ entry.heroSubheading }}</p>
       <div class="hero-buttons">
-        <a href="{{ url('prayer-room') }}" class="button primary">Visit Prayer Room</a>
-        <a href="{{ url('activities') }}" class="button primary">View Activities</a>
+        <a href="{{ url('activities') }}" class="button primary">{{ entry.heroButtonActivities }}</a>
+        <a href="{{ url('prayer-room') }}" class="button primary">{{ entry.heroButtonPrayerRoom }}</a>
       </div>
     </div>
   </section>

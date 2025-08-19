@@ -8,14 +8,12 @@
 {% endblock %}
 
 {% block content %}
-{# Get the Donate single #}
 {% set entry = craft.entries().section('donatePage').site(currentSite.handle).one() %}
 
 {% set hero = entry.heroBackground.one() ?? null %}
 {% set heading = entry.heroHeading ?? 'Fuel the Mission' %}
 {% set subheading = entry.heroSubheading ?? 'Your gift creates real impact.' %}
 
-{# Suggested amounts from Table field: donationSuggestedAmounts (column: amount) #}
 {% set rows = entry.donationSuggestedAmounts ?? [] %}
 {% set amounts = [] %}
 {% for r in rows %}
@@ -68,7 +66,6 @@
         <input type="hidden" name="cancelUrl" value="{{ url('donate') }}">
        
 
-        {# Amount #}
         <div class="field">
           <label class="label">Amount</label>
           <div class="amounts">
@@ -90,7 +87,6 @@
           <input type="hidden" name="amount" value="">
         </div>
 
-        {# Donor info #}
         <div class="grid-2">
           <div class="field">
             <label class="label" for="fullName">Full name</label>
@@ -119,7 +115,6 @@
       <div class="aside-card">
         <h3>How your donation is used</h3>
 
-        {# Table field: donationUsage (showDonationUsage + donationUsageText) #}
         {% set uses = entry.donationUsage ?? [] %}
         {% if uses|length %}
           <ul class="bullets">
@@ -145,43 +140,5 @@
 
 {% block scripts %}
   {{ parent() }}
-  <script>
-    (function() {
-      const form = document.getElementById('donation-form');
-      if (!form) return;
-
-      const radios = form.querySelectorAll('input[name="amountChoice"]');
-      const customWrap = form.querySelector('.custom-amount');
-      const customInput = form.querySelector('input[name="customAmount"]');
-      const finalAmount = form.querySelector('input[name="amount"]');
-
-      function updateAmount() {
-        const chosen = form.querySelector('input[name="amountChoice"]:checked');
-        if (!chosen) return;
-
-        if (chosen.value === 'custom') {
-          customWrap.classList.add('show');
-          const val = parseFloat(customInput.value || '0');
-          finalAmount.value = isFinite(val) && val > 0 ? Math.round(val) : '';
-        } else {
-          customWrap.classList.remove('show');
-          finalAmount.value = parseInt(chosen.value, 10);
-        }
-      }
-
-      radios.forEach(r => r.addEventListener('change', updateAmount));
-      customInput.addEventListener('input', updateAmount);
-
-      if (radios.length) { radios[0].checked = true; }
-      updateAmount();
-
-      form.addEventListener('submit', function(e) {
-        if (!finalAmount.value) {
-          e.preventDefault();
-          customWrap.classList.add('show');
-          customInput.focus();
-        }
-      });
-    })();
-  </script>
+  <script src="/js/donate.js?v={{ now.timestamp }}"></script>
 {% endblock %}
