@@ -1,0 +1,47 @@
+{% extends "_layout.twig" %}
+
+{% block title %}Donation Success | Bethesda Ministry{% endblock %}
+
+{% block head %}
+  {{ parent() }}
+  <link rel="stylesheet" href="/css/donation-success.css?v={{ now.timestamp }}">
+{% endblock %}
+
+{% block content %}
+<section class="success-hero">
+  <div class="success-container">
+    <div class="success-icon">🙏</div>
+    <h1 class="success-heading">Thank You for Your Generosity</h1>
+    <p class="success-message">
+      Your donation was processed successfully.
+      Your support fuels outreach, care, and real change in people’s lives.
+    </p>
+
+    {% if craft.app.request.getParam('session_id') %}
+      <p class="success-ref">Reference: {{ craft.app.request.getParam('session_id') }}</p>
+    {% endif %}
+
+    <div class="success-actions">
+      <a href="{{ url('activities') }}" class="btn-primary">
+        Discover Upcoming Activities
+      </a>
+      <a href="{{ url('articles') }}" class="btn-primary">
+        Read Our Latest Articles
+      </a>
+      <a href="{{ url('donate') }}" class="btn-primary alt">
+        Make Another Gift
+      </a>
+    </div>
+
+    <p class="success-note">
+      Need help with your donation? <a href="{{ url('contact') }}">Contact us here</a>.
+    </p>
+  </div>
+</section>
+
+<section class="donation-footer">
+  <p>
+    We’re grateful for your partnership. Every euro helps us serve our community with hope and excellence.
+  </p>
+</section>
+{% endblock %}
