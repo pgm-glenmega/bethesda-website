@@ -9,9 +9,6 @@
 /storage/
 /web/cpresources/
 
-# Optional: keep storage/rebrand if you use CP rebrand assets
-#!/storage/rebrand/
-
 # --- Uploads ---
 web/uploads/*
 !web/uploads/.gitkeep

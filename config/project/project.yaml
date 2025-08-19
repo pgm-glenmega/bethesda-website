@@ -1,9 +1,10 @@
-dateModified: 1755604856
+dateModified: 1755622056
 email:
-  fromEmail: glen.meganck@gmail.com
+  fromEmail: $SYSTEM_EMAIL
   fromName: 'bethesda ministry'
+  replyToEmail: null
+  template: null
   transportSettings:
-    encryption: tls
     host: smtp.sendgrid.net
     password: $SENDGRID_API_KEY
     port: '587'
